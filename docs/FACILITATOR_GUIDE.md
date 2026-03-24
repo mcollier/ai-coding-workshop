@@ -10,7 +10,7 @@
 - **Advanced participants**: Have optional extension exercises ready
 - **Copilot Instructions**: Repository uses `.github/copilot-instructions.md` for automatic configuration - no manual setup required by participants!
 
----ilitator's Guide: Using AI for Application Development with GitHub Copilot (.NET Edition)
+Facilitator's Guide: Using AI for Application Development with GitHub Copilot (.NET Edition)
 
 This document provides a detailed facilitator’s guide for running the 3-hour workshop.
 

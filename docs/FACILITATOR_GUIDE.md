@@ -23,7 +23,7 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
 - Explain **Copilot Instructions** concept and `.github/copilot-instructions.md` approach.
 - Quick demo: show that the repository already has instructions configured automatically.
 
-- Present the **[Workshop Presentation Deck](../presentations/using-ai-for-application-development-with-github-copilot-dotnet-edition.pptx)** to guide the session and provide visual context.
+- Present the **[Workshop Presentation Deck](./presentations/using-ai-for-application-development-with-github-copilot-dotnet-edition.pptx)** to guide the session and provide visual context.
 
 **Participants do**:
 

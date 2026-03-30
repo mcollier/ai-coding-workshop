@@ -2,7 +2,7 @@
 name: "test-strategist"
 description: 'Proposes test strategies, identifies test scenarios, and recommends test coverage for features and code changes'
 tools: [changes]
-model: Claude Sonnet 4
+model: Claude Sonnet 4.5
 ---
 
 # Test Strategist

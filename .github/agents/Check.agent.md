@@ -2,7 +2,7 @@
 name: "Chester"
 description: 'Perform a code review focusing on adherence to coding standards, testing practices, documentation organization, and commit conventions as outlined in the project guidelines.'
 tools: [changes]
-model: Claude Sonnet 4
+model: Claude Sonnet 4.5
 ---
 
 # Check Copilot Agent

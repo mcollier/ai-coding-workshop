@@ -19,8 +19,11 @@ backgroundColor: #fff
 ## What You'll Learn
 
 - Understand **Ask, Edit, and Agent** interaction models
+- Master the **customization hierarchy**: Prompts → Instructions → Skills → Agents
+- Discover capabilities with **slash commands** (/agents, /skills, /help)
+- Differentiate **Skills** (knowledge) from **Agents** (workflows)
 - Use **Custom Copilot Agents** for repeatable workflows
-- **Design effective agents** for your team
+- **Design effective agents** with handoffs and advanced properties
 - Apply **governance** to AI usage
 - **Build a production-ready agent** from scratch
 
@@ -55,9 +58,10 @@ Shaping **how teams work** using AI
 ```
 Module 0: Kickoff & Context Reset (10 min)
 Module 1: Interaction Models (25 min)
-Module 2: Custom Agents Intro (30 min)
-Module 3: Workflow Agents (45 min)
-Module 4: Agent Design (25 min)
+Module 1.5: Skills & Customization (30 min) ⭐ NEW
+Module 2: Custom Agents Intro (25 min)
+Module 3: Workflow Agents (30 min)
+Module 4: Agent Design (30 min)
 Module 5: Capstone Lab (35 min)
 Module 6: Wrap-Up & Governance (10 min)
 ```
@@ -165,12 +169,120 @@ Use the **right mode** for the **right job**
 
 <!-- _class: lead -->
 
+# Module 1.5
+
+## Skills & Customization Hierarchy
+### Four Ways to Customize Copilot
+
+**Duration:** 30 minutes ⭐ NEW
+
+---
+
+# The Customization Hierarchy
+
+```
+4 Types (Specific → General)
+
+1. Prompts      → One-off, in-chat
+2. Instructions → Always-on guardrails
+3. Skills       → Domain knowledge (#skill-name)
+4. Agents       → Workflows with tools (@agent-name)
+```
+
+**Key principle:** Use the simplest level that solves your problem
+
+---
+
+# What Are Skills?
+
+**Skills = Domain Expertise Without Tool Access**
+
+- Portable knowledge modules
+- Invoked with `#skill-name`
+- Provide templates, patterns, examples
+- **No file access** - pure knowledge
+- Discovered via `/skills` command
+
+**Example:** `#test-data-generator`
+
+---
+
+# Skills vs Agents
+
+| Aspect | Skills | Agents |
+|--------|--------|--------|
+| **Purpose** | Knowledge & templates | Workflows & actions |
+| **Tool Access** | ❌ None | ✅ Read/write files |
+| **Invocation** | `#skill-name` | `@agent-name` |
+| **Best For** | Patterns, examples | Multi-step tasks |
+| **Discovery** | `/skills` | `/agents` |
+
+---
+
+# When to Use Each Type
+
+**Prompts:** One-time question  
+**Instructions:** Team coding standards  
+**Skills:** Generate templates/patterns  
+**Agents:** Orchestrate multi-step workflows
+
+**Decision tree:**
+1. Need to make changes? → Agent
+2. Need templates/knowledge? → Skill
+3. Always-on rule? → Instructions
+4. One-off question? → Prompt
+
+---
+
+# Slash Commands for Discovery
+
+```bash
+/help              # Show all commands
+/agents            # List available agents
+/skills            # List available skills
+/init              # Start new project
+/create-workspace  # Create workspace
+/create-notebook   # Create Jupyter notebook
+/create-file       # Create file with AI
+```
+
+**Try it:** Type `/skills` in Copilot Chat now
+
+---
+
+# Lab 5.5: Hands-On Exploration
+
+**Part 1:** Understand the hierarchy  
+**Part 2:** Explore `#test-data-generator` skill  
+**Part 3:** Decision exercises - which customization type?
+
+**Time:** 25 minutes
+
+**Goal:** Build intuition for choosing the right customization
+
+---
+
+# Key Takeaway: Customization Hierarchy
+
+> Skills provide **knowledge**  
+> Agents provide **action**  
+> Choose based on what you need
+
+**Most confusion:** Skills vs Agents  
+**Remember:** Does it need to read/write files?
+- Yes → Agent
+- No → Maybe a Skill
+
+---
+
+<!-- _class: lead -->
+
 # Module 2
 
 ## Custom Copilot Agents
-### Chat Participants as Specialists
+### Workflows with Tool Access
 
-**Duration:** 30 minutes
+**Duration:** 25 minutes
 
 ---
 
@@ -203,29 +315,31 @@ You wouldn't ask a general assistant to:
 
 ---
 
-# Agents vs Instructions vs Prompts
+# The Complete Hierarchy
 
-| Feature | Instructions | Prompts | Agents |
-|---------|-------------|---------|--------|
-| **Scope** | Always-on | One-off | On-demand |
-| **Purpose** | Guardrails | Specific task | Workflow |
-| **Reusability** | Implicit | Manual | Built-in |
-| **Consistency** | Background | Variable | Structured |
+| Feature | Prompts | Instructions | Skills | Agents |
+|---------|---------|--------------|--------|--------|
+| **Scope** | One-off | Always-on | On-demand | On-demand |
+| **Invocation** | Chat | Automatic | `#name` | `@name` |
+| **Tool Access** | ❌ | ❌ | ❌ | ✅ |
+| **Purpose** | Question | Guardrails | Knowledge | Workflow |
+| **Discovery** | N/A | N/A | `/skills` | `/agents` |
 
 ---
 
 # When to Use Custom Agents
 
 ✅ **Use agents for:**
-- Repeated workflows (reviews, planning)
-- Consistent outputs across team
-- Encoding expert knowledge
+- Repeated **workflows** (reviews, planning)
+- Tasks requiring **file/codebase access**
+- **Multi-step orchestration**
 - Validation and review tasks
 
 ❌ **Don't use agents for:**
-- Simple one-off prompts
-- Exploration or learning
-- Unique, non-repeatable tasks
+- Template generation (use Skills)
+- Simple questions (use Prompts)
+- Always-on rules (use Instructions)
+- Knowledge without actions
 
 ---
 
@@ -260,8 +374,11 @@ Proposes comprehensive test strategies
 
 # Key Insight
 
-> If Copilot Instructions are guardrails,  
-> Custom agents are specialists you consult
+> **Instructions** = Guardrails  
+> **Skills** = Knowledge base  
+> **Agents** = Specialists you consult  
+
+All three work together!
 
 ---
 
@@ -272,7 +389,7 @@ Proposes comprehensive test strategies
 ## Workflow Agents in Action
 ### Hands-On Lab
 
-**Duration:** 45 minutes
+**Duration:** 30 minutes
 
 ---
 
@@ -356,9 +473,9 @@ You'll apply agents to **3 real workflows:**
 # Module 4
 
 ## Designing Effective Agents
-### Principles and Patterns
+### Principles, Properties & Patterns
 
-**Duration:** 25 minutes
+**Duration:** 30 minutes
 
 ---
 
@@ -372,6 +489,7 @@ Design, test, and maintain them **like code**
 
 # Agent Components
 
+## Core Instructions:
 1. **Identity & Role** - Who is this agent?
 2. **Responsibilities** - What does it do?
 3. **Context** - What does it need to know?
@@ -379,6 +497,10 @@ Design, test, and maintain them **like code**
 5. **Process** - How it approaches tasks
 6. **Output Format** - Structured results
 7. **Tone** - Communication style
+
+## YAML Frontmatter (NEW):
+- `user-invocable`, `disable-model-invocation`
+- `agents`, `argument-hint`, `handoffs`
 
 ---
 
@@ -438,6 +560,42 @@ Define → Test → Observe → Refine → Repeat
 
 ---
 
+# Advanced Agent Properties
+
+## user-invocable
+- `true`: Visible in dropdown (default)
+- `false`: Hidden, only for subagents
+
+## disable-model-invocation
+- `true`: Prevents auto-invocation by other agents
+- `false`: Callable as subagent (default)
+
+## handoffs
+- Sequential workflow buttons
+- Guide users through processes
+- Human-in-the-loop between steps
+
+---
+
+# Handoffs: Orchestrated Workflows
+
+```yaml
+handoffs:
+  - label: "Start Implementation"
+    agent: "implementer"
+    prompt: "Implement the plan above"
+    send: false  # Wait for user approval
+```
+
+**Use cases:**
+- Plan → Implement → Review
+- Generate Tests → Make Pass
+- Architecture → Documentation
+
+**Key:** `send: false` keeps human in the loop
+
+---
+
 # Governance Considerations
 
 ## Versioning
@@ -445,11 +603,11 @@ Define → Test → Observe → Refine → Repeat
 - Semantic versioning for major updates
 
 ## Review Process
-- Agent changes require PR review
+- Agent **and skill** changes require PR review
 - Test before merging
 
 ## Team Alignment
-- Agents encode **team decisions**
+- Agents/Skills encode **team decisions**
 - Update as practices evolve
 
 ---
@@ -485,6 +643,7 @@ Define → Test → Observe → Refine → Repeat
 4. Test with real scenarios
 5. Iterate and refine
 6. Document for team use
+7. **[Optional]** Create complementary skill
 
 ---
 
@@ -519,7 +678,7 @@ Define → Test → Observe → Refine → Repeat
 name: "agent-name"
 description: 'Brief description'
 tools: [changes]
-model: Claude Sonnet 4
+model: Claude Sonnet 4.5
 ---
 
 # Agent Name
@@ -555,7 +714,8 @@ By the end of this lab:
 ✅ Custom agent definition file  
 ✅ Test results showing success  
 ✅ Usage documentation  
-✅ At least one refinement iteration
+✅ At least one refinement iteration  
+🌟 **[Optional]** Complementary skill definition
 
 ---
 
@@ -635,18 +795,23 @@ By the end of this lab:
 
 # Key Takeaways
 
-✅ **Ask, Edit, Agent** - Use the right mode  
-✅ **Custom agents** - Specialists, not prompts  
-✅ **Role-based design** - Focus on WHO  
-✅ **Iterate continuously** - Agents improve over time  
+✅ **Ask, Edit, Agent** - Use the right interaction mode  
+✅ **Customization hierarchy** - Prompts → Instructions → Skills → Agents  
+✅ **Skills vs Agents** - Knowledge vs Workflows  
+✅ **Slash commands** - Discover with /help, /agents, /skills  
+✅ **Custom agents** - Specialists with tool access  
+✅ **Handoffs** - Orchestrate sequential workflows  
+✅ **Role-based design** - Focus on WHO, not WHAT  
+✅ **Iterate continuously** - Agents/Skills improve over time  
 ✅ **Govern as assets** - Version, review, maintain  
-✅ **Humans accountable** - Agents assist, you decide
+✅ **Humans accountable** - AI assists, you decide
 
 ---
 
 # Resources
 
 📚 **Documentation**
+- [Customization Decision Guide](../guides/customization-decision-guide.md) ⭐ NEW
 - [Custom Agent Catalog](../guides/custom-agent-catalog.md)
 - [Agent Design Guide](../guides/agent-design-guide.md)
 - [Agent Governance](../guides/agent-governance.md)

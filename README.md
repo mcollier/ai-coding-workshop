@@ -203,9 +203,24 @@ See [Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md) for detailed s
 - **[Custom Agent Catalog](docs/guides/custom-agent-catalog.md)**: Reference guide for workshop agents
 - **[Agent Design Guide](docs/guides/agent-design-guide.md)**: Templates and patterns for building production-ready agents
 
-### Presentation Deck
+### Presentation Decks
 
-- **[Workshop Presentation Deck (PPTX)](docs/presentations/using-ai-for-application-development-with-github-copilot-dotnet-edition.pptx)**: Slides used for workshop facilitation and participant reference
+- **[Part 1: Fundamentals - Marp Slides](docs/presentations/fundamentals-github-copilot.md)**: Interactive presentation for Part 1
+  - Covers Copilot Instructions, TDD, requirements-to-code, refactoring
+  - Includes all slash commands, chat participants, context variables
+  - Aligned with Labs 1-4
+
+- **[Part 2: Advanced GitHub Copilot - Marp Slides](docs/presentations/advanced-github-copilot.md)**: Interactive presentation for Part 2
+  - Covers interaction models, Skills, custom agents, handoffs
+  - Includes slash command discovery, customization hierarchy
+  - Aligned with Labs 5-9
+
+**How to use:**
+- **View in VS Code:** Install [Marp for VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
+- **Export to PDF:** Use `marp-cli` (already installed in devcontainer): `npx @marp-team/marp-cli docs/presentations/fundamentals-github-copilot.md --pdf`
+- **Present:** Use Marp extension's preview mode or export to HTML
+
+**Note:** PowerPoint format deprecated. All presentations maintained as version-controlled markdown.
 
 
 ### Lab Guides

@@ -8,7 +8,10 @@ Welcome! This page links to all key instructions, standards, and guides for this
 - [README.md](../README.md): Workshop overview, setup, and key links
 - [Pre-Workshop Checklist](PRE_WORKSHOP_CHECKLIST.md): Environment and tool setup
 
-- [Presentation Deck](presentations/using-ai-for-application-development-with-github-copilot-dotnet-edition.pptx): Workshop slides
+- [Part 1: Fundamentals Presentation (Marp)](presentations/fundamentals-github-copilot.md): Copilot fundamentals, TDD, refactoring
+- [Part 2: Advanced GitHub Copilot Presentation (Marp)](presentations/advanced-github-copilot.md): Interaction models, Skills, custom agents
+  - View with [Marp VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
+  - Export with `marp-cli` (installed in devcontainer)
 
 ## 🤖 AI & Copilot
 - [.github/copilot-instructions.md](../.github/copilot-instructions.md): Copilot and AI usage rules, TDD, Clean Architecture, DDD, testing, and commit standards

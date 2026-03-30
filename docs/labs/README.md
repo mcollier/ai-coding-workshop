@@ -15,9 +15,19 @@ Each lab is designed as a standalone guide with:
 - **Success criteria**
 
 
-## 📽️ Workshop Presentation
+## 🎥 Workshop Presentations
 
-The official **[Workshop Presentation Deck](../presentations/using-ai-for-application-development-with-github-copilot-dotnet-edition.pptx)** is available for facilitators and participants. Use it for session flow, visual aids, and reference throughout the labs.
+**Part 1: Fundamentals**  
+[Fundamentals Presentation](../presentations/fundamentals-github-copilot.md) - Marp slides covering Copilot Instructions, TDD, requirements-to-code, and refactoring workflows.
+
+**Part 2: Advanced GitHub Copilot**  
+[Advanced Presentation](../presentations/advanced-github-copilot.md) - Marp slides covering interaction models, Skills, custom agents, and agent design.
+
+**How to use:**
+1. **In VS Code:** Install [Marp extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) → Open presentation → Click preview
+2. **Export PDF:** `npx @marp-team/marp-cli docs/presentations/fundamentals-github-copilot.md --pdf`
+3. **Export HTML:** `npx @marp-team/marp-cli docs/presentations/fundamentals-github-copilot.md --html`
+
 ---
 
 ## 🎯 Labs Overview

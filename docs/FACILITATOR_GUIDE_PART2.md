@@ -33,7 +33,24 @@
 
 ## Overview
 
-This guide helps facilitators deliver Part 2 of the AI Code Workshop, focusing on **advanced GitHub Copilot features** including interaction models (Ask/Edit/Agent) and **custom agents**. The workshop is highly interactive with 5 hands-on labs.
+This guide helps facilitators deliver Part 2 of the AI Code Workshop, focusing on **advanced GitHub Copilot features** including interaction models (Ask/Edit/Agent), the **Skills system**, and **custom agents**. The workshop is highly interactive with 6 hands-on labs.
+
+### Presentation Materials
+
+**Use:** [Advanced GitHub Copilot Presentation](./presentations/advanced-github-copilot.md) (Marp format)
+
+**How to present:**
+1. Install [Marp VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
+2. Open `docs/presentations/advanced-github-copilot.md`
+3. Click the preview icon to enter presentation mode
+4. Use arrow keys to navigate slides
+
+**Export to PDF (optional):**
+```bash
+npx @marp-team/marp-cli docs/presentations/advanced-github-copilot.md --pdf
+```
+
+**Note:** Slide numbers in this guide (e.g., "slides 6-10") correspond to the Marp presentation sections. The presentation is fully aligned with this facilitator guide.
 
 ### Learning Objectives
 

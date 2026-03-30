@@ -11,6 +11,7 @@ By the end of this lab, you will:
 - Apply all design principles learned in previous labs
 - Test and iterate on agent behavior
 - Prepare an agent for team use with clear documentation
+- **[Optional Extension]** Create a complementary skill to enhance your agent's capabilities
 
 ## Prerequisites
 
@@ -18,6 +19,7 @@ By the end of this lab, you will:
 - VS Code with GitHub Copilot extension
 - Access to the TaskManager workshop repository
 - Understanding of agent components and design patterns
+- **[For Optional Extension]** Completion of [Lab 5.5: Skills & Customization](lab-05.5-skills-and-customization.md)
 
 ## Overview
 
@@ -263,7 +265,241 @@ Create a brief usage guide for your agent:
 
 ---
 
+## 🌟 Optional Extension: Add a Complementary Skill (10 minutes)
+
+**Note:** This is **bonus work** for participants who finish the core agent exercise early or want to explore the Skills system further.
+
+### When to Create a Skill vs. Agent
+
+Refer back to [Lab 5.5: Skills & Customization](lab-05.5-skills-and-customization.md) decision guide:
+
+- **Agent**: Workflows, orchestration, delegation, runtime tool access
+- **Skill**: Specialized knowledge, templates, reusable patterns, documentation
+
+### Skill Ideas for Your Agent
+
+Depending on which agent you built, consider these complementary skills:
+
+| Agent Type | Complementary Skill |
+|------------|---------------------|
+| **Code Reviewer** | Code review checklist generator (produces context-specific review templates) |
+| **Documentation Writer** | Documentation template library (README, ADR, API doc templates) |
+| **Performance Auditor** | Performance test data generator (creates load test scenarios) |
+| **Security Reviewer** | Security test case generator (OWASP Top 10 test scenarios) |
+
+### Steps to Create Your Skill
+
+#### 1. Define Skill Purpose
+
+Your skill should:
+- **Complement** your agent (not duplicate it)
+- Provide **reusable knowledge or templates**
+- Be **domain-specific** (not general-purpose)
+
+**Example:** If you built a Security Reviewer agent, a complementary skill might generate security test cases based on vulnerability patterns.
+
+---
+
+#### 2. Create the Skill File
+
+Create: `.github/skills/[skill-name]/SKILL.md`
+
+**Template:**
+
+```markdown
+---
+name: "[skill-name]"
+description: '[Brief description of what this skill provides]'
+argument-hint: '[What input does the skill expect?]'
+user-invocable: true  # Make it appear in skills list
+---
+
+# [Skill Name]
+
+You are a specialized skill that provides [domain expertise or capability].
+
+## Purpose
+
+This skill helps developers by:
+- [Value proposition 1]
+- [Value proposition 2]
+- [Value proposition 3]
+
+## Scope
+
+**IN SCOPE:**
+- [What this skill covers]
+- [What this skill covers]
+
+**OUT OF SCOPE:**
+- [What this skill does NOT do - refer to agents for this]
+- [What this skill does NOT do]
+
+## Instructions
+
+When invoked, you will:
+
+1. [Step 1 - e.g., "Analyze the provided code/context"]
+2. [Step 2 - e.g., "Identify applicable patterns from your knowledge base"]
+3. [Step 3 - e.g., "Generate output in specified format"]
+4. [Step 4 - e.g., "Provide usage guidance"]
+
+## Knowledge Base
+
+### [Category 1 - e.g., "Common Vulnerability Patterns"]
+
+**Pattern:** [Pattern name]
+- **Description:** [What it is]
+- **Detection:** [How to identify it]
+- **Test Case:** [How to test for it]
+
+**Pattern:** [Pattern name]
+- **Description:** [What it is]
+- **Detection:** [How to identify it]
+- **Test Case:** [How to test for it]
+
+### [Category 2]
+
+[Similar structure]
+
+## Output Format
+
+Provide results in this format:
+
+```markdown
+### [Section 1]
+[Content structure]
+
+### [Section 2]
+[Content structure]
+```
+
+## Examples
+
+### Example Input
+```
+[Sample user request]
+```
+
+### Example Output
+```
+[What the skill would produce]
+```
+
+## Resource Files
+
+This skill references the following resources:
+- `template.md` - [Description]
+- `patterns.json` - [Description]
+
+## Relationship to Agents
+
+This skill is designed to work with:
+- **@[your-agent-name]**: [How they work together]
+
+Typical workflow:
+1. User invokes `#[skill-name]` to generate [artifact]
+2. User reviews and refines the output
+3. User invokes `@[agent-name]` to apply it to codebase
+```
+
+---
+
+#### 3. Test Your Skill
+
+1. Open Copilot Chat
+2. Invoke your skill with `#[skill-name] [input]`
+3. Verify:
+   - Does it stay in scope?
+   - Is output format consistent?
+   - Is knowledge base being applied correctly?
+   - Does it avoid doing agent work (tool invocations, orchestration)?
+
+---
+
+#### 4. Create Agent-Skill Workflow
+
+Document how your agent and skill work together:
+
+**Example Workflow (Security Reviewer + Security Test Generator):**
+
+```
+Step 1: Generate test cases
+> #security-test-generator authentication endpoint
+[Skill produces OWASP-based test scenarios]
+
+Step 2: Review code against test scenarios
+> @security-reviewer Review authentication endpoint against the test cases above
+[Agent performs code review with runtime tool access]
+```
+
+**Your Workflow:**
+
+```
+Step 1: [Skill invocation]
+> #[your-skill-name] [input]
+[What the skill produces]
+
+Step 2: [Agent invocation]
+> @[your-agent-name] [prompt referencing skill output]
+[What the agent does]
+```
+
+---
+
+#### 5. Add Skill Documentation
+
+Create: `.github/skills/[skill-name]/README.md`
+
+```markdown
+# [Skill Name]
+
+## Purpose
+[One-sentence description]
+
+## When to Use
+- [Use case 1]
+- [Use case 2]
+
+## Usage
+
+```bash
+#[skill-name] [input description]
+```
+
+## Example
+
+```
+#[skill-name] user authentication
+```
+
+## Works Well With
+
+- **Agents:** `@[your-agent-name]`
+- **Other Skills:** `#[related-skill]`
+
+## Maintenance
+
+- **Owner:** [Your name]
+- **Last Updated:** [Date]
+```
+
+---
+
+### Extension Deliverables
+
+If you complete the optional extension, you should have:
+
+✅ A skill definition file (`.github/skills/[name]/SKILL.md`)  
+✅ Skill documentation (`.github/skills/[name]/README.md`)  
+✅ Documented agent-skill workflow showing how they complement each other  
+✅ Test results showing skill stays in scope and produces correct output format
+
+---
+
 ## Deliverables
+
+### Core Deliverables (Required)
 
 At the end of this lab, you should have:
 
@@ -271,6 +507,14 @@ At the end of this lab, you should have:
 ✅ Test results showing the agent meets success criteria  
 ✅ Usage documentation for team members  
 ✅ At least one iteration/refinement based on testing
+
+### Extension Deliverables (Optional)
+
+If you completed the optional skill extension:
+
+✅ A skill definition file (`.github/skills/[name]/SKILL.md`)  
+✅ Skill documentation (`.github/skills/[name]/README.md`)  
+✅ Documented agent-skill workflow
 
 ---
 
@@ -282,11 +526,13 @@ At the end of this lab, you should have:
 3. Show the structured output
 4. Share one key design decision you made
 5. Share one challenge you encountered
+6. **[If applicable]** Demo your agent-skill workflow
 
 **Learn from others:**
 - What agents did others create?
 - What patterns emerged across different agents?
 - What would you borrow for your next agent?
+- Who created complementary skills? How do they work together?
 
 ---
 

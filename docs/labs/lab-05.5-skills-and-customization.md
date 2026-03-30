@@ -34,15 +34,15 @@ GitHub Copilot offers **four main ways** to customize AI behavior. Understanding
 │  1. Custom Instructions (.instructions.md)                  │
 │     Always-on rules • Coding standards • Glob patterns      │
 │                                                             │
-│  2. Agent Skills (SKILL.md)                                │
+│  2. Agent Skills (SKILL.md)                                 │
 │     Portable capabilities • Scripts + resources             │
 │     Task-specific • Loaded on-demand                        │
 │                                                             │
-│  3. Custom Agents (.agent.md)                              │
+│  3. Custom Agents (.agent.md)                               │
 │     Persistent personas • Tool restrictions                 │
 │     Workflow orchestration • Handoffs                       │
 │                                                             │
-│  4. Prompt Files (.prompt.md)                              │
+│  4. Prompt Files (.prompt.md)                               │
 │     One-off tasks • Quick automation                        │
 │     No tool restrictions needed                             │
 └─────────────────────────────────────────────────────────────┘

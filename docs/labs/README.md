@@ -17,16 +17,23 @@ Each lab is designed as a standalone guide with:
 
 ## 🎥 Workshop Presentations
 
-**Part 1: Fundamentals**  
-[Fundamentals Presentation](../presentations/fundamentals-github-copilot.md) - Marp slides covering Copilot Instructions, TDD, requirements-to-code, and refactoring workflows.
+**NEW: Modular Structure** - Presentations now split into standalone modules for flexible delivery
 
-**Part 2: Advanced GitHub Copilot**  
-[Advanced Presentation](../presentations/advanced-github-copilot.md) - Marp slides covering interaction models, Skills, custom agents, and agent design.
+**Part 1: Fundamentals (7 modules)**  
+[Browse Modules](../presentations/modules/part1/) - Individual modules for TDD, requirements-to-code, refactoring, and more
+
+**Part 2: Advanced (8 modules)**  
+[Browse Modules](../presentations/modules/part2/) - Modules for interaction models, Skills, custom agents, and agent design
+
+**Module Catalog:** [presentations/index.md](../presentations/index.md) - Complete list with delivery patterns
 
 **How to use:**
-1. **In VS Code:** Install [Marp extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) → Open presentation → Click preview
-2. **Export PDF:** `npx @marp-team/marp-cli docs/presentations/fundamentals-github-copilot.md --pdf`
-3. **Export HTML:** `npx @marp-team/marp-cli docs/presentations/fundamentals-github-copilot.md --html`
+1. **In VS Code:** Install [Marp extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) → Open any module → Click preview
+2. **Self-paced:** Start with [Part 1, Module 00](../presentations/modules/part1/00-kickoff-and-setup.md), follow navigation links
+3. **Custom workshops:** Mix and match modules per [delivery patterns](../presentations/index.md#-workshop-delivery-patterns)
+4. **Export:** See [presentations/README.md](../presentations/README.md) for PDF/HTML export options
+
+**Legacy:** Monolithic presentations ([Part 1](../presentations/fundamentals-github-copilot.md), [Part 2](../presentations/advanced-github-copilot.md)) deprecated, will be removed in future release
 
 ---
 

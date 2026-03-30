@@ -205,22 +205,23 @@ See [Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md) for detailed s
 
 ### Presentation Decks
 
-- **[Part 1: Fundamentals - Marp Slides](docs/presentations/fundamentals-github-copilot.md)**: Interactive presentation for Part 1
-  - Covers Copilot Instructions, TDD, requirements-to-code, refactoring
-  - Includes all slash commands, chat participants, context variables
-  - Aligned with Labs 1-4
+**NEW: Modular Structure** - Presentations now split into standalone modules for flexible workshop delivery
 
-- **[Part 2: Advanced GitHub Copilot - Marp Slides](docs/presentations/advanced-github-copilot.md)**: Interactive presentation for Part 2
-  - Covers interaction models, Skills, custom agents, handoffs
-  - Includes slash command discovery, customization hierarchy
-  - Aligned with Labs 5-9
+-**[Modular Presentations Catalog](docs/presentations/index.md)** - Complete module listing and delivery patterns
+  - **Part 1:** 7 modules (~3 hours) - Fundamentals, TDD, requirements-to-code, refactoring
+  - **Part 2:** 8 modules (~3 hours) - Interaction models, Skills, custom agents, agent design
+  - **Role-Specific:** Coming soon (BA, QA, Infrastructure/DevOps)
+  
+- **[How to Use Modular Presentations](docs/presentations/README.md)** - Full guide for facilitators and self-paced learners
+  - View in VS Code with [Marp extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
+  - Mix & match modules for custom workshops (lunch & learns, role-specific, fast-track)
+  - Export to PDF/HTML: `npx @marp-team/marp-cli docs/presentations/modules/part1/*.md --pdf`
 
-**How to use:**
-- **View in VS Code:** Install [Marp for VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
-- **Export to PDF:** Use `marp-cli` (already installed in devcontainer): `npx @marp-team/marp-cli docs/presentations/fundamentals-github-copilot.md --pdf`
-- **Present:** Use Marp extension's preview mode or export to HTML
+**Quick Links:**
+- [Part 1 Modules](docs/presentations/modules/part1/) - Start with `00-kickoff-and-setup.md`
+- [Part 2 Modules](docs/presentations/modules/part2/) - Start with `00-welcome-recap.md`
 
-**Note:** PowerPoint format deprecated. All presentations maintained as version-controlled markdown.
+**Legacy:** Monolithic presentation files ([Part 1](docs/presentations/fundamentals-github-copilot.md), [Part 2](docs/presentations/advanced-github-copilot.md)) deprecated, will be removed in future release
 
 
 ### Lab Guides

@@ -21,7 +21,7 @@
     //		}
     // }
     // Use 'postCreateCommand' to run commands after the container is created.
-    "postCreateCommand": "dotnet build TaskManager.sln && dotnet dev-certs https --trust",
+    "postCreateCommand": "dotnet build TaskManager.sln && dotnet dev-certs https --trust && npm install -g @marp-team/marp-cli",
     // Configure tool-specific properties.
     "customizations": {
         "vscode": {

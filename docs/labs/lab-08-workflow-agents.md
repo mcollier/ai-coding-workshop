@@ -1,4 +1,4 @@
-# Lab 07: Workflow Agents in Action
+# Lab 08: Workflow Agents in Action
 
 **Module:** 3  
 **Duration:** 45 minutes  
@@ -14,7 +14,7 @@ By the end of this lab, you will:
 
 ## Prerequisites
 
-- Completion of [Lab 06: Custom Agents Intro](lab-06-custom-agents-intro.md)
+- Completion of [Lab 07: Custom Agents Intro](lab-07-custom-agents-intro.md)
 - VS Code with GitHub Copilot extension
 - Access to the TaskManager workshop repository
 - Familiarity with the three custom agents (Architecture Reviewer, Backlog Generator, Test Strategist)
@@ -323,7 +323,7 @@ Create a **custom scenario** for your own work:
 
 ## Next Steps
 
-In [Lab 08: Agent Design](lab-08-agent-design.md), you'll learn **how to design effective agents** — instruction components, iteration loops, and governance.
+In [Lab 09: Agent Design](lab-09-agent-design.md), you'll learn **how to design effective agents** — instruction components, iteration loops, and governance.
 
 ---
 

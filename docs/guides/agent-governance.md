@@ -583,5 +583,5 @@ Before merging a new agent:
 
 - [Custom Agent Catalog](./custom-agent-catalog.md) - All available agents
 - [Agent Design Guide](./agent-design-guide.md) - How to create agents
-- [Lab 08: Agent Design](../labs/lab-08-agent-design.md)
-- [Lab 09: Build Your Own Agent](../labs/lab-09-capstone-build-agent.md)
+- [Lab 09: Agent Design](../labs/lab-09-agent-design.md)
+- [Lab 10: Build Your Own Agent](../labs/lab-10-capstone-build-agent.md)

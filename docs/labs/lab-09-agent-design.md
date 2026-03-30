@@ -1,4 +1,4 @@
-# Lab 08: Designing Effective Custom Agents
+# Lab 09: Designing Effective Custom Agents
 
 **Module:** 4  
 **Duration:** 25 minutes  
@@ -14,7 +14,7 @@ By the end of this lab, you will:
 
 ## Prerequisites
 
-- Completion of [Lab 07: Workflow Agents](lab-07-workflow-agents.md)
+- Completion of [Lab 08: Workflow Agents](lab-08-workflow-agents.md)
 - VS Code with GitHub Copilot extension
 - Access to the TaskManager workshop repository
 
@@ -655,7 +655,7 @@ Treating agents as "set and forget."
 
 ## Next Steps
 
-In [Lab 09: Capstone - Build Your Own Agent](lab-09-capstone-build-agent.md), you'll **create a production-ready custom agent** from scratch, applying everything you've learned.
+In [Lab 10: Capstone - Build Your Own Agent](lab-10-capstone-build-agent.md), you'll **create a production-ready custom agent** from scratch, applying everything you've learned.
 
 ---
 

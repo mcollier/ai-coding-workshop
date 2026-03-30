@@ -1,4 +1,4 @@
-# Lab 06: Introduction to Custom Copilot Agents
+# Lab 07: Introduction to Custom Copilot Agents
 
 **Module:** 2  
 **Duration:** 30 minutes  
@@ -213,7 +213,7 @@ A: Yes! Switch agents as needed for different workflow steps.
 A: No. Instructions are always-on guardrails; agents are on-demand specialists.
 
 **Q: Can I create my own agent?**  
-A: Absolutely! That's covered in [Lab 08: Agent Design](lab-08-agent-design.md) and [Lab 09: Build Your Own](lab-09-capstone-build-agent.md).
+A: Absolutely! That's covered in [Lab 09: Agent Design](lab-09-agent-design.md) and [Lab 10: Build Your Own](lab-10-capstone-build-agent.md).
 
 **Q: What if an agent gives incorrect advice?**  
 A: Agents are assistants, not authorities. You're accountable for the final decision. Iterate on agent instructions to improve accuracy.
@@ -222,7 +222,7 @@ A: Agents are assistants, not authorities. You're accountable for the final deci
 
 ## Next Steps
 
-In [Lab 07: Workflow Agents in Action](lab-07-workflow-agents.md), you'll apply these agents to real development workflows and compare their outputs to ad-hoc prompting.
+In [Lab 08: Workflow Agents in Action](lab-08-workflow-agents.md), you'll apply these agents to real development workflows and compare their outputs to ad-hoc prompting.
 
 ---
 

@@ -516,6 +516,6 @@ When testing the Architecture Reviewer agent with these scenarios:
 
 - [Architecture Reviewer Agent](../../../.github/agents/architecture-reviewer.agent.md)
 - [Custom Agent Catalog](../../guides/custom-agent-catalog.md)
-- [Lab 07: Workflow Agents](../../labs/lab-07-workflow-agents.md)
+- [Lab 08: Workflow Agents](../../labs/lab-08-workflow-agents.md)
 - [Architecture Design](../../design/architecture.md)
 - [ADR 0001: Use Clean Architecture](../../adr/0001-use-clean-architecture.md)

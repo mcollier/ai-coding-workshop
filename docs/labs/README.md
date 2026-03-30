@@ -175,7 +175,7 @@ Understand and practice the three modes of interaction with GitHub Copilot.
 
 ---
 
-### [Lab 5.5: Skills & Customization Hierarchy](lab-05.5-skills-and-customization.md) ⭐ NEW
+### [Lab 06: Skills & Customization Hierarchy](lab-06-skills-and-customization.md) ⭐ NEW
 
 **Duration**: 25-30 minutes
 
@@ -209,7 +209,7 @@ Understand the complete customization hierarchy and the new Skills system.
 
 ---
 
-### [Lab 6: Introduction to Custom Copilot Agents](lab-06-custom-agents-intro.md)
+### [Lab 07: Introduction to Custom Copilot Agents](lab-07-custom-agents-intro.md)
 
 **Duration**: 30 minutes
 
@@ -232,11 +232,11 @@ Learn about custom agents and how they differ from standard Copilot interactions
 **Prerequisites**:
 
 - Completed Lab 5 or understanding of interaction models
-- **Recommended**: Lab 5.5 for full customization context
+- **Recommended**: Lab 06 for full customization context
 
 ---
 
-### [Lab 7: Workflow Agents in Action](lab-07-workflow-agents.md)
+### [Lab 08: Workflow Agents in Action](lab-08-workflow-agents.md)
 
 **Duration**: 30 minutes
 
@@ -257,12 +257,12 @@ Apply custom agents in real development workflows.
 
 **Prerequisites**:
 
-- Completed Lab 6
+- Completed Lab 07
 - Access to custom agents in repository
 
 ---
 
-### [Lab 8: Agent Design Principles](lab-08-agent-design.md)
+### [Lab 09: Agent Design Principles](lab-09-agent-design.md)
 
 **Duration**: 25 minutes
 
@@ -284,12 +284,12 @@ Learn how custom agents are designed and structured.
 
 **Prerequisites**:
 
-- Completed Lab 7
+- Completed Lab 08
 - Familiarity with all three workshop agents
 
 ---
 
-### [Lab 9: Build Your Own Agent (Capstone)](lab-09-capstone-build-agent.md)
+### [Lab 10: Build Your Own Agent (Capstone)](lab-10-capstone-build-agent.md)
 
 **Duration**: 45 minutes
 
@@ -311,7 +311,7 @@ Design, build, test, and document your own custom agent.
 
 **Prerequisites**:
 
-- Completed Labs 5-8
+- Completed Labs 06-09
 - Understanding of agent design guide
 
 ---

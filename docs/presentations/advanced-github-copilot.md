@@ -250,7 +250,7 @@ Use the **right mode** for the **right job**
 
 ---
 
-# Lab 5.5: Hands-On Exploration
+# Lab 06: Hands-On Exploration
 
 **Part 1:** Understand the hierarchy  
 **Part 2:** Explore `#test-data-generator` skill  

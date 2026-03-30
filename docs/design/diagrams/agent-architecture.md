@@ -278,7 +278,7 @@ graph TB
 
 ## See Also
 
-- [Lab 08: Agent Design](../../labs/lab-08-agent-design.md)
+- [Lab 09: Agent Design](../../labs/lab-09-agent-design.md)
 - [Agent Design Guide](../../guides/agent-design-guide.md)
 - [Agent Governance](../../guides/agent-governance.md)
 - [Custom Agent Catalog](../../guides/custom-agent-catalog.md)

@@ -470,7 +470,7 @@ Project Customizations:
 - [Custom Agents Documentation](https://code.visualstudio.com/docs/copilot/customization/custom-agents)
 - [Custom Instructions Documentation](https://code.visualstudio.com/docs/copilot/customization/custom-instructions)
 - [Agent Skills Standard (agentskills.io)](https://agentskills.io/)
-- [Workshop Lab 5.5: Skills & Customization](../labs/lab-05.5-skills-and-customization.md)
+- [Workshop Lab 06: Skills & Customization](../labs/lab-06-skills-and-customization.md)
 
 ---
 
@@ -485,4 +485,4 @@ Project Customizations:
 
 ---
 
-**Questions or need help deciding?** Review Lab 5.5 for hands-on exercises and scenarios, or consult with your team's AI/Architecture lead.
+**Questions or need help deciding?** Review Lab 06 for hands-on exercises and scenarios, or consult with your team's AI/Architecture lead.

@@ -1,4 +1,4 @@
-# Lab 09: Capstone - Build a Production-Ready Agent
+# Lab 10: Capstone - Build a Production-Ready Agent
 
 **Module:** 5  
 **Duration:** 35 minutes  
@@ -15,11 +15,11 @@ By the end of this lab, you will:
 
 ## Prerequisites
 
-- Completion of [Lab 08: Agent Design](lab-08-agent-design.md)
+- Completion of [Lab 09: Agent Design](lab-09-agent-design.md)
 - VS Code with GitHub Copilot extension
 - Access to the TaskManager workshop repository
 - Understanding of agent components and design patterns
-- **[For Optional Extension]** Completion of [Lab 5.5: Skills & Customization](lab-05.5-skills-and-customization.md)
+- **[For Optional Extension]** Completion of [Lab 06: Skills & Customization](lab-06-skills-and-customization.md)
 
 ## Overview
 
@@ -271,7 +271,7 @@ Create a brief usage guide for your agent:
 
 ### When to Create a Skill vs. Agent
 
-Refer back to [Lab 5.5: Skills & Customization](lab-05.5-skills-and-customization.md) decision guide:
+Refer back to [Lab 06: Skills & Customization](lab-06-skills-and-customization.md) decision guide:
 
 - **Agent**: Workflows, orchestration, delegation, runtime tool access
 - **Skill**: Specialized knowledge, templates, reusable patterns, documentation

@@ -499,8 +499,8 @@ graph TB
 ## See Also
 
 - [Lab 05: Copilot Interaction Models](../../labs/lab-05-interaction-models.md)
-- [Lab 5.5: Skills & Customization](../../labs/lab-05.5-skills-and-customization.md) ⭐ NEW
-- [Lab 06: Introduction to Custom Agents](../../labs/lab-06-custom-agents-intro.md)
+- [Lab 06: Skills & Customization](../../labs/lab-06-skills-and-customization.md) ⭐ NEW
+- [Lab 07: Introduction to Custom Agents](../../labs/lab-07-custom-agents-intro.md)
 - [Customization Decision Guide](../../guides/customization-decision-guide.md)
 - [Copilot Interaction Models Diagram](./copilot-interaction-models.md)
 - [Agent Architecture Diagram](./agent-architecture.md)

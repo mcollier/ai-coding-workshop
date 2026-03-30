@@ -1,4 +1,4 @@
-# Lab 5.5: Copilot Skills & Customization Hierarchy
+# Lab 06: Copilot Skills & Customization Hierarchy
 
 **Module:** 1.5  
 **Duration:** 25-30 minutes  
@@ -428,7 +428,7 @@ By the end of this lab, you should be able to:
 
 ## Next Steps
 
-In the next lab ([Lab 06: Custom Agents Intro](lab-06-custom-agents-intro.md)), you'll explore custom agents in depth and see how they differ from skills in practice.
+In the next lab ([Lab 07: Custom Agents Intro](lab-07-custom-agents-intro.md)), you'll explore custom agents in depth and see how they differ from skills in practice.
 
 ---
 
@@ -470,4 +470,4 @@ In the next lab ([Lab 06: Custom Agents Intro](lab-06-custom-agents-intro.md)), 
 
 ---
 
-**Next Lab**: [Lab 06: Introduction to Custom Copilot Agents](lab-06-custom-agents-intro.md)
+**Next Lab**: [Lab 07: Introduction to Custom Copilot Agents](lab-07-custom-agents-intro.md)

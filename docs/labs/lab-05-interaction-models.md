@@ -74,7 +74,7 @@ Skills are specialized knowledge modules invoked with `#`:
 #test-data-generator Create sample order data for integration tests
 ```
 
-> **Note:** Skills and their differences from agents will be covered in [Lab 5.5: Skills & Customization](lab-05.5-skills-and-customization.md).
+> **Note:** Skills and their differences from agents will be covered in [Lab 06: Skills & Customization](lab-06-skills-and-customization.md).
 
 ### Try It Now (2 minutes)
 
@@ -256,12 +256,12 @@ Create your own comparison based on the exercises:
 
 ## Next Steps
 
-In [Lab 5.5: Skills & Customization](lab-05.5-skills-and-customization.md), you'll learn about:
+In [Lab 06: Skills & Customization](lab-06-skills-and-customization.md), you'll learn about:
 - The **Skills system** and how it differs from agents
 - When to use **instructions**, **agents**, or **skills**
 - How to leverage the customization hierarchy effectively
 
-Then in [Lab 06: Custom Agents Intro](lab-06-custom-agents-intro.md), you'll learn how to create specialized agents for specific workflows.
+Then in [Lab 07: Custom Agents Intro](lab-07-custom-agents-intro.md), you'll learn how to create specialized agents for specific workflows.
 
 ---
 

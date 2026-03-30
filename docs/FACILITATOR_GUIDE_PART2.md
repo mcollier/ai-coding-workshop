@@ -12,22 +12,22 @@
 |------|--------|----------|----------|-----|
 | 0:00-0:10 | **Module 0: Kickoff** | 10 min | Welcome, Part 1 recap, Part 2 intro | - |
 | 0:10-0:35 | **Module 1: Interaction Models** | 25 min | Ask/Edit/Agent overview, live demo | [Lab 05](labs/lab-05-interaction-models.md) |
-| 0:35-1:05 | **Module 1.5: Skills & Customization** | 30 min | 4 customization types, Skills introduction | [Lab 5.5](labs/lab-05.5-skills-and-customization.md) |
-| 1:05-1:30 | **Module 2: Custom Agents** | 25 min | What are agents? Architecture Reviewer demo | [Lab 06](labs/lab-06-custom-agents-intro.md) |
-| 1:30-2:05 | **Module 3: Workflow Agents** | 35 min | Backlog, Architecture, Test Strategy workflows | [Lab 07](labs/lab-07-workflow-agents.md) |
+| 0:35-1:05 | **Module 1.5: Skills & Customization** | 30 min | 4 customization types, Skills introduction | [Lab 06](labs/lab-06-skills-and-customization.md) |
+| 1:05-1:30 | **Module 2: Custom Agents** | 25 min | What are agents? Architecture Reviewer demo | [Lab 07](labs/lab-07-custom-agents-intro.md) |
+| 1:30-2:05 | **Module 3: Workflow Agents** | 35 min | Backlog, Architecture, Test Strategy workflows | [Lab 08](labs/lab-08-workflow-agents.md) |
 | 2:05-2:15 | **Break** | 10 min | Rest and questions | - |
-| 2:15-2:40 | **Module 4: Agent Design** | 25 min | Design principles, iteration, patterns | [Lab 08](labs/lab-08-agent-design.md) |
-| 2:40-3:10 | **Module 5: Capstone** | 30 min | Build your own production-ready agent | [Lab 09](labs/lab-09-capstone-build-agent.md) |
+| 2:15-2:40 | **Module 4: Agent Design** | 25 min | Design principles, iteration, patterns | [Lab 09](labs/lab-09-agent-design.md) |
+| 2:40-3:10 | **Module 5: Capstone** | 30 min | Build your own production-ready agent | [Lab 10](labs/lab-10-capstone-build-agent.md) |
 | 3:10-3:15 | **Module 6: Wrap-Up** | 5 min | Key takeaways, governance, next steps | - |
 
 ### Lab Summary
 
 - **Lab 05: Interaction Models** (20 min) - Compare Ask, Edit, and Agent modes
-- **Lab 5.5: Skills & Customization** (25 min) - Learn the 4 customization types, explore Skills ⭐ NEW
-- **Lab 06: Custom Agents Intro** (15 min) - Explore Architecture Reviewer, Backlog Generator, Test Strategist
-- **Lab 07: Workflow Agents** (35 min) - Apply agents to 3 real workflows
-- **Lab 08: Agent Design** (20 min) - Analyze agent components and iterate on instructions
-- **Lab 09: Capstone** (30 min) - Design, build, test, and document your own agent
+- **Lab 06: Skills & Customization** (25 min) - Learn the 4 customization types, explore Skills ⭐ NEW
+- **Lab 07: Custom Agents Intro** (15 min) - Explore Architecture Reviewer, Backlog Generator, Test Strategist
+- **Lab 08: Workflow Agents** (35 min) - Apply agents to 3 real workflows
+- **Lab 09: Agent Design** (20 min) - Analyze agent components and iterate on instructions
+- **Lab 10: Capstone** (30 min) - Design, build, test, and document your own agent
 
 ---
 
@@ -200,8 +200,8 @@ This NEW module introduces the complete Copilot customization landscape. Partici
 
 - **0:35-0:40** - Presentation: Customization landscape overview (5 min)
 - **0:40-0:45** - Discussion: Skills vs Agents (5 min)
-- **0:45-1:00** - Guided Exercise: Lab 5.5 Parts 1-2 (15 min)
-- **1:00-1:05** - Exercise: Lab 5.5 Part 3 decision scenarios (5 min)
+- **0:45-1:00** - Guided Exercise: Lab 06 Parts 1-2 (15 min)
+- **1:00-1:05** - Exercise: Lab 06 Part 3 decision scenarios (5 min)
 
 ### Facilitator Actions
 
@@ -247,7 +247,7 @@ This is the critical differentiation. Use concrete examples:
 - Answer: **Agent** (role-based, needs read-only tools)
 - Not a Skill (Skills don't restrict tools)
 
-**Lab 5.5 - Guided Walkthrough**
+**Lab 06 - Guided Walkthrough**
 
 **Part 1 (5 min)**: Walk through the decision framework together
 - Show the decision tree
@@ -287,13 +287,13 @@ A: Yes - VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent (cloud). T
 
 ## Module 2: Custom Agents Intro (1:05 – 1:30, 25 min)
 
-**NOTE:** Module 2 timing adjusted due to Lab 5.5 addition. Content shortened to 25 minutes.
+**NOTE:** Module 2 timing adjusted due to Lab 06 addition. Content shortened to 25 minutes.
 
 ### Section Breakdown
 
-- **1:05-1:10** - Quick Recap: Agents vs Skills (refer to Lab 5.5) (5 min)
+- **1:05-1:10** - Quick Recap: Agents vs Skills (refer to Lab 06) (5 min)
 - **1:10-1:15** - Live Demo: Using Architecture Reviewer agent (5 min)
-- **1:15-1:30** - Guided Exercise: Lab 06 (hands-on) (15 min)
+- **1:15-1:30** - Guided Exercise: Lab 07 (hands-on) (15 min)
 - **1:00-1:05** - Debrief and Q&A
 
 ### Facilitator Actions
@@ -330,8 +330,8 @@ A: Yes - VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent (cloud). T
 - Agents encode **team knowledge** (Clean Architecture, DDD)
 - Agents are **reusable** across team members
 
-**Guided Exercise: Lab 06 (10 min)**
-- Direct participants to [Lab 06: Custom Agents Intro](labs/lab-06-custom-agents-intro.md)
+**Guided Exercise: Lab 07 (10 min)**
+- Direct participants to [Lab 07: Custom Agents Intro](labs/lab-07-custom-agents-intro.md)
 - Participants explore all 3 agents:
   - Architecture Reviewer
   - Backlog Generator
@@ -358,7 +358,7 @@ A: Yes - VS Code, GitHub Copilot CLI, and GitHub Copilot coding agent (cloud). T
 ### Section Breakdown
 
 - **1:05-1:10** - Presentation: Agent workflows (slides 16-20)
-- **1:10-1:45** - Lab 07: Three real workflows
+- **1:10-1:45** - Lab 08: Three real workflows
 - **1:45-1:50** - Group discussion
 
 ### Facilitator Actions
@@ -706,7 +706,7 @@ Participants work through [Lab 09: Capstone](labs/lab-09-capstone-build-agent.md
 
 ### Key Resources
 
-- **Labs:** `docs/labs/lab-05-*.md` through `lab-09-*.md`
+- **Labs:** `docs/labs/lab-05-*.md` through `lab-10-*.md`
 - **Presentation:** `docs/presentations/advanced-github-copilot.md`
 - **Agents:** `.github/agents/*.agent.md`
 - **Diagrams:** `docs/design/diagrams/`

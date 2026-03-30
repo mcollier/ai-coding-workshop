@@ -152,7 +152,7 @@ See [Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md) for detailed s
 #### 1.5. Skills & Customization Hierarchy (30 min) ⭐ NEW
 - Four customization types: Prompts → Instructions → Skills → Agents
 - Skills system: domain knowledge without tool access
-- **Lab 5.5:** Explore test-data-generator skill, decision framework exercises
+- **Lab 06:** Explore test-data-generator skill, decision framework exercises
 
 #### 2. Custom Agents Introduction (25 min)
 - What are custom agents and how they differ from skills
@@ -233,12 +233,12 @@ See [Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md) for detailed s
 
 #### Part 2: Advanced GitHub Copilot (Labs 5-9)
 
-- **[Lab 5: Interaction Models](docs/labs/lab-05-interaction-models.md)** (25 min) - Compare Ask, Edit, and Agent modes with slash command discovery
-- **[Lab 5.5: Skills & Customization Hierarchy](docs/labs/lab-05.5-skills-and-customization.md)** (25-30 min) ⭐ NEW - Understand customization types and explore Skills
-- **[Lab 6: Custom Agents Intro](docs/labs/lab-06-custom-agents-intro.md)** (30 min) - Explore pre-built custom agents
-- **[Lab 7: Workflow Agents](docs/labs/lab-07-workflow-agents.md)** (30 min) - Apply agents to real workflows
-- **[Lab 8: Agent Design](docs/labs/lab-08-agent-design.md)** (30 min) - Learn agent properties, handoffs, and design principles
-- **[Lab 9: Capstone - Build Your Own Agent](docs/labs/lab-09-capstone-build-agent.md)** (35 min) - Create a production-ready custom agent with optional skill extension
+- **[Lab 05: Interaction Models](docs/labs/lab-05-interaction-models.md)** (25 min) - Compare Ask, Edit, and Agent modes with slash command discovery
+- **[Lab 06: Skills & Customization Hierarchy](docs/labs/lab-06-skills-and-customization.md)** (25-30 min) ⭐ NEW - Understand customization types and explore Skills
+- **[Lab 07: Custom Agents Intro](docs/labs/lab-07-custom-agents-intro.md)** (30 min) - Explore pre-built custom agents
+- **[Lab 08: Workflow Agents](docs/labs/lab-08-workflow-agents.md)** (30 min) - Apply agents to real workflows
+- **[Lab 09: Agent Design](docs/labs/lab-09-agent-design.md)** (30 min) - Learn agent properties, handoffs, and design principles
+- **[Lab 10: Capstone - Build Your Own Agent](docs/labs/lab-10-capstone-build-agent.md)** (35 min) - Create a production-ready custom agent with optional skill extension
 
 Each lab includes:
 

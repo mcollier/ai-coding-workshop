@@ -72,16 +72,29 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
 
 ### **Slash Commands** - Shortcuts for common tasks:
 
+**Code Operations:**
 - `/explain` - Understand code functionality
 - `/fix` - Suggest fixes for errors or bugs
 - `/tests` - Generate unit tests for selected code
 - `/doc` - Create documentation comments
 - `/refactor` - Improve code structure
 - `/new` - Scaffold new files or projects
+
+**Customization Commands:**
+- `/init` - Initialize project with custom instructions
+- `/create-agent` - Generate custom agent with AI
+- `/create-skill` - Generate agent skill with AI
+- `/create-instruction` - Generate instruction file with AI
+- `/create-prompt` - Generate prompt file with AI
+- `/create-hook` - Generate hook configuration with AI
+
+**Navigation:**
+- `/agents` - Open Configure Custom Agents menu
+- `/skills` - Open Configure Skills menu
 - `/clear` - Clear chat history
 
 
-**Demo**: Show `/tests` on a method, `/explain` on complex code
+**Demo**: Show `/tests` on a method, `/explain` on complex code, `/init` for project setup
 
 ---
 ### 📝 Plan First with Agents (Demo)

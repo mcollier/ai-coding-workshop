@@ -165,6 +165,40 @@ Understand and practice the three modes of interaction with GitHub Copilot.
 
 ---
 
+### [Lab 5.5: Skills & Customization Hierarchy](lab-05.5-skills-and-customization.md) ⭐ NEW
+
+**Duration**: 25-30 minutes
+
+Understand the complete customization hierarchy and the new Skills system.
+
+**What You'll Learn**:
+
+- Four types of Copilot customization (Prompts, Instructions, Skills, Agents)
+- When to use each customization type
+- How Skills differ from Agents
+- Hands-on exploration of the test-data-generator skill
+- Decision-making framework for choosing the right approach
+
+**What You'll Explore**:
+
+- `#test-data-generator` skill (domain knowledge without tool access)
+- Comparing skills vs agents with practical scenarios
+- Decision exercises: which customization type to use?
+
+**Key Skills**:
+
+- Understanding the customization hierarchy
+- Invoking skills with `#skill-name`
+- Distinguishing between knowledge (skills) and workflows (agents)
+- Making informed customization choices
+
+**Prerequisites**:
+
+- Completed Lab 5 or understanding of interaction models
+- Access to workshop repository with skills configured
+
+---
+
 ### [Lab 6: Introduction to Custom Copilot Agents](lab-06-custom-agents-intro.md)
 
 **Duration**: 30 minutes
@@ -188,6 +222,7 @@ Learn about custom agents and how they differ from standard Copilot interactions
 **Prerequisites**:
 
 - Completed Lab 5 or understanding of interaction models
+- **Recommended**: Lab 5.5 for full customization context
 
 ---
 

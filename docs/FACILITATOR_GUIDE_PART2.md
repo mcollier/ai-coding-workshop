@@ -37,20 +37,29 @@ This guide helps facilitators deliver Part 2 of the AI Code Workshop, focusing o
 
 ### Presentation Materials
 
-**Use:** [Advanced GitHub Copilot Presentation](./presentations/advanced-github-copilot.md) (Marp format)
+**Use:** [Modular Presentations](./presentations/modules/part2/) (Marp format)
+
+**Module Catalog:** [Part 2 Advanced Modules](./presentations/index.md#part-2-advanced-copilot-3-hours) - 8 standalone modules
 
 **How to present:**
 1. Install [Marp VS Code extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
-2. Open `docs/presentations/advanced-github-copilot.md`
-3. Click the preview icon to enter presentation mode
-4. Use arrow keys to navigate slides
+2. Open any module in `docs/presentations/modules/part2/`
+3. Start with `00-welcome-recap.md` for full workshop
+4. Click preview icon to enter presentation mode
+5. Use navigation links at bottom of each module
 
 **Export to PDF (optional):**
 ```bash
-npx @marp-team/marp-cli docs/presentations/advanced-github-copilot.md --pdf
+# Single module
+npx @marp-team/marp-cli docs/presentations/modules/part2/00-welcome-recap.md --pdf
+
+# All Part 2 modules as one PDF
+npx @marp-team/marp-cli docs/presentations/modules/part2/*.md --pdf --output part2.pdf
 ```
 
-**Note:** Slide numbers in this guide (e.g., "slides 6-10") correspond to the Marp presentation sections. The presentation is fully aligned with this facilitator guide.
+**Benefits:** Modular structure allows custom workshop delivery (lunch & learn, role-specific, self-paced).
+
+**Archived:** [Legacy monolithic presentation](../archive/presentations/advanced-github-copilot.md) available for reference.
 
 ### Learning Objectives
 
@@ -707,7 +716,7 @@ Participants work through [Lab 09: Capstone](labs/lab-09-capstone-build-agent.md
 ### Key Resources
 
 - **Labs:** `docs/labs/lab-05-*.md` through `lab-10-*.md`
-- **Presentation:** `docs/presentations/advanced-github-copilot.md`
+- **Presentations:** `docs/presentations/modules/part2/` (modular) or [catalog](presentations/index.md)
 - **Agents:** `.github/agents/*.agent.md`
 - **Diagrams:** `docs/design/diagrams/`
 - **Guides:** `docs/guides/custom-agent-catalog.md`, `agent-design-guide.md`, `agent-governance.md`

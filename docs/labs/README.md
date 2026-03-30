@@ -32,8 +32,7 @@ Each lab is designed as a standalone guide with:
 2. **Self-paced:** Start with [Part 1, Module 00](../presentations/modules/part1/00-kickoff-and-setup.md), follow navigation links
 3. **Custom workshops:** Mix and match modules per [delivery patterns](../presentations/index.md#-workshop-delivery-patterns)
 4. **Export:** See [presentations/README.md](../presentations/README.md) for PDF/HTML export options
-
-**Legacy:** Monolithic presentations ([Part 1](../presentations/fundamentals-github-copilot.md), [Part 2](../presentations/advanced-github-copilot.md)) deprecated, will be removed in future release
+5. **Archived:** Legacy monolithic presentations in [archive/presentations/](../../archive/presentations/)
 
 ---
 

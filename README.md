@@ -220,8 +220,7 @@ See [Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md) for detailed s
 **Quick Links:**
 - [Part 1 Modules](docs/presentations/modules/part1/) - Start with `00-kickoff-and-setup.md`
 - [Part 2 Modules](docs/presentations/modules/part2/) - Start with `00-welcome-recap.md`
-
-**Legacy:** Monolithic presentation files ([Part 1](docs/presentations/fundamentals-github-copilot.md), [Part 2](docs/presentations/advanced-github-copilot.md)) deprecated, will be removed in future release
+- [Archived Monolithic Presentations](archive/presentations/) - Legacy files for reference
 
 
 ### Lab Guides

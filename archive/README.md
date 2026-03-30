@@ -4,17 +4,49 @@ This directory contains deprecated workshop materials that have been superseded 
 
 ## Archived Files
 
+### Monolithic Marp Presentations (Deprecated March 2026)
+
+**Files:**
+- `presentations/fundamentals-github-copilot.md` (834 lines, Part 1)
+- `presentations/advanced-github-copilot.md` (862 lines, Part 2)
+
+**Reason for archival:** Migrated to modular presentation structure for flexible workshop delivery (self-paced, role-specific, custom workshops).
+
+**Replaced by:**
+- [Modular Presentation Catalog](../docs/presentations/index.md) - Complete module listing and delivery patterns
+- [Part 1 Modules](../docs/presentations/modules/part1/) - 7 standalone modules (~3 hours)
+- [Part 2 Modules](../docs/presentations/modules/part2/) - 8 standalone modules (~3 hours)
+- [Usage Guide](../docs/presentations/README.md) - How to use modular presentations
+
+**Benefits of modular structure:**
+- Self-paced learning (students pick individual modules)
+- Custom workshops (mix modules for different audiences: developers, BAs, QA, infrastructure)
+- Role-specific content (specialized modules coming soon)
+- Easy maintenance (update individual topics independently)
+- Flexible delivery (30-min lunch & learn to 6-hour full workshop)
+
+**How to use archived monolithic presentations:**
+```bash
+# Export Part 1 to PDF
+npx @marp-team/marp-cli archive/presentations/fundamentals-github-copilot.md --pdf
+
+# Export Part 2 to PDF
+npx @marp-team/marp-cli archive/presentations/advanced-github-copilot.md --pdf
+```
+
+**Deprecation timeline:** March 30, 2026 - Moved to archive (modular structure is now canonical)
+
+---
+
 ### PowerPoint Presentation (Deprecated March 2026)
 
 **File:** `using-ai-for-application-development-with-github-copilot-dotnet-edition.pptx`
 
 **Reason for archival:** Migrated to Marp markdown-based presentations for better maintainability and version control.
 
-**Replaced by:**
-- [Part 1: Fundamentals Presentation](../docs/presentations/fundamentals-github-copilot.md) - Marp format
-- [Part 2: Advanced GitHub Copilot Presentation](../docs/presentations/advanced-github-copilot.md) - Marp format
+**Replaced by:** Modular Marp presentations (see above)
 
-**Benefits of Marp format:**
+**Benefits of Marp over PowerPoint:**
 - Version-controlled markdown (better collaboration)
 - Single source of truth with workshop content
 - Easy updates via text editor
@@ -22,16 +54,28 @@ This directory contains deprecated workshop materials that have been superseded 
 - Better git diffs in pull requests
 - Consistent with documentation-as-code approach
 
-**How to generate PDFs from Marp:**
-```bash
-# Part 1
-npx @marp-team/marp-cli docs/presentations/fundamentals-github-copilot.md --pdf
+**Deprecation timeline:**
+- March 15, 2026 - Created monolithic Marp presentations
+- March 30, 2026 - Migrated to modular structure (monolithic files archived)
 
-# Part 2
-npx @marp-team/marp-cli docs/presentations/advanced-github-copilot.md --pdf
+---
+
+## Presentation Evolution
+
+```
+Generation 1: PowerPoint (archived)
+  ↓
+Generation 2: Monolithic Marp (archived)
+  ↓
+Generation 3: Modular Marp (current) ✅
 ```
 
-**Note:** The archived PowerPoint file is preserved for historical reference but is no longer maintained.
+**Why three generations?**
+1. **PowerPoint** → Difficult to maintain, poor version control
+2. **Monolithic Marp** → Better than PowerPoint, but inflexible for custom delivery
+3. **Modular Marp** → Self-paced, role-specific, mix-and-match capability
+
+---
 
 ## Archive Policy
 

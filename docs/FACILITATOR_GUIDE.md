@@ -23,9 +23,11 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
 - Explain **Copilot Instructions** concept and `.github/copilot-instructions.md` approach.
 - Quick demo: show that the repository already has instructions configured automatically.
 
-- **Present:** Use the **[Fundamentals Presentation](./presentations/fundamentals-github-copilot.md)** (Marp format) to guide Part 1
+- **Present:** Use the **[Modular Presentations](./presentations/modules/part1/)** (Marp format) to guide Part 1
+  - [Part 1 Module Catalog](./presentations/index.md#part-1-fundamentals-3-hours) - 7 standalone modules
   - View with Marp VS Code extension or export to PDF
-  - Slides cover all modules with talking points
+  - Modules cover all labs with talking points
+  - **Archived:** [Legacy monolithic presentation](../archive/presentations/fundamentals-github-copilot.md) available for reference
 
 **Participants do**:
 

@@ -363,18 +363,17 @@ Content here...
 
 ## Migrating from Monolithic Presentations
 
-**Legacy files (deprecated):**
-- `fundamentals-github-copilot.md` (834 lines)
-- `advanced-github-copilot.md` (862 lines)
+**Legacy files (archived March 30, 2026):**
+- `fundamentals-github-copilot.md` (834 lines) - [Archived](../../archive/presentations/fundamentals-github-copilot.md)
+- `advanced-github-copilot.md` (862 lines) - [Archived](../../archive/presentations/advanced-github-copilot.md)
 
-**Migration path:**
-1. ✅ Modular structure created (this release)
-2. 🔄 Update all documentation references (in progress)
-3. 📢 Announce to facilitators
-4. ⏳ Deprecation period (6 months)
-5. 🗑️ Remove monolithic files (future release)
+**Migration complete:**
+1. ✅ Modular structure created
+2. ✅ All documentation references updated
+3. ✅ Facilitators transitioned to modular delivery
+4. ✅ Monolithic files archived
 
-**For now:** Both structures coexist for backward compatibility.
+**Current structure:** Modular presentations are the canonical version. See [index.md](index.md) for complete catalog.
 
 ---
 

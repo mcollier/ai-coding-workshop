@@ -147,11 +147,9 @@ presentations/
     roles/              # Role-specific (future)
   index.md              # This file
   README.md             # Usage guide
-  fundamentals-github-copilot.md      # Legacy monolithic (deprecated)
-  advanced-github-copilot.md          # Legacy monolithic (deprecated)
 ```
 
-**Note:** Legacy monolithic files remain for backward compatibility but will be removed in future release.
+**Note:** Legacy monolithic files moved to [archive/presentations/](../../archive/presentations/) for reference.
 
 ---
 

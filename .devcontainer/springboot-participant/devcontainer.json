@@ -33,7 +33,9 @@
                 "vmware.vscode-spring-boot",
                 "vscjava.vscode-maven",
                 "vscjava.vscode-gradle",
-                "bierner.markdown-mermaid"
+                "bierner.markdown-mermaid",
+                "marp-team.marp-vscode",
+                "yzhang.markdown-all-in-one"
             ],
             "settings": {
                 "github.copilot.advanced": {},

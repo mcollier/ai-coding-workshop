@@ -49,7 +49,7 @@ When you open this repository in VS Code, you'll be prompted to select a devcont
 - ✅ Minimal overhead for fast startup
 
 **Auto-activates:**
-- `.github/copilot-instructions.md` (default .NET instructions)
+- `.github/instructions/dotnet.instructions.md` (automatically loads when editing C# files)
 
 **Builds:**
 - `TaskManager.sln` (.NET solution only)
@@ -75,7 +75,7 @@ When you open this repository in VS Code, you'll be prompted to select a devcont
 - ✅ Minimal overhead for fast startup
 
 **Auto-activates:**
-- `.github/copilot-instructions-springboot.md` (Spring Boot instructions)
+- `.github/instructions/springboot.instructions.md` (automatically loads when editing files in src-springboot/)
 
 **Builds:**
 - `src-springboot/` (Spring Boot solution only)
@@ -139,13 +139,15 @@ Are you creating workshop content or facilitating?
 
 ### Copilot Instructions Not Loading
 
-**.NET Participants:**
-- Verify `.github/copilot-instructions.md` exists
-- Check VS Code settings: GitHub Copilot Chat > Instructions enabled
+**Instructions now auto-load based on file context:**
+- `.github/instructions/dotnet.instructions.md` loads for `**/*.cs` files
+- `.github/instructions/springboot.instructions.md` loads for `src-springboot/**` files
+- No manual configuration needed - instructions activate automatically when you open files
 
-**Spring Boot Participants:**
-- Verify `.github/copilot-instructions-springboot.md` exists (created in #17)
-- May need to manually select in Copilot Chat settings
+**If instructions aren't applying:**
+- Verify `.github/instructions/` directory exists
+- Check file has correct `applyTo:` frontmatter
+- Reload VS Code window: `F1` → "Developer: Reload Window"
 
 ### Wrong Container Selected
 

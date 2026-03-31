@@ -36,7 +36,7 @@ This repository contains all workshop materials including lab guides, starter co
 For the best experience, use the provided **Devcontainer** and recommended VS Code settings:
 
 - **Devcontainer**: Ensures a consistent .NET 9, Node, and extension environment for all participants. No local setup required—just open in VS Code and "Reopen in Container" when prompted.
-- **Copilot Custom Instructions**: This repo auto-applies Copilot instructions for Clean Architecture, DDD, and .NET 9. For best results, review or copy the full instructions from `.github/copilot-instructions.md` into your Copilot Chat settings.
+- **Copilot Custom Instructions**: This repo auto-applies Copilot instructions for Clean Architecture, DDD, and .NET 9 based on file context. Instructions automatically load from `.github/instructions/` when you open C# files (.NET) or files in `src-springboot/` (Spring Boot).
 
 
 ---
@@ -85,7 +85,7 @@ code --version           # VS Code version
 
 By the end of Part 1, participants will be able to:
 
-- **Leverage repository-level Copilot Instructions** (`.github/copilot-instructions.md`) for team-wide consistent code generation
+- **Leverage context-aware Copilot Instructions** (`.github/instructions/`) for team-wide consistent code generation
 - **Transform requirements** into backlog items, acceptance criteria, and working code using AI assistance
 - **Generate and refactor .NET code** following Clean Architecture and DDD principles
 - **Create comprehensive tests** and documentation with AI support
@@ -113,7 +113,7 @@ By the end of Part 2, participants will be able to:
 
 - Goals and environment check
 - Clone the repository and create your own branch from `main` before starting the labs
-- Copilot instructions automatically configured via `.github/copilot-instructions.md`
+- Copilot instructions automatically load based on file context (no manual configuration needed)
 
 ### 0.5. GitHub Copilot Features Tour (15 min)
 
@@ -126,7 +126,7 @@ By the end of Part 2, participants will be able to:
 
 ### 1. Controlling Context with Copilot Instructions (30 min)
 
-- Understand repository-level Copilot Instructions (`.github/copilot-instructions.md`)
+- Understand context-aware Copilot Instructions (`.github/instructions/` with `applyTo` patterns)
 - **Emphasis on TDD workflow**: Write tests before implementation
 - Lab 1: Create NotificationService following Red-Green-Refactor cycle (interface → tests → implementation)
 
@@ -195,7 +195,7 @@ See [Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md) for detailed s
 
 ### Documentation
 
-- **[Copilot Instructions](.github/copilot-instructions.md)**: Repository-level Copilot configuration (automatically applied)
+- **[Copilot Instructions](.github/instructions/)**: Context-aware Copilot configuration (automatically applied based on file patterns)
 - **[Part 1 Facilitator's Guide](docs/FACILITATOR_GUIDE.md)**: Detailed timing and talking points for Part 1
 - **[Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md)**: Module-by-module guidance for Part 2 (Advanced GitHub Copilot)
 - **[Lab Walkthroughs](docs/labs/README.md)**: Step-by-step guides for all labs with expected outputs and troubleshooting
@@ -309,7 +309,7 @@ This branch contains:
    code .
    ```
 
-   **That's it!** Copilot instructions are automatically configured via `.github/copilot-instructions.md` - no manual setup needed.
+   **That's it!** Copilot instructions automatically load based on which files you're editing - no manual setup needed.
 
 4. **Verify your environment**:
 

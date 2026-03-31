@@ -359,7 +359,7 @@ Design, build, test, and document your own custom agent.
 5. **Verify Copilot**:
    - GitHub Copilot extension installed
    - Signed in to GitHub
-   - `.github/copilot-instructions.md` automatically loaded
+   - Instructions automatically load from `.github/instructions/` based on file context
 
 ---
 
@@ -484,7 +484,7 @@ Apply to Real Projects! 🎉
 
 ### Coding Conventions
 
-Automatically enforced via `.github/copilot-instructions.md`:
+Automatically enforced via `.github/instructions/` (context-aware instruction files):
 
 - File-scoped namespaces
 - Sealed classes by default
@@ -523,7 +523,7 @@ Automatically enforced via `.github/copilot-instructions.md`:
 - [ ] Personal branch created from `main`
 - [ ] `dotnet build` succeeds
 - [ ] `dotnet test` passes
-- [ ] `.github/copilot-instructions.md` exists
+- [ ] `.github/instructions/` directory exists with instruction files
 
 ---
 
@@ -564,10 +564,10 @@ Automatically enforced via `.github/copilot-instructions.md`:
 **Symptoms**: Code doesn't follow conventions  
 **Solutions**:
 
-1. Verify `.github/copilot-instructions.md` exists
-2. Restart VS Code to reload instructions
-3. Be explicit in prompts: "Follow .github/copilot-instructions.md"
-4. Check you're in correct directory (repository root)
+1. Verify `.github/instructions/` directory exists with instruction files
+2. Check instruction files have correct `applyTo:` frontmatter in YAML
+3. Reload VS Code window: `F1` → "Developer: Reload Window"
+4. Be explicit in prompts: "Follow .NET conventions" or "Follow Spring Boot conventions"
 
 ---
 

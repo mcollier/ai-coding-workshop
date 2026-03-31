@@ -134,7 +134,7 @@ git checkout test-lab-walkthrough
 # Resources
 
 📚 **Lab Guides:** `docs/labs/`  
-📝 **Copilot Instructions:** `.github/copilot-instructions.md`  
+📝 **Copilot Instructions:** `.github/instructions/` (context-aware)  
 👥 **Facilitator Guide:** `docs/FACILITATOR_GUIDE.md`  
 🎨 **Architecture:** `docs/design/architecture.md`
 

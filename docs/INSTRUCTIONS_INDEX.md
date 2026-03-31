@@ -16,7 +16,8 @@ Welcome! This page links to all key instructions, standards, and guides for this
   - Export with `marp-cli` (installed in devcontainer)
 
 ## 🤖 AI & Copilot
-- [.github/copilot-instructions.md](../.github/copilot-instructions.md): Copilot and AI usage rules, TDD, Clean Architecture, DDD, testing, and commit standards
+- [.github/instructions/dotnet.instructions.md](../.github/instructions/dotnet.instructions.md): .NET 9 coding standards with TDD, Clean Architecture, DDD, and testing conventions (applies to `**/*.cs`)
+- [.github/instructions/springboot.instructions.md](../.github/instructions/springboot.instructions.md): Spring Boot 3.x coding standards with Clean Architecture and DDD (applies to `src-springboot/**`)
 - [Facilitator Guide](FACILITATOR_GUIDE.md): Workshop flow, demos, and facilitation tips
 
 ## 💻 Language & Architecture

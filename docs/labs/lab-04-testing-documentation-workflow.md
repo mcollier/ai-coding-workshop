@@ -851,7 +851,7 @@ None - Uses in-memory repository for workshop purposes
 Please verify:
 - [ ] All tests pass (`dotnet test`)
 - [ ] Build succeeds with no warnings (`dotnet build`)
-- [ ] Code follows `.github/copilot-instructions.md` conventions
+- [ ] Code follows our .NET conventions (automatically loaded from `.github/instructions/`)
 - [ ] Clean Architecture dependencies respected (no circular references)
 - [ ] Domain logic stays in Domain layer (no business logic in API/Infrastructure)
 - [ ] All public APIs have XML documentation
@@ -943,7 +943,7 @@ Generate CONTRIBUTING.md with guidelines for contributors:
 ```text
 Create a CONTRIBUTING.md file that explains:
 - How to set up the development environment
-- Coding conventions (reference .github/copilot-instructions.md)
+- Coding conventions (reference .github/instructions/ for context-aware standards)
 - Testing requirements
 - PR process
 - Commit message format
@@ -1035,7 +1035,7 @@ Congratulations! You've completed all four labs. You now know how to:
 
 ### Apply to Real Projects
 
-1. Add `.github/copilot-instructions.md` to your team's repositories
+1. Add context-aware instruction files (`.github/instructions/`) to your team's repositories
 2. Establish Conventional Commits standard
 3. Use `/tests` for all new code
 4. Use `/doc` for public APIs

@@ -92,7 +92,7 @@ graph TB
     
     subgraph "Instruction Layers"
         Base[Base Copilot Behavior]
-        Global[Copilot Instructions<br/>.github/copilot-instructions.md]
+        Global[Context-Aware Instructions<br/>.github/instructions/*.instructions.md]
         Agent[Agent-Specific Rules<br/>.github/agents/name.agent.md]
         Prompt[User Prompt]
     end

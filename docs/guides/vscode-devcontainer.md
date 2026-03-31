@@ -16,7 +16,7 @@
 - For best results, set your Copilot Chat custom instructions to:
   - "Assume .NET 9, xUnit, FakeItEasy, Minimal API, ILogger, async/await everywhere. Prefer Clean Architecture and DDD."
   - "Use English for all code and comments."
-- You can find the full Copilot instructions in `.github/copilot-instructions.md` (linked from the repo root)
+- You can find the context-aware Copilot instructions in `.github/instructions/` (linked from the repo root)
 - These instructions are auto-applied in this repo, but you can copy/paste them into your Copilot Chat settings for extra clarity
 
 ## Tips for Success

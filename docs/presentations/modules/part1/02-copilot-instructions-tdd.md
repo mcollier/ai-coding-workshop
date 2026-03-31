@@ -18,7 +18,7 @@ backgroundColor: #fff
 
 # What Are Copilot Instructions?
 
-**Location:** `.github/copilot-instructions.md`
+**Location:** `.github/instructions/dotnet.instructions.md` (auto-loads for C# files)
 
 **Purpose:**
 - Repository-wide AI behavior

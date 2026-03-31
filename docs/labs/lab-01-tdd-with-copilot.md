@@ -27,7 +27,7 @@ In this lab, you'll create a `NotificationService` that sends task notifications
 
 - ✅ Repository cloned and `main` branch checked out
 - ✅ VS Code open with GitHub Copilot enabled
-- ✅ `.github/copilot-instructions.md` automatically loaded
+- ✅ Instructions automatically load from `.github/instructions/` based on file context
 - ✅ Initial build successful: `dotnet build && dotnet test`
 
 ---
@@ -88,7 +88,7 @@ If satisfied, accept the code. If not, refine your prompt.
 In Copilot Chat, enter:
 
 ```text
-Create xUnit tests for NotificationService in the pattern specified in .github/copilot-instructions.md. Organize tests by method with separate test classes. Use FakeItEasy for mocking ILogger. Test happy path and all guard clauses.
+Create xUnit tests for NotificationService in the pattern specified in our .NET instructions. Organize tests by method with separate test classes. Use FakeItEasy for mocking ILogger. Test happy path and all guard clauses.
 ```
 
 ### 2.2 Review Test Structure
@@ -230,7 +230,7 @@ Before implementing, review:
 In Copilot Chat, enter:
 
 ```text
-Implement NotificationService that passes all the tests. Follow the coding style in .github/copilot-instructions.md: sealed class, file-scoped namespace, ILogger dependency injection, async/await, guard clauses with nameof.
+Implement NotificationService that passes all the tests. Follow our .NET coding style: sealed class, file-scoped namespace, ILogger dependency injection, async/await, guard clauses with nameof.
 ```
 
 ### 3.2 Review Generated Implementation
@@ -512,9 +512,9 @@ You've completed this lab successfully when:
 **Problem**: Generated code doesn't use sealed classes, nameof, etc.  
 **Solution**:
 
-1. Verify `.github/copilot-instructions.md` exists in repo
-2. Restart VS Code to reload instructions
-3. Be explicit in prompts: "Follow .github/copilot-instructions.md"
+1. Verify `.github/instructions/` directory exists with instruction files
+2. Reload VS Code window: `F1` → "Developer: Reload Window"
+3. Be explicit in prompts: "Follow .NET conventions"
 
 ### FakeItEasy Not Working
 

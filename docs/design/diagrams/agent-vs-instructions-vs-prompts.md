@@ -48,7 +48,7 @@ graph TB
     Start -->|Provide domain knowledge| Knowledge[Create Skill<br/>#skill-name]
     Start -->|Orchestrate workflow| Workflow[Create Agent<br/>@agent-name]
     
-    Standards -->|This repo| RepoInstructions[Copilot Instructions<br/>.github/copilot-instructions.md]
+    Standards -->|This repo| RepoInstructions[Context-Aware Instructions<br/>.github/instructions/*.instructions.md]
     Standards -->|All repos| GlobalInstructions[Global Instructions<br/>VS Code Settings]
     
     Once -->|Yes, as knowledge| ConsiderSkill[Create Skill]
@@ -71,7 +71,7 @@ graph TB
 | **Scope** | Single conversation | Repository-wide | Domain-specific | Workflow-specific |
 | **Persistence** | None | Always active | On-demand | On-demand |
 | **Invocation** | Chat message | Automatic | `#skill-name` | `@agent-name` |
-| **Location** | Chat input | `.github/copilot-instructions.md` | `.github/skills/*/SKILL.md` | `.github/agents/*.agent.md` |
+| **Location** | Chat input | `.github/instructions/*.instructions.md` | `.github/skills/*/SKILL.md` | `.github/agents/*.agent.md` |
 | **Best For** | Ad-hoc questions | Team standards | Domain knowledge, templates | Orchestration, tool use |
 | **Tool Access** | ❌ | ❌ | ❌ | ✅ |
 | **Learning Curve** | Low | Medium | Medium | Medium-High |
@@ -86,7 +86,7 @@ graph TB
     subgraph "Execution Stack"
         Request[User Request]
         Agent[Agent/Skill<br/>if invoked with @ or #]
-        Instructions[Copilot Instructions<br/>.github/copilot-instructions.md]
+        Instructions[Context-Aware Instructions<br/>.github/instructions/*.instructions.md]
         Global[Global Instructions<br/>VS Code Settings]
         Base[Base Copilot Behavior]
     end
@@ -198,7 +198,10 @@ graph LR
 
 ### Example Instructions
 ```markdown
-# .github/copilot-instructions.md
+# .github/instructions/dotnet.instructions.md
+---
+applyTo: '**/*.cs'
+---
 
 ## Architecture
 - Use Clean Architecture layers
@@ -453,7 +456,7 @@ graph TB
     Individual --> IPrompts[Personal Prompts]
     Individual --> IGlobal[Global Instructions<br/>VS Code Settings]
     
-    Team --> TInstructions[Copilot Instructions<br/>.github/copilot-instructions.md]
+    Team --> TInstructions[Context-Aware Instructions<br/>.github/instructions/*.instructions.md]
     Team --> TSkills[Skills Library<br/>.github/skills/]
     Team --> TAgents[Custom Agents<br/>.github/agents/]
     

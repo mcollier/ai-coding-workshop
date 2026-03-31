@@ -8,7 +8,7 @@
 - **Flex time**: Each section has 5-10 minutes of flex time built in
 - **Energy management**: Take 5-minute breaks between major sections
 - **Advanced participants**: Have optional extension exercises ready
-- **Copilot Instructions**: Repository uses `.github/copilot-instructions.md` for automatic configuration - no manual setup required by participants!
+- **Copilot Instructions**: Repository uses `.github/instructions/` with context-aware `applyTo` patterns - no manual setup required by participants!
 
 Facilitator's Guide: Using AI for Application Development with GitHub Copilot (.NET Edition)
 
@@ -20,8 +20,8 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
 **You do**:
 
 - Welcome participants, introduce goals: *"We'll learn how to use AI (Copilot) to help with requirements, code, tests, docs, and workflow in .NET projects."*
-- Explain **Copilot Instructions** concept and `.github/copilot-instructions.md` approach.
-- Quick demo: show that the repository already has instructions configured automatically.
+- Explain **Copilot Instructions** concept and context-aware instruction loading (`.github/instructions/` with `applyTo` patterns).
+- Quick demo: show that instructions automatically load based on file context (C# files vs Spring Boot files).
 
 - **Present:** Use the **[Modular Presentations](./presentations/modules/part1/)** (Marp format) to guide Part 1
   - [Part 1 Module Catalog](./presentations/index.md#part-1-fundamentals-3-hours) - 7 standalone modules
@@ -45,7 +45,7 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
       ```
 
 - Open the repository in VS Code
-- **Copilot Instructions are automatically active** via `.github/copilot-instructions.md` (no manual setup needed!)
+- **Copilot Instructions automatically load** based on file context via `.github/instructions/` (no manual setup needed!)
 - Verify build: `dotnet build` and `dotnet test`
 
 ---
@@ -200,8 +200,8 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
 **You do**:
 
 - Explain why *context matters* for Copilot output.
-- Show the `.github/copilot-instructions.md` file in the repository.
-- Explain that this file automatically configures Copilot for everyone working in this repo (no manual setup needed).
+- Show the `.github/instructions/dotnet.instructions.md` file in the repository.
+- Explain that instruction files automatically load based on file patterns (`.cs` files → .NET instructions) (no manual setup needed).
 - **Emphasize Section 1: TDD Workflow** - "When asked to implement a feature, propose/emit tests before code"
 - Show difference with/without instructions (e.g., generate a class, note coding style vs messy defaults).
 - Highlight key instructions in the file:
@@ -224,13 +224,13 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
 
 **Step 2: Write Tests FIRST (Red)**
 
-3. Ask Copilot: *"Create xUnit tests for NotificationService in the pattern specified in .github/copilot-instructions.md. Organize tests by method with separate test classes. Use FakeItEasy for mocking ILogger. Test happy path and all guard clauses."*
+3. Ask Copilot: *"Create xUnit tests for NotificationService in the pattern specified in our .NET instructions. Organize tests by method with separate test classes. Use FakeItEasy for mocking ILogger. Test happy path and all guard clauses."*
 4. Review test structure: Should create folder `tests/TaskManager.UnitTests/Services/NotificationServiceTests/` with separate test classes per method
 5. Run tests: `dotnet test` - **Tests should FAIL** (Red) because NotificationService doesn't exist yet
 
 **Step 3: Implement Code (Green)**
 
-6. Ask Copilot: *"Implement NotificationService that passes all the tests. Follow the coding style in .github/copilot-instructions.md: sealed class, file-scoped namespace, ILogger dependency injection, async/await, guard clauses with nameof."*
+6. Ask Copilot: *"Implement NotificationService that passes all the tests. Follow our .NET coding style: sealed class, file-scoped namespace, ILogger dependency injection, async/await, guard clauses with nameof."*
 
 7. Review implementation - verify it follows all conventions:
 
@@ -362,8 +362,8 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
 - **Authentication**: Sign out and back in to GitHub in VS Code
 - **Instructions not loading**:
   - Ensure you're working in the repository root (where `.github/` folder exists)
-  - Restart VS Code to reload repository-level instructions
-  - Check that `.github/copilot-instructions.md` exists in the repo
+  - Verify `.github/instructions/` directory contains instruction files with `applyTo:` frontmatter
+  - Reload VS Code window: `F1` → "Developer: Reload Window"
   - Try Command Palette → "GitHub Copilot: Restart Language Server"
 
 ### .NET Build Issues
@@ -384,7 +384,7 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
 ## Deliverables Recap
 
 - **Repo**: Clean Architecture solution with Domain/Application/Infrastructure/API layers in the `main` branch
-- **Copilot Instructions**: `.github/copilot-instructions.md` (automatically applied, repository-level configuration)
+- **Copilot Instructions**: `.github/instructions/` (context-aware files with `applyTo` patterns, automatically loaded)
 - **Documentation**:
   - Main README with workshop outline
   - Facilitator's Guide (this document)

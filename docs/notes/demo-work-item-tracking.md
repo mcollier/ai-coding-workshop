@@ -67,7 +67,7 @@ Expected AI actions:
 **Step 2: Generate Implementation Plan**
 ```
 "Based on issue #12, create a detailed step-by-step implementation plan for the C# code track.
-Follow the Copilot instructions in .github/copilot-instructions.md for Clean Architecture and TDD."
+Follow the Copilot instructions in .github/instructions/ for Clean Architecture and TDD."
 ```
 
 Expected AI output:
@@ -105,7 +105,7 @@ Expected AI output:
 ## Demo Highlights to Showcase
 
 ### Copilot Customizations
-- **Repository-level instructions:** `.github/copilot-instructions.md`
+- **Repository-level instructions:** `.github/instructions/` (context-aware with `applyTo` patterns)
 - **File-specific instructions:** Front matter in instruction files
 - **Linked instruction files:** C# standards, Cosmos DB best practices, commit conventions
 
@@ -144,7 +144,7 @@ Expected AI output:
 - **GitHub Issue:** https://github.com/centricconsulting/ai-coding-workshop/issues/12
 - **Demo Branch:** `demo/coi`
 - **Meeting Notes:** `./20251119-demo-notes.md`
-- **Copilot Instructions:** `../../.github/copilot-instructions.md`
+- **Copilot Instructions:** Context-aware instructions in `.github/instructions/`
 
 ---
 

@@ -1,13 +1,15 @@
-# Workshop: Using AI for Application Development with GitHub Copilot (.NET Edition)
+# Workshop: Using AI for Application Development with GitHub Copilot (Bilingual Edition)
 
 ## Overview
 
 Transform the way you build software with AI-powered development! This comprehensive workshop teaches developers how to leverage **GitHub Copilot** and modern AI coding assistants to accelerate application development while maintaining high code quality standards.
 
+**Choose Your Technology Stack:** This workshop supports both **🔷 .NET** and **🟩 Spring Boot** implementations, allowing participants to learn AI-assisted development in their preferred ecosystem.
+
 **This workshop is split into two parts:**
 
 ### Part 1: Fundamentals (3 hours)
-Learn AI assistance across the entire development lifecycle—from requirements gathering to code generation, testing, and documentation. Using **.NET 9**, **Visual Studio Code**, and **GitHub Copilot**, you'll experience firsthand how AI can amplify developer productivity while following industry best practices like **Clean Architecture**, **Domain-Driven Design**, and **Test-Driven Development**.
+Learn AI assistance across the entire development lifecycle—from requirements gathering to code generation, testing, and documentation. Using either **.NET 9** or **Spring Boot 3.x**, **Visual Studio Code**, and **GitHub Copilot**, you'll experience firsthand how AI can amplify developer productivity while following industry best practices like **Clean Architecture**, **Domain-Driven Design**, and **Test-Driven Development**.
 
 ### Part 2: Advanced GitHub Copilot (3 hours)
 Master advanced Copilot features including **interaction models** (Ask/Edit/Agent), **the Skills system**, **custom agents**, and **workflow automation**. Learn the complete customization hierarchy (Prompts → Instructions → Skills → Agents), discover capabilities with slash commands, and design production-ready agents that encode team knowledge and standardize AI-assisted development workflows.
@@ -15,15 +17,17 @@ Master advanced Copilot features including **interaction models** (Ask/Edit/Agen
 **Full workshop duration:** 6 hours (can be delivered as separate sessions or combined)
 
 **What makes this workshop unique:**
+- **Bilingual support**: Choose .NET or Spring Boot—same concepts, your technology stack
 - **Practical, hands-on labs** with real-world scenarios, not just demos
 - **Complete customization hierarchy**: Instructions, Skills, and Agents working together
 - **Enterprise-grade patterns** including Clean Architecture and DDD
 - **TDD-first approach** with AI generating tests before implementation  
-- **Pre-configured dev environment** via VS Code Dev Containers—no setup hassles
-- **Repository-level Copilot instructions** demonstrating team-wide AI consistency
+- **Pre-configured dev environment** via VS Code Dev Containers—no setup hassles (3 container options)
+- **Repository-level Copilot instructions** with context-aware loading per technology stack
 - **Skills exploration** with working examples (test-data-generator) showcasing domain knowledge without tool access
 - **Production-ready agent design** including handoffs, invocation control, and governance patterns
-- **Modern .NET 9** with Minimal APIs and OpenTelemetry observability
+- **Modern stacks**: .NET 9 with Minimal APIs and OpenTelemetry OR Spring Boot 3.x with actuators
+- **Enterprise Java modernization scenarios**: Includes Mule ESB → Spring Boot refactoring examples
 
 Whether you're new to AI-assisted development or looking to level up your Copilot skills, this workshop provides the practical experience and best practices you need to integrate AI into your daily workflow effectively.
 
@@ -35,8 +39,14 @@ This repository contains all workshop materials including lab guides, starter co
 
 For the best experience, use the provided **Devcontainer** and recommended VS Code settings:
 
-- **Devcontainer**: Ensures a consistent .NET 9, Node, and extension environment for all participants. No local setup required—just open in VS Code and "Reopen in Container" when prompted.
-- **Copilot Custom Instructions**: This repo auto-applies Copilot instructions for Clean Architecture, DDD, and .NET 9 based on file context. Instructions automatically load from `.github/instructions/` when you open C# files (.NET) or files in `src-springboot/` (Spring Boot).
+- **Devcontainer Options** (choose based on your stack):
+  - 🔷 **.NET Container** (`.devcontainer/dotnet/`): .NET 9 SDK, C# Dev Kit, xUnit extensions
+  - 🟩 **Spring Boot Container** (`.devcontainer/springboot/`): Java 21 JDK, Spring Boot extensions, Maven
+  - 🔷🟩 **Bilingual Container** (`.devcontainer/bilingual/`): Both .NET and Java environments (for facilitators or exploring both stacks)
+- **Copilot Custom Instructions**: This repo auto-applies Copilot instructions based on file context:
+  - 🔷 **.NET files** (`**/*.cs`): Loads `csharp.instructions.md` + `dotnet.instructions.md`
+  - 🟩 **Spring Boot files** (`src-springboot/**`): Loads `springboot.instructions.md`
+  - Instructions automatically load from `.github/instructions/` - no manual setup needed!
 
 
 ---
@@ -44,31 +54,54 @@ For the best experience, use the provided **Devcontainer** and recommended VS Co
 
 ## Using the Dev Container (Recommended)
 
-For a fully pre-configured .NET 9 development environment, you can use the included **Dev Container**. This is the fastest way to get started and ensures all required tools and extensions are installed.
+For a fully pre-configured development environment, you can use one of the included **Dev Containers**. This is the fastest way to get started and ensures all required tools and extensions are installed.
 
 **How to use:**
 1. Open this repository in VS Code.
 2. Open the Command Palette (`Cmd+Shift+P` or `Ctrl+Shift+P`).
 3. Select: `Dev Containers: Reopen in Container`
-4. VS Code will build and open the project in a container with .NET 9, GitHub CLI, Copilot, C# Dev Kit, and all required extensions.
+4. **Choose your stack**:
+   - 🔷 **.NET Developers**: Select `.devcontainer/dotnet/devcontainer.json`
+   - 🟩 **Spring Boot Developers**: Select `.devcontainer/springboot/devcontainer.json`
+   - 🔷🟩 **Both Stacks** (facilitators/explorers): Select `.devcontainer/bilingual/devcontainer.json`
+5. VS Code will build and open the project in a container with all tools, SDKs, and extensions.
 
 _This is optional but highly recommended, especially if you want to avoid manual environment setup or ensure consistency across all participants._
 
 Before attending this workshop, participants should have:
 
+**Universal Prerequisites:**
 - **GitHub Copilot**: Active subscription and extension installed in VS Code
-- **.NET 9 SDK**: Installed and verified with `dotnet --version`
-- **Visual Studio Code**: Latest version with C# Dev Kit extension
+- **Visual Studio Code**: Latest version
 - **Git**: Basic familiarity with git commands
-- **C# Experience**: Comfortable with basic C# syntax and concepts
 - **GitHub Account**: For cloning repositories and accessing Copilot
+
+**🔷 .NET Track Prerequisites:**
+- **.NET 9 SDK**: Installed and verified with `dotnet --version`
+- **C# Dev Kit extension** for VS Code
+- **C# Experience**: Comfortable with basic C# syntax and concepts
+
+**🟩 Spring Boot Track Prerequisites:**
+- **Java 21 JDK**: Installed and verified with `java -version`
+- **Maven or Gradle**: For building Spring Boot projects
+- **Spring Boot extension pack** for VS Code
+- **Java Experience**: Comfortable with basic Java syntax and Spring Framework concepts
 
 ### Environment Check
 
 Run these commands to verify your setup:
 
+**🔷 .NET Track:**
 ```bash
 dotnet --version          # Should show 9.x.x
+git --version            # Any recent version
+code --version           # VS Code version
+```
+
+**🟩 Spring Boot Track:**
+```bash
+java -version            # Should show Java 21
+mvn --version            # Maven version (or gradle --version)
 git --version            # Any recent version
 code --version           # VS Code version
 ```
@@ -196,9 +229,10 @@ See [Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md) for detailed s
 ### Documentation
 
 - **[Copilot Instructions](.github/instructions/)**: Context-aware Copilot configuration (automatically applied based on file patterns)
-- **[Part 1 Facilitator's Guide](docs/FACILITATOR_GUIDE.md)**: Detailed timing and talking points for Part 1
-- **[Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md)**: Module-by-module guidance for Part 2 (Advanced GitHub Copilot)
+- **[Part 1 Facilitator's Guide](docs/FACILITATOR_GUIDE.md)**: Detailed timing and talking points for Part 1 (Bilingual Edition)
+- **[Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md)**: Module-by-module guidance for Part 2 (Bilingual Edition - Advanced GitHub Copilot)
 - **[Lab Walkthroughs](docs/labs/README.md)**: Step-by-step guides for all labs with expected outputs and troubleshooting
+- **[Pattern Translation Guide](docs/guides/pattern-translation-guide.md)**: .NET ↔ Spring Boot pattern mappings (including Mule ESB modernization)
 - **[Customization Decision Guide](docs/guides/customization-decision-guide.md)**: Framework for choosing prompts, instructions, skills, or agents
 - **[Custom Agent Catalog](docs/guides/custom-agent-catalog.md)**: Reference guide for workshop agents
 - **[Agent Design Guide](docs/guides/agent-design-guide.md)**: Templates and patterns for building production-ready agents
@@ -226,19 +260,30 @@ See [Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md) for detailed s
 ### Lab Guides
 #### Part 1: Fundamentals (Labs 1-4)
 
-- **[Lab 1: TDD with GitHub Copilot](docs/labs/lab-01-tdd-with-copilot.md)** (30 min) - Red-Green-Refactor cycle with NotificationService
-- **[Lab 2: Requirements to Code](docs/labs/lab-02-requirements-to-code.md)** (45 min) - Transform user stories into working features
-- **[Lab 3: Code Generation & Refactoring](docs/labs/lab-03-generation-and-refactoring.md)** (45 min) - Generate CRUD APIs and modernize legacy code
-- **[Lab 4: Testing, Documentation & Workflow](docs/labs/lab-04-testing-documentation-workflow.md)** (15 min) - Complete the development lifecycle
+- **[Lab 1: TDD with GitHub Copilot](docs/labs/lab-01-tdd-with-copilot.md)** (30 min) - Red-Green-Refactor cycle with NotificationService  
+  _Format: **Bilingual** with 🔷 .NET and 🟩 Spring Boot sections throughout_
+  
+- **[Lab 2: Requirements to Code](docs/labs/lab-02-requirements-to-code.md)** (45 min) - Transform user stories into working features  
+  _Format: **Separate files** - Choose [.NET version](docs/labs/lab-02-requirements-to-code.md) or [Spring Boot version](docs/labs/lab-02-requirements-to-code-java.md)_
+  
+- **[Lab 3: Code Generation & Refactoring](docs/labs/lab-03-generation-and-refactoring.md)** (45 min) - Generate CRUD APIs and modernize legacy code  
+  _Format: **Separate files** - Choose [.NET version](docs/labs/lab-03-generation-and-refactoring.md) or [Spring Boot version](docs/labs/lab-03-generation-and-refactoring-java.md)_  
+  _🟩 Spring Boot version includes **Mule ESB → Spring Boot** refactoring scenarios_
+  
+- **[Lab 4: Testing, Documentation & Workflow](docs/labs/lab-04-testing-documentation-workflow.md)** (15 min) - Complete the development lifecycle  
+  _Format: **Stack-agnostic** concepts, currently .NET-focused (Spring Boot version planned)_
 
-#### Part 2: Advanced GitHub Copilot (Labs 5-9)
+#### Part 2: Advanced GitHub Copilot (Labs 5-10)
+
+> **Note**: Labs 5-10 are mostly **stack-agnostic** - they focus on agent concepts, workflows, and customization patterns that apply across all technology stacks.
 
 - **[Lab 05: Interaction Models](docs/labs/lab-05-interaction-models.md)** (25 min) - Compare Ask, Edit, and Agent modes with slash command discovery
 - **[Lab 06: Skills & Customization Hierarchy](docs/labs/lab-06-skills-and-customization.md)** (25-30 min) ⭐ NEW - Understand customization types and explore Skills
 - **[Lab 07: Custom Agents Intro](docs/labs/lab-07-custom-agents-intro.md)** (30 min) - Explore pre-built custom agents
 - **[Lab 08: Workflow Agents](docs/labs/lab-08-workflow-agents.md)** (30 min) - Apply agents to real workflows
 - **[Lab 09: Agent Design](docs/labs/lab-09-agent-design.md)** (30 min) - Learn agent properties, handoffs, and design principles
-- **[Lab 10: Capstone - Build Your Own Agent](docs/labs/lab-10-capstone-build-agent.md)** (35 min) - Create a production-ready custom agent with optional skill extension
+- **[Lab 10: Capstone - Build Your Own Agent](docs/labs/lab-10-capstone-build-agent.md)** (35 min) - Create a production-ready custom agent with optional skill extension  
+  _Format: **Bilingual** with dual-stack agent role examples (Code Reviewer, Performance Auditor, Security Reviewer for both .NET and Spring Boot)_
 
 Each lab includes:
 
@@ -252,34 +297,51 @@ Each lab includes:
 
 ### Starter Solution Structure
 
-The `main` branch contains:
+The `main` branch contains code for both technology stacks:
+
+**🔷 .NET Solution** (`src/` directory):
 - **Complete Solution**: Clean Architecture with Domain/Application/Infrastructure/API layers
 - **Console Application**: .NET 9 console app with DI and logging for initial exercises
 - **Web API**: Minimal API with extension methods and OpenTelemetry integration
 - **Legacy Code Sample**: `LegacyTaskProcessor` for refactoring exercises
 - **Test Infrastructure**: xUnit test stubs with FakeItEasy ready for implementation
 
+**🟩 Spring Boot Solution** (`src-springboot/` directory):
+- **Complete Solution**: Clean Architecture with domain/application/infrastructure/web layers
+- **Spring Boot Application**: Spring Boot 3.x with dependency injection and SLF4J logging
+- **REST API**: @RestController endpoints with Spring Boot Actuator
+- **Legacy Code Sample**: Mule ESB example code for modernization exercises
+- **Test Infrastructure**: JUnit 5 test stubs with Mockito ready for implementation
+
+**Shared Resources**:
+- **Custom Agents** (`.github/agents/`): Architecture Reviewer, Backlog Generator, Test Strategist
+- **Skills** (`.github/skills/`): test-data-generator skill with examples
+- **Copilot Instructions** (`.github/instructions/`): Context-aware instructions for both stacks
+
 ### Reference Implementation
 
-**Stuck or need examples?** A complete reference implementation with all labs solved is available in the `test-lab-walkthrough` branch:
+**Stuck or need examples?** Complete reference implementations are available:
 
+**🔷 .NET Reference** (`test-lab-walkthrough` branch):
 ```bash
 git checkout test-lab-walkthrough
 ```
 
-This branch contains:
-
-- All 4 labs fully implemented
+Contains:
+- All Part 1 labs fully implemented (.NET)
 - NotificationService with complete test suite (Lab 1)
 - CreateTaskCommandHandler with CQRS pattern (Lab 2)
 - Full CRUD API endpoints and refactored legacy code (Lab 3)
 - Comprehensive unit and integration tests (Lab 4)
 
-**Use this branch to:**
+**🟩 Spring Boot Reference** (in development):
+- Planned branch with Spring Boot implementations of Labs 1-4
+- Check repository for updates
 
+**Use reference implementations to:**
 - Compare your solution with a working implementation
 - Get unstuck if you encounter issues
-- See best practices in action
+- See best practices in action for your chosen stack
 - Review after the workshop for continued learning
 
 ---
@@ -293,8 +355,12 @@ This branch contains:
    cd ai-coding-workshop
    ```
 
+2. **Choose your technology stack**:
+   - 🔷 **.NET Track**: Work in `src/` directory with .NET 9 projects
+   - 🟩 **Spring Boot Track**: Work in `src-springboot/` directory with Spring Boot 3.x projects
+   - 🔷🟩 **Explore Both**: Use bilingual devcontainer to try both ecosystems
 
-2. **Create your own branch from `main`**:
+3. **Create your own branch from `main`**:
 
    ```bash
    git checkout main
@@ -303,23 +369,37 @@ This branch contains:
    ```
    _Replace `my-workshop-branch` with your name or a unique identifier._
 
-3. **Open in VS Code**:
+4. **Open in VS Code and select DevContainer**:
 
    ```bash
    code .
    ```
+   
+   - When prompted, select "Reopen in Container"
+   - **Choose your devcontainer**:
+     - 🔷 `.devcontainer/dotnet/` for .NET track
+     - 🟩 `.devcontainer/springboot/` for Spring Boot track
+     - 🔷🟩 `.devcontainer/bilingual/` for both stacks
 
    **That's it!** Copilot instructions automatically load based on which files you're editing - no manual setup needed.
 
-4. **Verify your environment**:
+5. **Verify your environment**:
 
+   **🔷 .NET Track:**
    ```bash
    dotnet --version    # Should show 9.x.x or later
    dotnet build        # Verify solution builds
    dotnet test         # Verify tests run
    ```
 
-5. **Ready to start!** Follow along with your facilitator or work through the labs independently
+   **🟩 Spring Boot Track:**
+   ```bash
+   java -version       # Should show Java 21
+   cd src-springboot
+   mvn clean test      # Verify build and tests
+   ```
+
+6. **Ready to start!** Follow along with your facilitator or work through the labs independently
 
 ---
 

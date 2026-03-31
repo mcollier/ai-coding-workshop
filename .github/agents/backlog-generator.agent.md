@@ -2,7 +2,7 @@
 name: "backlog-generator"
 description: 'Generates user stories and backlog items from requirements with acceptance criteria and story sizing'
 tools: []
-model: Claude Sonnet 4
+model: Claude Sonnet 4.5
 ---
 
 # Backlog Generator

@@ -72,8 +72,8 @@ See [Agent Design Guide](../../docs/guides/agent-design-guide.md) for instructio
 
 These agents are used in **Part 2: Advanced GitHub Copilot** workshop. See:
 - [Agent Catalog](../../docs/guides/custom-agent-catalog.md) - Full agent registry
-- [Lab 06](../../docs/labs/lab-06-custom-agents-intro.md) - Hands-on introduction
-- [Lab 09](../../docs/labs/lab-09-capstone-build-agent.md) - Build your own agent
+- [Lab 07](../../docs/labs/lab-07-custom-agents-intro.md) - Hands-on introduction
+- [Lab 10](../../docs/labs/lab-10-capstone-build-agent.md) - Build your own agent
 
 ---
 

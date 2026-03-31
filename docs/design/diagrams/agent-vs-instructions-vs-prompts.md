@@ -1,16 +1,19 @@
-# Agents vs Instructions vs Prompts
+# Customization Hierarchy: Prompts vs Instructions vs Skills vs Agents
 
-This diagram helps you understand the differences between custom agents, Copilot instructions, and prompt engineering, and when to use each approach.
+This diagram helps you understand the **four ways to customize GitHub Copilot** and when to use each approach.
+
+> **Updated March 2026:** This guide now includes the Skills system, providing a complete view of the customization hierarchy.
 
 ## Conceptual Overview
 
 ```mermaid
 graph TB
-    AI[GitHub Copilot AI] --> Three{Three Ways to<br/>Influence Behavior}
+    AI[GitHub Copilot AI] --> Four{Four Ways to<br/>Customize Behavior}
     
-    Three --> Prompts[Prompts<br/>Ad-hoc requests]
-    Three --> Instructions[Copilot Instructions<br/>Global defaults]
-    Three --> Agents[Custom Agents<br/>Specialized roles]
+    Four --> Prompts[1. Prompts<br/>Ad-hoc requests]
+    Four --> Instructions[2. Instructions<br/>Global defaults]
+    Four --> Skills[3. Skills<br/>Specialized knowledge]
+    Four --> Agents[4. Agents<br/>Workflow orchestration]
     
     Prompts --> P1[Per-request]
     Prompts --> P2[Conversational]
@@ -20,12 +23,17 @@ graph TB
     Instructions --> I2[Repository-wide]
     Instructions --> I3[Team standards]
     
+    Skills --> SK1[Domain expertise]
+    Skills --> SK2[Reusable templates]
+    Skills --> SK3[No tool access]
+    
     Agents --> A1[On-demand]
-    Agents --> A2[Role-specific]
-    Agents --> A3[Structured output]
+    Agents --> A2[Workflow orchestration]
+    Agents --> A3[Tool access]
     
     style Prompts fill:#e1f5e1
     style Instructions fill:#fff4e1
+    style Skills fill:#e8d7f1
     style Agents fill:#4a90e2,color:#fff
 ```
 
@@ -36,39 +44,40 @@ graph TB
     Start{What are you<br/>trying to achieve?}
     
     Start -->|Set coding standards| Standards{For this repo<br/>or globally?}
-    Start -->|Get help once| Once{Structured output<br/>needed?}
-    Start -->|Repeated specialized task| Repeated[Custom Agent]
+    Start -->|Get help once| Once{Will you<br/>reuse this?}
+    Start -->|Provide domain knowledge| Knowledge[Create Skill<br/>#skill-name]
+    Start -->|Orchestrate workflow| Workflow[Create Agent<br/>@agent-name]
     
     Standards -->|This repo| RepoInstructions[Copilot Instructions<br/>.github/copilot-instructions.md]
-    Standards -->|All repos| GlobalInstructions[Global Copilot Instructions<br/>VS Code Settings]
+    Standards -->|All repos| GlobalInstructions[Global Instructions<br/>VS Code Settings]
     
-    Once -->|Yes| ConsiderAgent[Consider Agent<br/>if task repeats]
+    Once -->|Yes, as knowledge| ConsiderSkill[Create Skill]
+    Once -->|Yes, as workflow| ConsiderAgent[Create Agent]
     Once -->|No| SimplePrompt[Simple Prompt]
     
-    ConsiderAgent -->|Will repeat| CreateAgent[Create Custom Agent]
-    ConsiderAgent -->|One-time| DetailedPrompt[Detailed Prompt]
-    
     style Start fill:#4a90e2,color:#fff
-    style Repeated fill:#90ee90
-    style CreateAgent fill:#90ee90
+    style Knowledge fill:#e8d7f1
+    style Workflow fill:#90ee90
+    style ConsiderSkill fill:#e8d7f1
+    style ConsiderAgent fill:#90ee90
     style RepoInstructions fill:#ffd700
     style SimplePrompt fill:#87ceeb
 ```
 
 ## Comparison Table
 
-| Aspect | Prompts | Copilot Instructions | Custom Agents |
-|--------|---------|----------------------|---------------|
-| **Scope** | Single conversation | Repository-wide | Task-specific |
-| **Persistence** | None | Always active | On-demand |
-| **Location** | Chat input | `.github/copilot-instructions.md` | `.github/agents/*.agent.md` |
-| **Best For** | Ad-hoc questions | Team coding standards | Specialized workflows |
-| **Activation** | Every message | Automatic | Manual selection |
-| **Learning Curve** | Low | Medium | Medium-High |
-| **Reusability** | Copy-paste | Automatic | Select from dropdown |
-| **Team Sharing** | Manual | Via git | Via git |
-| **Specificity** | Variable | Broad | Highly specific |
-| **Output Format** | Conversational | Follows standards | Structured |
+| Aspect | Prompts | Instructions | Skills | Agents |
+|--------|---------|--------------|--------|--------|
+| **Scope** | Single conversation | Repository-wide | Domain-specific | Workflow-specific |
+| **Persistence** | None | Always active | On-demand | On-demand |
+| **Invocation** | Chat message | Automatic | `#skill-name` | `@agent-name` |
+| **Location** | Chat input | `.github/copilot-instructions.md` | `.github/skills/*/SKILL.md` | `.github/agents/*.agent.md` |
+| **Best For** | Ad-hoc questions | Team standards | Domain knowledge, templates | Orchestration, tool use |
+| **Tool Access** | ❌ | ❌ | ❌ | ✅ |
+| **Learning Curve** | Low | Medium | Medium | Medium-High |
+| **Reusability** | Copy-paste | Automatic | Invoke when needed | Invoke when needed |
+| **Team Sharing** | Manual | Via git | Via git | Via git |
+| **Output Format** | Conversational | Follows standards | Specialized content | Structured + actions |
 
 ## Layered Architecture
 
@@ -76,7 +85,7 @@ graph TB
 graph TB
     subgraph "Execution Stack"
         Request[User Request]
-        Agent[Agent Instructions<br/>if agent selected]
+        Agent[Agent/Skill<br/>if invoked with @ or #]
         Instructions[Copilot Instructions<br/>.github/copilot-instructions.md]
         Global[Global Instructions<br/>VS Code Settings]
         Base[Base Copilot Behavior]
@@ -115,10 +124,16 @@ graph TB
         S3[TDD by default] --> CI3[Copilot Instructions]
     end
     
-    subgraph "Specialized Workflows"
-        W1[Generate user stories] --> Agent1[Backlog Generator]
-        W2[Review architecture] --> Agent2[Architecture Reviewer]
-        W3[Plan test strategy] --> Agent3[Test Strategist]
+    subgraph "Domain Knowledge"
+        K1[Generate test data] --> SK1[#test-data-generator]
+        K2[API documentation templates] --> SK2[#api-doc-generator]
+        K3[Security test patterns] --> SK3[#security-test-patterns]
+    end
+    
+    subgraph "Workflow Orchestration"
+        W1[Generate user stories] --> Agent1[@backlog-generator]
+        W2[Review architecture] --> Agent2[@architecture-reviewer]
+        W3[Plan implementation] --> Agent3[@plan]
     end
     
     style Prompt1 fill:#87ceeb
@@ -127,6 +142,9 @@ graph TB
     style CI1 fill:#ffd700
     style CI2 fill:#ffd700
     style CI3 fill:#ffd700
+    style SK1 fill:#e8d7f1
+    style SK2 fill:#e8d7f1
+    style SK3 fill:#e8d7f1
     style Agent1 fill:#90ee90
     style Agent2 fill:#90ee90
     style Agent3 fill:#90ee90
@@ -200,20 +218,70 @@ graph LR
 
 ---
 
-## Custom Agents in Detail
+## Skills in Detail
 
 ### Characteristics
-- **Role-based**: Takes on specific persona
-- **Structured**: Consistent output format
-- **Reusable**: Select when needed
-- **Specialized**: Expert in narrow domain
+- **Domain-specific**: Specialized knowledge in narrow area
+- **No tool access**: Cannot read files or make changes
+- **Template-oriented**: Provides reusable patterns and content
+- **Invoked explicitly**: Use `#skill-name` to activate
 
 ### When to Use
 ```mermaid
 graph LR
-    Use[Use Agents] --> Repeat[Repeated workflows]
-    Use --> Structure[Structured output needed]
-    Use --> Expert[Need domain expertise]
+    Use[Use Skills] --> Templates[Generate templates]
+    Use --> Knowledge[Apply domain expertise]
+    Use --> Patterns[Reusable patterns]
+    Use --> Examples[Generate examples]
+    
+    style Use fill:#e8d7f1
+```
+
+### Skill Structure
+```markdown
+---
+name: "test-data-generator"
+description: 'Generates realistic test data for .NET integration tests'
+argument-hint: '[entity type] [data format]'
+user-invocable: true
+---
+
+# Purpose
+Generate realistic test data for .NET applications...
+
+## Knowledge Base
+
+### Entity Patterns
+- Order: OrderId, CustomerId, Total, Items[]
+- Customer: CustomerId, Name, Email, Address
+...
+
+## Output Format
+
+Provide data in requested format (C#, JSON, SQL)...
+```
+
+### Example Usage
+```
+#test-data-generator Order with 3 line items, output as C# objects
+```
+
+---
+
+## Custom Agents in Detail
+
+### Characteristics
+- **Workflow-oriented**: Orchestrates multi-step processes
+- **Tool access**: Can read files, search, make changes
+- **Structured output**: Consistent, formatted responses
+- **Reusable**: Select when needed for specific workflows
+
+### When to Use
+```mermaid
+graph LR
+    Use[Use Agents] --> Workflows[Orchestrate workflows]
+    Use --> Tools[Need tool access]
+    Use --> Multi[Multi-step processes]
     Use --> Review[Specialized reviews]
     
     style Use fill:#90ee90
@@ -225,7 +293,7 @@ graph LR
 name: architecture-reviewer
 description: Reviews code for Clean Architecture and DDD compliance
 tools: ["read", "list_files"]
-model: gpt-4o
+model: Claude Sonnet 4.5
 ---
 
 # Identity
@@ -237,6 +305,8 @@ You are an expert software architect...
 ...
 ```
 
+**Key Difference from Skills:** Agents have **tool access** (can read files, search codebase) while skills provide knowledge only.
+
 ---
 
 ## Migration Path
@@ -247,22 +317,26 @@ graph LR
     Learn --> Document{Repeating<br/>patterns?}
     
     Document -->|Team-wide| Instructions[Move to<br/>Copilot Instructions]
-    Document -->|Specialized| Agent[Create<br/>Custom Agent]
+    Document -->|Domain knowledge| Skill[Create<br/>Skill]
+    Document -->|Workflow| Agent[Create<br/>Agent]
     
     Instructions --> Monitor[Monitor usage]
+    Skill --> Monitor
     Agent --> Monitor
     
     Monitor --> Refine[Refine over time]
     
     style Start fill:#87ceeb
     style Instructions fill:#ffd700
+    style Skill fill:#e8d7f1
     style Agent fill:#90ee90
 ```
 
 ### Step-by-Step
 1. **Week 1-2**: Use prompts, note what you ask repeatedly
 2. **Week 3-4**: Add common patterns to Copilot Instructions
-3. **Week 5+**: Create agents for specialized workflows
+3. **Week 5**: Create skills for domain knowledge (templates, patterns)
+4. **Week 6+**: Create agents for workflow orchestration (multi-step, tool access)
 
 ---
 
@@ -271,12 +345,14 @@ graph LR
 ```mermaid
 graph TB
     Scenario[Feature Development] --> CI[Copilot Instructions<br/>Apply coding standards]
-    CI --> Agent[Custom Agent<br/>Generate user stories]
+    CI --> Skill[Skill<br/>#test-data-generator]
+    Skill --> Agent[Agent<br/>@plan implementation]
     Agent --> Prompt[Prompts<br/>Ask clarifying questions]
     Prompt --> Edit[Edit Mode<br/>Implement with standards]
-    Edit --> AgentReview[Custom Agent<br/>Architecture review]
+    Edit --> AgentReview[Agent<br/>@architecture-reviewer]
     
     style CI fill:#ffd700
+    style Skill fill:#e8d7f1
     style Agent fill:#90ee90
     style Prompt fill:#87ceeb
     style AgentReview fill:#90ee90
@@ -284,14 +360,35 @@ graph TB
 
 **Example workflow:**
 1. Copilot Instructions ensure Clean Architecture
-2. Backlog Generator creates user stories
-3. Prompts clarify acceptance criteria
-4. Edit mode implements with standards applied
-5. Architecture Reviewer validates approach
+2. `#test-data-generator` creates test fixtures
+3. `@plan` creates implementation plan
+4. Prompts clarify acceptance criteria
+5. Edit mode implements with standards applied
+6. `@architecture-reviewer` validates approach
 
 ---
 
 ## Anti-Patterns
+
+### ❌ Using Agent When Skill Suffices
+```mermaid
+graph LR
+    Q["Generate test data template"] -->|Wrong| A[Agent with tool access]
+    Q -->|Right| S[#test-data-generator Skill]
+    
+    style A fill:#ffcccc
+    style S fill:#90ee90
+```
+
+### ❌ Using Skill When Agent Needed
+```mermaid
+graph LR
+    Need["Analyze codebase & refactor"] -->|Wrong| S[Skill without tools]
+    Need -->|Right| A[Agent with file access]
+    
+    style S fill:#ffcccc
+    style A fill:#90ee90
+```
 
 ### ❌ Using Agent for Simple Questions
 ```mermaid
@@ -317,9 +414,11 @@ graph LR
 ```mermaid
 graph LR
     Complex[Complex repeated prompt] -->|Wrong| Copy[Copy-paste every time]
-    Complex -->|Right| Agent[Create Agent]
+    Complex -->|Consider| Skill[Create Skill for knowledge]
+    Complex -->|Or Create| Agent[Create Agent for workflow]
     
     style Copy fill:#ffcccc
+    style Skill fill:#e8d7f1
     style Agent fill:#90ee90
 ```
 
@@ -327,16 +426,17 @@ graph LR
 
 ## Feature Comparison
 
-| Feature | Prompts | Instructions | Agents |
-|---------|---------|--------------|--------|
-| **Version Control** | ❌ | ✅ | ✅ |
-| **Team Sharing** | Manual | Automatic | Automatic |
-| **Discoverability** | ❌ | Limited | High |
-| **Context Aware** | Session only | Always | When invoked |
-| **Structured Output** | ❌ | ❌ | ✅ |
-| **Learning Curve** | None | Low | Medium |
-| **Maintenance** | N/A | Medium | Low |
-| **Testability** | ❌ | Limited | ✅ |
+| Feature | Prompts | Instructions | Skills | Agents |
+|---------|---------|--------------|--------|--------|
+| **Version Control** | ❌ | ✅ | ✅ | ✅ |
+| **Team Sharing** | Manual | Automatic | Automatic | Automatic |
+| **Discoverability** | ❌ | Limited | High (`/skills`) | High (`/agents`) |
+| **Context Aware** | Session only | Always | When invoked | When invoked |
+| **Tool Access** | ❌ | ❌ | ❌ | ✅ |
+| **Structured Output** | ❌ | ❌ | ✅ | ✅ |
+| **Learning Curve** | None | Low | Medium | Medium-High |
+| **Maintenance** | N/A | Medium | Low | Low |
+| **Testability** | ❌ | Limited | ✅ | ✅ |
 
 ---
 
@@ -354,9 +454,11 @@ graph TB
     Individual --> IGlobal[Global Instructions<br/>VS Code Settings]
     
     Team --> TInstructions[Copilot Instructions<br/>.github/copilot-instructions.md]
+    Team --> TSkills[Skills Library<br/>.github/skills/]
     Team --> TAgents[Custom Agents<br/>.github/agents/]
     
     Org --> OTemplates[Repository Templates<br/>with Instructions]
+    Org --> OSkillLib[Shared Skills Library]
     Org --> OAgentLib[Shared Agent Library]
     
     style Individual fill:#87ceeb
@@ -380,18 +482,26 @@ graph TB
 - ✅ Architectural patterns
 - ✅ Consistent code style
 
+### Choose Skills When:
+- ✅ Domain-specific knowledge
+- ✅ Template generation
+- ✅ Reusable patterns
+- ✅ No file access needed
+
 ### Choose Custom Agents When:
-- ✅ Repeated specialized tasks
-- ✅ Structured output needed
-- ✅ Role-based assistance
-- ✅ Complex workflows
+- ✅ Multi-step workflows
+- ✅ Need file/codebase access
+- ✅ Orchestrate actions
+- ✅ Complex analysis tasks
 
 ---
 
 ## See Also
 
 - [Lab 05: Copilot Interaction Models](../../labs/lab-05-interaction-models.md)
-- [Lab 06: Introduction to Custom Agents](../../labs/lab-06-custom-agents-intro.md)
+- [Lab 06: Skills & Customization](../../labs/lab-06-skills-and-customization.md) ⭐ NEW
+- [Lab 07: Introduction to Custom Agents](../../labs/lab-07-custom-agents-intro.md)
+- [Customization Decision Guide](../../guides/customization-decision-guide.md)
 - [Copilot Interaction Models Diagram](./copilot-interaction-models.md)
 - [Agent Architecture Diagram](./agent-architecture.md)
 - [Custom Agent Catalog](../../guides/custom-agent-catalog.md)

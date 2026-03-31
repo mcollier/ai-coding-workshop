@@ -447,7 +447,7 @@ graph TB
 
 ## See Also
 
-- [Lab 07: Workflow Agents in Action](../../labs/lab-07-workflow-agents.md)
+- [Lab 08: Workflow Agents in Action](../../labs/lab-08-workflow-agents.md)
 - [Agent Architecture](./agent-architecture.md)
 - [Copilot Interaction Models](./copilot-interaction-models.md)
 - [Custom Agent Catalog](../../guides/custom-agent-catalog.md)

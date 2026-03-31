@@ -15,9 +15,25 @@ Each lab is designed as a standalone guide with:
 - **Success criteria**
 
 
-## 📽️ Workshop Presentation
+## 🎥 Workshop Presentations
 
-The official **[Workshop Presentation Deck](../presentations/using-ai-for-application-development-with-github-copilot-dotnet-edition.pptx)** is available for facilitators and participants. Use it for session flow, visual aids, and reference throughout the labs.
+**NEW: Modular Structure** - Presentations now split into standalone modules for flexible delivery
+
+**Part 1: Fundamentals (7 modules)**  
+[Browse Modules](../presentations/modules/part1/) - Individual modules for TDD, requirements-to-code, refactoring, and more
+
+**Part 2: Advanced (8 modules)**  
+[Browse Modules](../presentations/modules/part2/) - Modules for interaction models, Skills, custom agents, and agent design
+
+**Module Catalog:** [presentations/index.md](../presentations/index.md) - Complete list with delivery patterns
+
+**How to use:**
+1. **In VS Code:** Install [Marp extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode) → Open any module → Click preview
+2. **Self-paced:** Start with [Part 1, Module 00](../presentations/modules/part1/00-kickoff-and-setup.md), follow navigation links
+3. **Custom workshops:** Mix and match modules per [delivery patterns](../presentations/index.md#-workshop-delivery-patterns)
+4. **Export:** See [presentations/README.md](../presentations/README.md) for PDF/HTML export options
+5. **Archived:** Legacy monolithic presentations in [archive/presentations/](../../archive/presentations/)
+
 ---
 
 ## 🎯 Labs Overview
@@ -165,7 +181,41 @@ Understand and practice the three modes of interaction with GitHub Copilot.
 
 ---
 
-### [Lab 6: Introduction to Custom Copilot Agents](lab-06-custom-agents-intro.md)
+### [Lab 06: Skills & Customization Hierarchy](lab-06-skills-and-customization.md) ⭐ NEW
+
+**Duration**: 25-30 minutes
+
+Understand the complete customization hierarchy and the new Skills system.
+
+**What You'll Learn**:
+
+- Four types of Copilot customization (Prompts, Instructions, Skills, Agents)
+- When to use each customization type
+- How Skills differ from Agents
+- Hands-on exploration of the test-data-generator skill
+- Decision-making framework for choosing the right approach
+
+**What You'll Explore**:
+
+- `#test-data-generator` skill (domain knowledge without tool access)
+- Comparing skills vs agents with practical scenarios
+- Decision exercises: which customization type to use?
+
+**Key Skills**:
+
+- Understanding the customization hierarchy
+- Invoking skills with `#skill-name`
+- Distinguishing between knowledge (skills) and workflows (agents)
+- Making informed customization choices
+
+**Prerequisites**:
+
+- Completed Lab 5 or understanding of interaction models
+- Access to workshop repository with skills configured
+
+---
+
+### [Lab 07: Introduction to Custom Copilot Agents](lab-07-custom-agents-intro.md)
 
 **Duration**: 30 minutes
 
@@ -188,10 +238,11 @@ Learn about custom agents and how they differ from standard Copilot interactions
 **Prerequisites**:
 
 - Completed Lab 5 or understanding of interaction models
+- **Recommended**: Lab 06 for full customization context
 
 ---
 
-### [Lab 7: Workflow Agents in Action](lab-07-workflow-agents.md)
+### [Lab 08: Workflow Agents in Action](lab-08-workflow-agents.md)
 
 **Duration**: 30 minutes
 
@@ -212,12 +263,12 @@ Apply custom agents in real development workflows.
 
 **Prerequisites**:
 
-- Completed Lab 6
+- Completed Lab 07
 - Access to custom agents in repository
 
 ---
 
-### [Lab 8: Agent Design Principles](lab-08-agent-design.md)
+### [Lab 09: Agent Design Principles](lab-09-agent-design.md)
 
 **Duration**: 25 minutes
 
@@ -239,12 +290,12 @@ Learn how custom agents are designed and structured.
 
 **Prerequisites**:
 
-- Completed Lab 7
+- Completed Lab 08
 - Familiarity with all three workshop agents
 
 ---
 
-### [Lab 9: Build Your Own Agent (Capstone)](lab-09-capstone-build-agent.md)
+### [Lab 10: Build Your Own Agent (Capstone)](lab-10-capstone-build-agent.md)
 
 **Duration**: 45 minutes
 
@@ -266,7 +317,7 @@ Design, build, test, and document your own custom agent.
 
 **Prerequisites**:
 
-- Completed Labs 5-8
+- Completed Labs 06-09
 - Understanding of agent design guide
 
 ---

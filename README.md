@@ -10,16 +10,19 @@ Transform the way you build software with AI-powered development! This comprehen
 Learn AI assistance across the entire development lifecycle—from requirements gathering to code generation, testing, and documentation. Using **.NET 9**, **Visual Studio Code**, and **GitHub Copilot**, you'll experience firsthand how AI can amplify developer productivity while following industry best practices like **Clean Architecture**, **Domain-Driven Design**, and **Test-Driven Development**.
 
 ### Part 2: Advanced GitHub Copilot (3 hours)
-Master advanced Copilot features including **interaction models** (Ask/Edit/Agent), **custom agents**, and **workflow automation**. Learn to design, build, and govern production-ready agents that encode team knowledge and standardize AI-assisted development workflows.
+Master advanced Copilot features including **interaction models** (Ask/Edit/Agent), **the Skills system**, **custom agents**, and **workflow automation**. Learn the complete customization hierarchy (Prompts → Instructions → Skills → Agents), discover capabilities with slash commands, and design production-ready agents that encode team knowledge and standardize AI-assisted development workflows.
 
 **Full workshop duration:** 6 hours (can be delivered as separate sessions or combined)
 
 **What makes this workshop unique:**
 - **Practical, hands-on labs** with real-world scenarios, not just demos
+- **Complete customization hierarchy**: Instructions, Skills, and Agents working together
 - **Enterprise-grade patterns** including Clean Architecture and DDD
 - **TDD-first approach** with AI generating tests before implementation  
 - **Pre-configured dev environment** via VS Code Dev Containers—no setup hassles
 - **Repository-level Copilot instructions** demonstrating team-wide AI consistency
+- **Skills exploration** with working examples (test-data-generator) showcasing domain knowledge without tool access
+- **Production-ready agent design** including handoffs, invocation control, and governance patterns
 - **Modern .NET 9** with Minimal APIs and OpenTelemetry observability
 
 Whether you're new to AI-assisted development or looking to level up your Copilot skills, this workshop provides the practical experience and best practices you need to integrate AI into your daily workflow effectively.
@@ -94,10 +97,13 @@ By the end of Part 1, participants will be able to:
 By the end of Part 2, participants will be able to:
 
 - **Understand and use** Ask, Edit, and Agent interaction models appropriately
+- **Navigate the customization hierarchy**: Prompts, Instructions, Skills, and Agents
+- **Discover capabilities** using slash commands (/agents, /skills, /help, etc.)
+- **Leverage Skills** for domain knowledge and template generation without tool access
 - **Apply custom Copilot agents** to specialized workflows (architecture review, backlog generation, test strategy)
-- **Design production-ready agents** with clear roles, constraints, and structured outputs
+- **Design production-ready agents** with clear roles, constraints, structured outputs, and handoffs
 - **Iterate on agent instructions** to improve reliability and consistency
-- **Establish governance** for team-wide agent reuse and maintenance
+- **Establish governance** for team-wide agent and skill reuse and maintenance
 
 ## Schedule
 
@@ -112,9 +118,10 @@ By the end of Part 2, participants will be able to:
 ### 0.5. GitHub Copilot Features Tour (15 min)
 
 - Inline completions, Chat panel, and Inline Chat
-- Slash commands: `/explain`, `/fix`, `/tests`, `/doc`, `/refactor`
-- Chat participants: `@workspace`, `@vscode`, `@terminal`
-- Context variables: `#file`, `#selection`, `#editor`
+- **Slash commands**: `/explain`, `/fix`, `/tests`, `/doc`, `/refactor`, `/help`, `/agents`, `/skills`, `/init`
+- **Chat participants**: `@workspace`, `@vscode`, `@terminal`
+- **Context variables**: `#file`, `#selection`, `#editor`
+- **Agent/Skill discovery**: Using `/agents` and `/skills` to explore capabilities
 - Quick hands-on practice with each feature
 
 ### 1. Controlling Context with Copilot Instructions (30 min)
@@ -139,26 +146,31 @@ See [Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md) for detailed s
 
 #### 1. Copilot Interaction Models (25 min)
 - Ask, Edit, and Agent modes
-- **Lab 5:** Compare interaction models
+- Slash commands for discovery: `/help`, `/agents`, `/skills`
+- **Lab 5:** Compare interaction models with hands-on exercises
 
-#### 2. Custom Agents Introduction (30 min)
-- What are custom agents?
+#### 1.5. Skills & Customization Hierarchy (30 min) ⭐ NEW
+- Four customization types: Prompts → Instructions → Skills → Agents
+- Skills system: domain knowledge without tool access
+- **Lab 06:** Explore test-data-generator skill, decision framework exercises
+
+#### 2. Custom Agents Introduction (25 min)
+- What are custom agents and how they differ from skills
 - **Lab 6:** Explore Architecture Reviewer, Backlog Generator, Test Strategist
 
-#### 3. Workflow Agents in Action (45 min)
+#### 3. Workflow Agents in Action (30 min)
 - **Lab 7:** Apply agents to backlog, architecture review, and test strategy workflows
 
 #### Break (10 min)
 
-#### 4. Designing Effective Agents (25 min)
-- AgePart 1 Facilitator's Guide](docs/FACILITATOR_GUIDE.md)**: Detailed timing and talking points for Part 1
-- **[Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md)**: Module-by-module guidance for Part 2 (Advanced GitHub Copilot)
-- **[Lab Walkthroughs](docs/labs/README.md)**: Step-by-step guides for all nine labs with expected outputs and troubleshooting
-- **[Custom Agent Catalog](docs/guides/custom-agent-catalog.md)**: Reference guide for workshop agents
-- **[Agent Design Guide](docs/guides/agent-design-guide.md)**: Templates and patterns for building production-ready agents
+#### 4. Designing Effective Agents (30 min)
+- Agent design principles and components
+- Advanced agent properties: user-invocable, disable-model-invocation, handoffs
+- **Lab 8:** Analyze agent instructions and iterate for improvement
 
 #### 5. Capstone: Build Your Own Agent (35 min)
 - **Lab 9:** Design, build, test, and document a production-ready agent
+- **Optional extension:** Add complementary skill to agent
 
 #### 6. Wrap-Up & Governance (10 min)
 - Key takeaways, governance, and next steps
@@ -184,12 +196,31 @@ See [Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md) for detailed s
 ### Documentation
 
 - **[Copilot Instructions](.github/copilot-instructions.md)**: Repository-level Copilot configuration (automatically applied)
-- **[Facilitator's Guide](docs/FACILITATOR_GUIDE.md)**: Detailed timing and talking points for instructors
-- **[Lab Walkthroughs](docs/labs/README.md)**: Step-by-step guides for all four labs with expected outputs and troubleshooting
+- **[Part 1 Facilitator's Guide](docs/FACILITATOR_GUIDE.md)**: Detailed timing and talking points for Part 1
+- **[Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md)**: Module-by-module guidance for Part 2 (Advanced GitHub Copilot)
+- **[Lab Walkthroughs](docs/labs/README.md)**: Step-by-step guides for all labs with expected outputs and troubleshooting
+- **[Customization Decision Guide](docs/guides/customization-decision-guide.md)**: Framework for choosing prompts, instructions, skills, or agents
+- **[Custom Agent Catalog](docs/guides/custom-agent-catalog.md)**: Reference guide for workshop agents
+- **[Agent Design Guide](docs/guides/agent-design-guide.md)**: Templates and patterns for building production-ready agents
 
-### Presentation Deck
+### Presentation Decks
 
-- **[Workshop Presentation Deck (PPTX)](docs/presentations/using-ai-for-application-development-with-github-copilot-dotnet-edition.pptx)**: Slides used for workshop facilitation and participant reference
+**NEW: Modular Structure** - Presentations now split into standalone modules for flexible workshop delivery
+
+-**[Modular Presentations Catalog](docs/presentations/index.md)** - Complete module listing and delivery patterns
+  - **Part 1:** 7 modules (~3 hours) - Fundamentals, TDD, requirements-to-code, refactoring
+  - **Part 2:** 8 modules (~3 hours) - Interaction models, Skills, custom agents, agent design
+  - **Role-Specific:** Coming soon (BA, QA, Infrastructure/DevOps)
+  
+- **[How to Use Modular Presentations](docs/presentations/README.md)** - Full guide for facilitators and self-paced learners
+  - View in VS Code with [Marp extension](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode)
+  - Mix & match modules for custom workshops (lunch & learns, role-specific, fast-track)
+  - Export to PDF/HTML: `npx @marp-team/marp-cli docs/presentations/modules/part1/*.md --pdf`
+
+**Quick Links:**
+- [Part 1 Modules](docs/presentations/modules/part1/) - Start with `00-kickoff-and-setup.md`
+- [Part 2 Modules](docs/presentations/modules/part2/) - Start with `00-welcome-recap.md`
+- [Archived Monolithic Presentations](archive/presentations/) - Legacy files for reference
 
 
 ### Lab Guides
@@ -202,14 +233,12 @@ See [Part 2 Facilitator's Guide](docs/FACILITATOR_GUIDE_PART2.md) for detailed s
 
 #### Part 2: Advanced GitHub Copilot (Labs 5-9)
 
-- **[Lab 5: Interaction Models](docs/labs/lab-05-interaction-models.md)** (20 min) - Compare Ask, Edit, and Agent modes
-- **[Lab 6: Custom Agents Intro](docs/labs/lab-06-custom-agents-intro.md)** (15 min) - Explore pre-built custom agents
-- **[Lab 7: Workflow Agents](docs/labs/lab-07-workflow-agents.md)** (35 min) - Apply agents to real workflows
-- **[Lab 8: Agent Design](docs/labs/lab-08-agent-design.md)** (15 min) - Analyze and iterate on agent instructions
-- **[Lab 9: Capstone - Build Your Own Agent](docs/labs/lab-09-capstone-build-agent.md)** (30 min) - Create a production-ready custom agent
-- **[Lab 2: Requirements to Code](docs/labs/lab-02-requirements-to-code.md)** (45 min) - Transform user stories into working features
-- **[Lab 3: Code Generation & Refactoring](docs/labs/lab-03-generation-and-refactoring.md)** (45 min) - Generate CRUD APIs and modernize legacy code
-- **[Lab 4: Testing, Documentation & Workflow](docs/labs/lab-04-testing-documentation-workflow.md)** (15 min) - Complete the development lifecycle
+- **[Lab 05: Interaction Models](docs/labs/lab-05-interaction-models.md)** (25 min) - Compare Ask, Edit, and Agent modes with slash command discovery
+- **[Lab 06: Skills & Customization Hierarchy](docs/labs/lab-06-skills-and-customization.md)** (25-30 min) ⭐ NEW - Understand customization types and explore Skills
+- **[Lab 07: Custom Agents Intro](docs/labs/lab-07-custom-agents-intro.md)** (30 min) - Explore pre-built custom agents
+- **[Lab 08: Workflow Agents](docs/labs/lab-08-workflow-agents.md)** (30 min) - Apply agents to real workflows
+- **[Lab 09: Agent Design](docs/labs/lab-09-agent-design.md)** (30 min) - Learn agent properties, handoffs, and design principles
+- **[Lab 10: Capstone - Build Your Own Agent](docs/labs/lab-10-capstone-build-agent.md)** (35 min) - Create a production-ready custom agent with optional skill extension
 
 Each lab includes:
 
@@ -294,15 +323,17 @@ This branch contains:
 
 ---
 
-## Best Practices for Using Copilot & Agents
+## Best Practices for Using Copilot, Skills & Agents
 
-To get the most out of Copilot and AI agents in this workshop:
+To get the most out of Copilot, Skills, and AI agents in this workshop:
 
-- **Always ask for a plan first**: Use Copilot or Agent Mode to propose a step-by-step plan before making large or multi-file changes.
-- **Use the Check agent for code review**: Select the **Check** Copilot agent from the agents dropdown in Copilot Chat to get improvement suggestions before submitting a PR.
-- **Leverage chat participants**: Use `@workspace` for codebase questions, `@terminal` for CLI help, and `@vscode` for editor tips.
-- **Try custom Copilot agents**: Select agents like **Plan**, **Architect**, or **Check** from the agents dropdown for specialized assistance.
-- **Be explicit in prompts**: Reference files, selections, or context variables (e.g., `#file`, `#selection`) for targeted results.
-- **Review and iterate**: Treat Copilot suggestions as a starting point—review, refactor, and test as you would with any code.
+- **Discover capabilities first**: Use `/help`, `/agents`, and `/skills` slash commands to explore what's available
+- **Always ask for a plan first**: Use Copilot or Agent Mode to propose a step-by-step plan before making large or multi-file changes
+- **Use Skills for knowledge**: Invoke skills like `#test-data-generator` for domain expertise and templates without needing file access
+- **Use Agents for workflows**: Select custom agents like `@plan`, `@architect`, or `@architecture-reviewer` for multi-step tasks requiring tool access
+- **Use the Check agent for code review**: Select the **Check** Copilot agent from the agents dropdown in Copilot Chat to get improvement suggestions before submitting a PR
+- **Leverage chat participants**: Use `@workspace` for codebase questions, `@terminal` for CLI help, and `@vscode` for editor tips
+- **Be explicit in prompts**: Reference files, selections, or context variables (e.g., `#file`, `#selection`) for targeted results
+- **Review and iterate**: Treat Copilot suggestions as a starting point—review, refactor, and test as you would with any code
 
-See the [Facilitator Guide](docs/FACILITATOR_GUIDE.md) and `.github/agents/Check.agent.md` for more workflow tips.
+See the [Facilitator Guide](docs/FACILITATOR_GUIDE.md), [Customization Decision Guide](docs/guides/customization-decision-guide.md), and `.github/agents/Check.agent.md` for more workflow tips.

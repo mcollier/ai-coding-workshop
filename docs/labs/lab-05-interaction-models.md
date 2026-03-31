@@ -38,6 +38,55 @@ GitHub Copilot in VS Code offers three distinct interaction models, each optimiz
 - **Use when:** Work spans multiple files or requires analysis
 - **Key trait:** Human-in-the-loop by design
 
+## Discovering Copilot Capabilities
+
+Before diving into the exercises, let's explore **slash commands** — quick ways to discover and access Copilot's features.
+
+### Slash Commands for Discovery
+
+Slash commands start with `/` and help you find agents, skills, and other capabilities:
+
+| Command | Purpose | Example Usage |
+|---------|---------|---------------|
+| `/help` | Show all available commands | Type `/help` in chat |
+| `/agents` | List all available custom agents | `/agents` to see @architect, @planner, etc. |
+| `/skills` | List all available skills | `/skills` to see #test-data-generator, etc. |
+| `/init` | Start a new project or workspace | `/init dotnet webapi` |
+| `/create-workspace` | Create new workspace | `/create-workspace my-project` |
+| `/create-notebook` | Create new Jupyter notebook | `/create-notebook data-analysis` |
+| `/create-file` | Create new file with AI assistance | `/create-file readme.md` |
+| `/install-extension` | Install VS Code extension | `/install-extension ms-python.python` |
+
+### Agent Discovery with @-mentions
+
+Once you know which agents exist (from `/agents`), you can invoke them with `@`:
+
+```
+@architect Review the domain model for this feature
+@planner Create an implementation plan for user authentication
+```
+
+### Skills Discovery with #-mentions
+
+Skills are specialized knowledge modules invoked with `#`:
+
+```
+#test-data-generator Create sample order data for integration tests
+```
+
+> **Note:** Skills and their differences from agents will be covered in [Lab 06: Skills & Customization](lab-06-skills-and-customization.md).
+
+### Try It Now (2 minutes)
+
+1. Open Copilot Chat
+2. Type `/help` to see all available commands
+3. Type `/agents` to see available custom agents
+4. Type `/skills` to see available skills
+
+**Observation:** What agents and skills are available in this workshop?
+
+---
+
 ## Lab Structure
 
 You'll perform **the same task** using all three modes to understand their strengths and limitations.
@@ -130,6 +179,14 @@ Add a Priority property (Low, Medium, High) to the Task entity following DDD pat
 Ensure the change is properly integrated across Domain, Application, and Api layers.
 ```
 
+**Alternative:** If you want to use a **custom agent** (discovered via `/agents`):
+
+```
+@plan Add Priority property to Task entity with full integration
+```
+
+This invokes the `@plan` agent, which specializes in creating implementation plans.
+
 4. **Observe the Agent's process:**
    - Planning phase
    - File analysis
@@ -199,7 +256,12 @@ Create your own comparison based on the exercises:
 
 ## Next Steps
 
-In [Lab 06: Custom Agents Intro](lab-06-custom-agents-intro.md), you'll learn how to create specialized agents for specific workflows, taking Agent Mode to the next level.
+In [Lab 06: Skills & Customization](lab-06-skills-and-customization.md), you'll learn about:
+- The **Skills system** and how it differs from agents
+- When to use **instructions**, **agents**, or **skills**
+- How to leverage the customization hierarchy effectively
+
+Then in [Lab 07: Custom Agents Intro](lab-07-custom-agents-intro.md), you'll learn how to create specialized agents for specific workflows.
 
 ---
 

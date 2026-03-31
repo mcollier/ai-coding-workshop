@@ -446,7 +446,7 @@ A: No, agents require GitHub Copilot service which runs in the cloud.
 
 - [Agent Design Guide](./agent-design-guide.md) - How to create effective agents
 - [Agent Governance](./agent-governance.md) - Versioning and review process
-- [Lab 06: Introduction to Custom Agents](../labs/lab-06-custom-agents-intro.md)
-- [Lab 07: Workflow Agents in Action](../labs/lab-07-workflow-agents.md)
+- [Lab 07: Introduction to Custom Agents](../labs/lab-07-custom-agents-intro.md)
+- [Lab 08: Workflow Agents in Action](../labs/lab-08-workflow-agents.md)
 - [Agent Architecture Diagram](../design/diagrams/agent-architecture.md)
 - [Agent Workflow Patterns](../design/diagrams/agent-workflow-patterns.md)

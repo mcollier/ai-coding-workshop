@@ -1,0 +1,45 @@
+# Task Manager API - Development Environment Configuration
+# Overrides and additions to application.yml for local development
+
+spring:
+  # Development Database - can use H2 or local PostgreSQL
+  datasource:
+    url: jdbc:postgresql://localhost:5432/taskmanager_dev
+    username: taskmanager
+    password: taskmanager
+    
+  # JPA Configuration for Development
+  jpa:
+    hibernate:
+      ddl-auto: update  # Auto-create/update schema in development
+    show-sql: true      # Show SQL in console for debugging
+    properties:
+      hibernate:
+        format_sql: true
+        
+# Server Configuration
+server:
+  port: 8080
+  error:
+    include-stacktrace: always  # Include full stack traces in development
+    
+# Logging Configuration - More verbose for development
+logging:
+  level:
+    root: INFO
+    com.example.taskmanager: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+  pattern:
+    console: "%clr(%d{yyyy-MM-dd HH:mm:ss}){faint} %clr(${LOG_LEVEL_PATTERN:-%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m%n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}"
+    
+# Actuator - Expose all endpoints in development
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    health:
+      show-details: always

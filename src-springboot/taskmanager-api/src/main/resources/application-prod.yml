@@ -1,0 +1,59 @@
+# Task Manager API - Production Environment Configuration
+# Overrides and additions to application.yml for production deployment
+
+spring:
+  # Production Database Configuration
+  datasource:
+    # Configure via environment variables in production
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/taskmanager}
+    username: ${DATABASE_USERNAME:taskmanager}
+    password: ${DATABASE_PASSWORD}
+    hikari:
+      maximum-pool-size: 20
+      minimum-idle: 10
+      
+  # JPA Configuration for Production
+  jpa:
+    hibernate:
+      ddl-auto: validate  # Never auto-create schema in production
+    show-sql: false       # Don't log SQL in production
+    properties:
+      hibernate:
+        format_sql: false
+        
+# Server Configuration
+server:
+  port: ${SERVER_PORT:8080}
+  compression:
+    enabled: true
+  error:
+    include-message: never
+    include-binding-errors: never
+    include-stacktrace: never
+    include-exception: false
+    
+# Logging Configuration - Production levels
+logging:
+  level:
+    root: WARN
+    com.example.taskmanager: INFO
+    org.springframework.web: WARN
+    org.hibernate.SQL: WARN
+  file:
+    name: /var/log/taskmanager/application.log
+    max-size: 10MB
+    max-history: 30
+    
+# Actuator - Restricted in production
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics,prometheus
+  endpoint:
+    health:
+      show-details: never
+  metrics:
+    export:
+      prometheus:
+        enabled: true

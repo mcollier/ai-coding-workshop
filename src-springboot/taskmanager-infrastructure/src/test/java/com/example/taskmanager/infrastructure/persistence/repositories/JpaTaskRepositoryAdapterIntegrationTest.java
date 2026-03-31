@@ -87,7 +87,7 @@ class JpaTaskRepositoryAdapterIntegrationTest {
         
         // Act
         saved.updateTitle("Updated Title");
-        Task updated = taskRepository.save(saved);
+        taskRepository.save(saved);
         Optional<Task> retrieved = taskRepository.findById(taskId);
         
         // Assert

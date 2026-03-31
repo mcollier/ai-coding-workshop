@@ -9,19 +9,26 @@
 - **Energy management**: Take 5-minute breaks between major sections
 - **Advanced participants**: Have optional extension exercises ready
 - **Copilot Instructions**: Repository uses `.github/instructions/` with context-aware `applyTo` patterns - no manual setup required by participants!
+- **Dual-Stack Delivery**:
+  - **Homogeneous groups** (.NET only or Java only): Timing estimates remain unchanged
+  - **Mixed groups** (.NET and Java together): Add 5-10 minutes to Labs 1-3 for cross-stack comparison discussions
+  - Labs 4-10 are mostly stack-agnostic - no timing adjustments needed
 
-Facilitator's Guide: Using AI for Application Development with GitHub Copilot (.NET Edition)
+Facilitator's Guide: Using AI for Application Development with GitHub Copilot (Bilingual Edition: .NET & Spring Boot)
 
-This document provides a detailed facilitator’s guide for running the 3-hour workshop.
+This document provides a detailed facilitator's guide for running the 3-hour workshop with support for both .NET and Spring Boot technology stacks.
 
 
 ## 0. Kickoff & Setup (0:00 – 0:15, 15 min)
 
 **You do**:
 
-- Welcome participants, introduce goals: *"We'll learn how to use AI (Copilot) to help with requirements, code, tests, docs, and workflow in .NET projects."*
+- Welcome participants, introduce goals: *"We'll learn how to use AI (Copilot) to help with requirements, code, tests, docs, and workflow in software projects using either .NET or Spring Boot."*
+- **Poll the room**: Ask participants to raise hands for .NET vs Spring Boot (helps gauge group composition)
 - Explain **Copilot Instructions** concept and context-aware instruction loading (`.github/instructions/` with `applyTo` patterns).
-- Quick demo: show that instructions automatically load based on file context (C# files vs Spring Boot files).
+- Quick demo: show that instructions automatically load based on file context:
+  - 🔷 **.NET**: Files matching `**/*.cs` → `csharp.instructions.md` and `dotnet.instructions.md`
+  - 🟩 **Spring Boot**: Files matching `src-springboot/**` → `springboot.instructions.md`
 
 - **Present:** Use the **[Modular Presentations](./presentations/modules/part1/)** (Marp format) to guide Part 1
   - [Part 1 Module Catalog](./presentations/index.md#part-1-fundamentals-3-hours) - 7 standalone modules
@@ -34,19 +41,59 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
 - Confirm environment:
   - VS Code open
   - GitHub Copilot enabled
-  - .NET 9 SDK installed (`dotnet --version`)
+  - **🔷 .NET**: .NET 9 SDK installed (`dotnet --version`)
+  - **🟩 Spring Boot**: Java 21 JDK installed (`java -version`), Maven/Gradle
 
-   - Clone the repository and checkout the `main` branch:
+- Clone the repository and checkout the `main` branch:
 
-      ```bash
-      git clone https://github.com/centricconsulting/ai-coding-workshop.git
-      cd ai-coding-workshop
-      git checkout main
-      ```
+  ```bash
+  git clone https://github.com/centricconsulting/ai-coding-workshop.git
+  cd ai-coding-workshop
+  git checkout main
+  ```
 
-- Open the repository in VS Code
+- **Select DevContainer** based on your technology stack:
+  - 🔷 **.NET Participants**: "Reopen in Container" → Choose `.devcontainer/dotnet/devcontainer.json`
+  - 🟩 **Spring Boot Participants**: "Reopen in Container" → Choose `.devcontainer/springboot/devcontainer.json`
+  - 🔷🟩 **Both Stacks** (facilitators/explorers): Choose `.devcontainer/bilingual/devcontainer.json`
+
 - **Copilot Instructions automatically load** based on file context via `.github/instructions/` (no manual setup needed!)
-- Verify build: `dotnet build` and `dotnet test`
+
+- **Verify build**:
+  - 🔷 **.NET**: `dotnet build` and `dotnet test` in project root
+  - 🟩 **Spring Boot**: `cd src-springboot && mvn clean test`
+
+---
+
+## 0.1. Tech Stack Selection & Group Composition (After Setup, 5 min)
+
+**You do**:
+
+- **For Homogeneous Groups (.NET only OR Java only)**:
+  - Simplify delivery: focus on one technology stack throughout
+  - Skip "dual-stack" explanations and comparisons
+  - Lab materials support both tracks independently
+  - Emphasize stack-specific Copilot Instructions file (`.github/instructions/dotnet.instructions.md` or `springboot.instructions.md`)
+
+- **For Mixed Groups (.NET AND Java together)**:
+  - Explain **bilingual format** with 🔷 .NET and 🟩 Spring Boot markers
+  - Encourage cross-pollination: ".NET devs can learn from Java patterns and vice versa"
+  - Pair mixed-stack participants during labs for knowledge sharing
+  - **Labs 1-3**: Significant stack-specific content (separate files or bilingual sections)
+  - **Labs 4-10**: Mostly stack-agnostic (agent concepts, testing philosophy)
+
+- **For Enterprise Java Teams Modernizing from Mule ESB**:
+  - Reference [Pattern Translation Guide](guides/pattern-translation-guide.md) for Mule → Spring Boot mappings
+  - Highlight **Lab 3** refactoring scenarios (includes Mule ESB legacy code examples)
+  - Mention modernization agent (#20 - in development) for Mule → Spring Boot transformation assistance
+  - Emphasize Cost of Delay for legacy integration platforms
+
+**Participants do**:
+
+- Confirm their chosen stack and verify devcontainer selection
+- Open a sample file in their stack to see Copilot Instructions load:
+  - 🔷 **.NET**: Open any `.cs` file → see csharp.instructions.md and dotnet.instructions.md activate
+  - 🟩 **Spring Boot**: Open any file in `src-springboot/` → see springboot.instructions.md activate
 
 ---
 
@@ -200,60 +247,48 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
 **You do**:
 
 - Explain why *context matters* for Copilot output.
-- Show the `.github/instructions/dotnet.instructions.md` file in the repository.
-- Explain that instruction files automatically load based on file patterns (`.cs` files → .NET instructions) (no manual setup needed).
+- **Show stack-specific instructions**:
+  - 🔷 **.NET**: `.github/instructions/dotnet.instructions.md` (loaded for `.cs` files)
+  - 🟩 **Spring Boot**: `.github/instructions/springboot.instructions.md` (loaded for `src-springboot/**`)
+- Explain that instruction files automatically load based on file patterns (no manual setup needed).
 - **Emphasize Section 1: TDD Workflow** - "When asked to implement a feature, propose/emit tests before code"
 - Show difference with/without instructions (e.g., generate a class, note coding style vs messy defaults).
-- Highlight key instructions in the file:
+- **Highlight key instructions** common to both stacks:
   - **TDD first**: Write tests before implementation
-  - Coding style (file-scoped namespaces, `nameof`, async/await, sealed classes)
   - Clean Architecture project layout (Domain/Application/Infrastructure/API)
   - DDD aggregates and value objects
-  - Test rules (xUnit + FakeItEasy, organize by feature, class-per-method folders)
   - Conventional commits
-  - OpenTelemetry for observability
+- **Stack-specific patterns**:
+  - 🔷 **.NET**: File-scoped namespaces, `nameof`, async/await, sealed classes, xUnit + FakeItEasy, OpenTelemetry
+  - 🟩 **Spring Boot**: @Service/@Repository, @Slf4j, Optional types, JUnit 5 + Mockito, Spring Boot Actuator
 
 **Participants do (Lab 1) - Following TDD Red-Green-Refactor**:
 
+> **Note for Facilitators**: [Lab 01](labs/lab-01-tdd-with-copilot.md) is **bilingual** with 🔷 .NET and 🟩 Spring Boot sections throughout. Participants work through their chosen stack's examples.
+
 **Scenario**: Create a `NotificationService` that sends task notifications via email and SMS.
 
-**Step 1: Create Interface First (Design)**
+**High-Level Steps** (details in lab file):
 
-1. Ask Copilot Chat: *"Create an INotificationService interface in the Application layer for sending email and SMS notifications about tasks. Include methods for both individual and combined notifications."*
-2. Review generated interface - should be in `src/TaskManager.Application/Services/INotificationService.cs`
+1. **Create Interface First** (Design)
+   - 🔷 **.NET**: `INotificationService` in `src/TaskManager.Application/Services/`
+   - 🟩 **Spring Boot**: `NotificationService` interface in `notification` package
 
-**Step 2: Write Tests FIRST (Red)**
+2. **Write Tests FIRST** (Red)
+   - 🔷 **.NET**: xUnit tests with FakeItEasy mocking, organized by method in class-per-method folders
+   - 🟩 **Spring Boot**: JUnit 5 tests with Mockito, organized by feature in test classes
+   - Run tests → Should FAIL (Red phase)
 
-3. Ask Copilot: *"Create xUnit tests for NotificationService in the pattern specified in our .NET instructions. Organize tests by method with separate test classes. Use FakeItEasy for mocking ILogger. Test happy path and all guard clauses."*
-4. Review test structure: Should create folder `tests/TaskManager.UnitTests/Services/NotificationServiceTests/` with separate test classes per method
-5. Run tests: `dotnet test` - **Tests should FAIL** (Red) because NotificationService doesn't exist yet
+3. **Implement Code** (Green)
+   - 🔷 **.NET**: Sealed class, file-scoped namespace, async/await, guard clauses, structured logging
+   - 🟩 **Spring Boot**: @Service annotation, constructor injection, @Slf4j, Optional handling
+   - Run tests → Should PASS (Green phase)
 
-**Step 3: Implement Code (Green)**
+4. **Observe & Reflect** (Refactor)
+   - Review code quality and adherence to instructions
+   - Ask Copilot for improvement suggestions
 
-6. Ask Copilot: *"Implement NotificationService that passes all the tests. Follow our .NET coding style: sealed class, file-scoped namespace, ILogger dependency injection, async/await, guard clauses with nameof."*
-
-7. Review implementation - verify it follows all conventions:
-
-- ✅ `sealed class`
-- ✅ File-scoped namespace
-- ✅ Constructor with `ILogger` and null check using `nameof`
-- ✅ Async methods with proper `CancellationToken` support
-- ✅ Guard clauses at method start (fail fast, no else)
-- ✅ Structured logging with parameters
-
-8. Run tests: `dotnet test` - **Tests should PASS** (Green)
-
-**Step 4: Observe & Reflect (Refactor)**
-
-9. Review the generated code quality:
-
-   - Does it follow Clean Architecture (Application layer, no infrastructure concerns)?
-   - Are test names descriptive?
-   - Is the code intention-revealing?
-
-10. Try asking Copilot: *"Are there any improvements we could make to this code?"*
-
-**Key Learning Points to Emphasize**:
+**Key Learning Points to Emphasize** (universal across stacks):
 
 - ✅ **TDD enforces design thinking** - interface and tests force you to think about API before implementation
 - ✅ **Copilot respects instructions** - consistent style across all generated code
@@ -281,34 +316,62 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
 
 **Participants do (Lab 2)**:
 
-1. Write prompt: *“Generate 3 backlog items for a task manager, with acceptance criteria.”*
-2. Pick one (e.g., Add Task).
-3. Generate a unit test skeleton in xUnit for `AddTask`.
-4. Implement `TaskService.AddTask` with Copilot.
-5. Run `dotnet test` → verify.
+> **Note for Facilitators**: Lab 02 has **separate files** for each stack:
+> - 🔷 **.NET**: [lab-02-requirements-to-code.md](labs/lab-02-requirements-to-code.md)
+> - 🟩 **Spring Boot**: [lab-02-requirements-to-code-java.md](labs/lab-02-requirements-to-code-java.md)
+
+**High-Level Steps** (participants follow their stack's lab file):
+
+1. Generate backlog items from user story: *"As a user, I want to manage a list of tasks so I can track progress."*
+2. Use **Backlog Generator agent** (optional) or manual prompting
+3. Pick one backlog item (e.g., Add Task, Update Task status)
+4. Generate unit test skeleton following TDD
+   - 🔷 **.NET**: xUnit test for `TaskService.AddTask`
+   - 🟩 **Spring Boot**: JUnit 5 test for `TaskService.createTask`
+5. Implement the service method with Copilot
+6. Run tests and verify
+7. Implement API endpoint (Minimal API vs @RestController)
+
+**Key Point**: Both stacks follow CQRS pattern - emphasize separation of commands and queries
 
 ---
 
-## 3. Code Generation & Refactoring in .NET (1:45 – 2:30, 45 min)
+## 3. Code Generation & Refactoring (1:45 – 2:30, 45 min)
 
 **You do**:
 
-- Show Copilot scaffolding: create a `TasksController` with minimal API.
-- Show refactor of messy method (provided in repo):
-  - Before: long function, nested ifs, poor naming
-  - After: Copilot helps split into smaller methods, add async, ILogger logging.
+- Show Copilot scaffolding for REST API endpoints
+  - 🔷 **.NET**: Create `TasksController` with minimal API style
+  - 🟩 **Spring Boot**: Create `TaskController` with @RestController
+- Show refactor of messy legacy code (provided in repo):
+  - Before: long function, nested ifs, poor naming, synchronous operations
+  - After: Copilot helps split into smaller methods, add async, structured logging
 
 **Participants do (Lab 3)**:
 
-1. Use `@workspace` to understand the API structure: *"@workspace Show me the API endpoint extensions"*
-2. Scaffold minimal Web API endpoints using Chat:
-   - `GET /tasks/{id}` - *"Implement the GetTaskByIdAsync endpoint in EndpointExtensions"*
-   - `POST /tasks` - Use inline chat (`Ctrl+I`) with `#file:EndpointExtensions.cs`
-3. Use `/refactor` on the `LegacyTaskProcessor.ProcessTaskBatch` method:
-   - Select the method, Chat: `/refactor enforce guard clauses and add async`
-   - Or use Inline Chat: *"Refactor this to use async/await and add logging"*
-4. Use `/tests` on refactored code to generate unit tests
-5. Re-run `dotnet build && dotnet test`.
+> **Note for Facilitators**: Lab 03 has **separate files** for each stack:
+> - 🔷 **.NET**: [lab-03-generation-and-refactoring.md](labs/lab-03-generation-and-refactoring.md)
+> - 🟩 **Spring Boot**: [lab-03-generation-and-refactoring-java.md](labs/lab-03-generation-and-refactoring-java.md)
+
+**High-Level Steps** (participants follow their stack's lab file):
+
+**Part A: REST API Generation**
+1. Generate REST API endpoints for Task CRUD operations
+2. Follow stack patterns:
+   - 🔷 **.NET**: Minimal APIs with route groups, async/await, CancellationToken
+   - 🟩 **Spring Boot**: @RestController with @GetMapping/@PostMapping, ResponseEntity
+3. Generate OpenAPI/Swagger documentation
+
+**Part B: Legacy Code Refactoring**
+1. Refactor provided legacy code (LegacyTaskProcessor)
+2. Apply Object Calisthenics rules:
+   - One level of indentation
+   - No else keyword
+   - Wrap primitive types
+   - First-class collections
+3. **🟩 Spring Boot Bonus**: Mule ESB → Spring Boot refactoring example (see lab file)
+
+**Key Point for Enterprise Java Teams**: Lab 3 includes Mule ESB modernization scenarios - legacy DataWeave transformations → Spring Boot services
 
 ---
 
@@ -317,18 +380,26 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
 **You do**:
 
 - Show Copilot generating:
-  - xUnit tests using `/tests` command
-  - README docs using `/doc` command
+  - Unit tests using `/tests` command
+    - 🔷 **.NET**: xUnit tests with FakeItEasy
+    - 🟩 **Spring Boot**: JUnit 5 tests with Mockito
+  - Documentation using `/doc` command (language-agnostic)
   - Commit message using Chat with staged changes context
   - PR summary with `@workspace` for full context
 
 **Participants do (Lab 4)**:
 
-1. Select a method in `TaskService`, use `/tests` to generate xUnit tests
-2. Use `/doc` to generate XML documentation for a class or method
-3. Stage changes (`git add`), then use Chat: *"Write a Conventional Commit message for these staged changes"*
-4. Ask Chat: *"@workspace Draft a PR description including intent, scope, and risks for the changes I made"*
-5. Generate a README section: *"Create a Getting Started section for the API in #file:README.md"*
+> **Note for Facilitators**: Lab 04 is currently **.NET-focused** ([lab-04-testing-documentation-workflow.md](labs/lab-04-testing-documentation-workflow.md)). Spring Boot version is planned.\n> Core concepts (testing philosophy, documentation, workflow) apply to both stacks.
+
+**High-Level Steps** (mostly stack-agnostic):
+
+1. **Generate tests**: Select a method, use `/tests` command
+   - 🔷 **.NET**: Generates xUnit + FakeItEasy tests
+   - 🟩 **Spring Boot**: Generates JUnit 5 + Mockito tests (manual prompting if lab not available)
+2. **Generate documentation**: Use `/doc` to create inline docs (XML docs / JavaDoc)
+3. **Conventional commits**: Stage changes, ask Chat for commit message following Conventional Commits
+4. **PR descriptions**: Use `@workspace` to draft PR summary with intent, scope, and risks
+5. **README generation**: Ask for Getting Started section in README.md
 
 ---
 
@@ -372,12 +443,26 @@ This document provides a detailed facilitator’s guide for running the 3-hour w
 - **Missing dependencies**: Run `dotnet restore` in project directory
 - **Path issues**: Use absolute paths or ensure correct working directory
 
+### Spring Boot Build Issues
+
+- **Wrong Java version**: Ensure Java 21 JDK is installed (`java -version`)
+- **Missing dependencies**: Run `mvn clean install` or `./gradlew build` in `src-springboot/` directory
+- **Port conflicts**: Application may fail to start if port 8080 is in use - check `application.properties`
+- **DevContainer issues**: Ensure you selected the correct devcontainer (`.devcontainer/springboot/` or `.devcontainer/bilingual/`)
+- **Maven wrapper**: Use `./mvnw` instead of `mvn` if Maven is not globally installed
+
 ### Copilot Generating Wrong Code
 
 - **Check instructions**: Verify workshop instructions are properly configured
+  - 🔷 **.NET**: Verify `csharp.instructions.md` and `dotnet.instructions.md` load for `.cs` files
+  - 🟩 **Spring Boot**: Verify `springboot.instructions.md` loads for files in `src-springboot/`
 - **Context matters**: Include relevant files in VS Code workspace
 - **Prompt clarity**: Be specific about requirements and constraints
+  - Include stack in prompt: "Generate a Spring Boot @RestController" vs "Generate a .NET Minimal API"
 - **Restart Copilot**: Command Palette → "GitHub Copilot: Restart Language Server"
+- **Wrong patterns**: If Copilot generates .NET code when you want Java (or vice versa):
+  - Open a file in the correct stack's directory (`src-springboot/` for Java, `src/` for .NET)
+  - Include stack-specific keywords in prompts (@Service, JUnit 5, Mockito vs sealed, xUnit, FakeItEasy)
 
 ---
 

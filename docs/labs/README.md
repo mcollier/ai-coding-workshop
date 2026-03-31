@@ -103,6 +103,8 @@ Transform vague user stories into working, tested features.
 
 ### [Lab 3: Code Generation & Refactoring](lab-03-generation-and-refactoring.md)
 
+> **Also available**: [Java/Spring Boot version](lab-03-generation-and-refactoring-java.md)
+
 **Duration**: 45 minutes
 
 Generate complete API endpoints and modernize legacy code.
@@ -110,7 +112,7 @@ Generate complete API endpoints and modernize legacy code.
 **What You'll Build**:
 
 - Complete CRUD API (GET, PUT, DELETE endpoints)
-- Query handlers following CQRS pattern
+- Query handlers or service methods
 - Refactored `LegacyTaskProcessor` with modern patterns
 - Code following Object Calisthenics principles
 
@@ -119,13 +121,17 @@ Generate complete API endpoints and modernize legacy code.
 - Using `@workspace` for context awareness
 - Using `#file` and `#selection` context variables
 - Using `/refactor` command for legacy code
-- Applying Object Calisthenics (guard clauses, no abbreviations)
+- Applying Object Calisthenics (guard clauses, no abbreviations, wrap primitives)
 - Multi-file refactoring with Copilot Edits
 
 **Prerequisites**:
 
 - Completed Labs 1 and 2
 - Familiar with Copilot Chat and Inline Chat
+
+**Available Versions**:
+- [.NET with C# and ASP.NET Core](lab-03-generation-and-refactoring.md)
+- [Java with Spring Boot](lab-03-generation-and-refactoring-java.md)
 
 ---
 

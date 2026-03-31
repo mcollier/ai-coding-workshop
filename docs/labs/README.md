@@ -68,15 +68,17 @@ Learn to follow the Red-Green-Refactor TDD cycle with AI assistance.
 
 ### [Lab 2: From Requirements to Code](lab-02-requirements-to-code.md)
 
+> **Also available**: [Java/Spring Boot version](lab-02-requirements-to-code-java.md)
+
 **Duration**: 45 minutes
 
 Transform vague user stories into working, tested features.
 
 **What You'll Build**:
 
-- Priority value object (DDD pattern)
+- Priority value object/enum (DDD pattern)
 - Task entity with Priority and DueDate
-- CreateTaskCommand with handler
+- CreateTaskCommand/Service with handler
 - POST /tasks API endpoint with validation
 - Full test coverage (unit + integration)
 
@@ -92,6 +94,10 @@ Transform vague user stories into working, tested features.
 
 - Completed Lab 1
 - Understanding of Red-Green-Refactor cycle
+
+**Available Versions**:
+- [.NET with C# and ASP.NET Core](lab-02-requirements-to-code.md)
+- [Java with Spring Boot](lab-02-requirements-to-code-java.md)
 
 ---
 

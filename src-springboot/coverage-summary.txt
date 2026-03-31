@@ -1,0 +1,30 @@
+Code Coverage Summary
+=====================
+Generated: $(date)
+
+Module-Level Coverage:
+- taskmanager-domain:         79.94% (287/359 instructions)
+- taskmanager-application:   100.00% (177/177 instructions) 
+- taskmanager-infrastructure: 44.05% (200/454 instructions)
+- taskmanager-api:            82.89% (436/526 instructions)
+
+Overall Project Coverage: 72.55% (1100/1516 instructions)
+✅ PASSES 70% threshold requirement
+
+Test Summary:
+- Total Tests: 102
+- Failures: 0
+- Skipped: 0
+- Success Rate: 100%
+
+Test Breakdown:
+- Domain Unit Tests:         36 tests
+- Application Unit Tests:    33 tests
+- Infrastructure Tests:      25 tests (12 mapper + 13 integration)
+- API Integration Tests:      8 tests
+
+All JaCoCo reports available at:
+- taskmanager-domain/target/site/jacoco/index.html
+- taskmanager-application/target/site/jacoco/index.html
+- taskmanager-infrastructure/target/site/jacoco/index.html
+- taskmanager-api/target/site/jacoco/index.html

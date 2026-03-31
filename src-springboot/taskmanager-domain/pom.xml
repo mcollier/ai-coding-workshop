@@ -22,4 +22,14 @@
         <!-- Only inherited test dependencies from parent -->
     </dependencies>
 
+    <build>
+        <plugins>
+            <!-- JaCoCo for code coverage -->
+            <plugin>
+                <groupId>org.jacoco</groupId>
+                <artifactId>jacoco-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
 </project>

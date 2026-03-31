@@ -17,9 +17,12 @@ By the end of this lab, you will:
 
 - Completion of [Lab 09: Agent Design](lab-09-agent-design.md)
 - VS Code with GitHub Copilot extension
-- Access to the TaskManager workshop repository
+- Access to the TaskManager workshop repository (🔷 .NET or 🟩 Spring Boot version)
 - Understanding of agent components and design patterns
+- Familiarity with your chosen technology stack (.NET or Java/Spring Boot)
 - **[For Optional Extension]** Completion of [Lab 06: Skills & Customization](lab-06-skills-and-customization.md)
+
+> **Note**: This lab uses 🔷 for .NET examples and 🟩 for Spring Boot examples where stack-specific context is helpful. Most of the lab is technology-agnostic, focusing on agent design principles.
 
 ## Overview
 
@@ -36,6 +39,10 @@ Choose **one** of these agent roles (or propose your own):
 **Workflow:** Pull request reviews, pre-commit checks  
 **Value:** Consistent code quality across team members
 
+**Example Focus Areas:**
+- 🔷 .NET: Sealed classes, async/await patterns, ILogger usage, guard clauses
+- 🟩 Spring Boot: @Service annotations, exception handling, SLF4J logging, proper DI
+
 ### Option B: Documentation Writer
 **Role:** Generates or reviews documentation for clarity and completeness  
 **Workflow:** API docs, README updates, architectural decision records  
@@ -46,10 +53,18 @@ Choose **one** of these agent roles (or propose your own):
 **Workflow:** Reviewing slow endpoints, database queries, algorithms  
 **Value:** Proactive performance monitoring
 
+**Example Focus Areas:**
+- 🔷 .NET: EF Core query optimization, async/await overhead, collection allocations
+- 🟩 Spring Boot: N+1 queries, lazy loading, connection pool tuning, JPA optimization
+
 ### Option D: Security Reviewer
 **Role:** Reviews code for security vulnerabilities and best practices  
 **Workflow:** Pre-deployment security checks, sensitive data handling  
 **Value:** Reduced security risks
+
+**Example Focus Areas:**
+- 🔷 .NET: SQL injection, XSS, CSRF, authentication/authorization patterns
+- 🟩 Spring Boot: SQL injection, Spring Security configuration, Jackson deserialization, CORS
 
 ### Option E: Your Custom Agent
 **Role:** [Define your own based on team needs]  
@@ -116,6 +131,10 @@ This project follows [relevant context about the codebase, standards, patterns]:
 - [Context point 2]
 - [Context point 3]
 
+**For stack-specific agents, include:**
+- 🔷 .NET: Clean Architecture, CQRS pattern, sealed classes, async/await, ILogger, xUnit + FakeItE asy
+- 🟩 Spring Boot: Clean Architecture, Service layer pattern, @Service/@Repository, SLF4J, JUnit 5 + Mockito
+
 ## Constraints
 
 - ALWAYS [critical rule the agent must follow]
@@ -154,10 +173,24 @@ Provide your [review/analysis/report] in this structured format:
 
 ## Examples of What to Flag
 
-- [Example 1]
-- [Example 2]
-- [Example 3]
-- [Example 4]
+**Adjust based on your agent role. Here are examples for a Code Reviewer:**
+
+### 🔷 .NET Examples
+- Missing `sealed` keyword on classes that shouldn't be inherited
+- Synchronous I/O in async methods (blocking calls)
+- Missing guard clauses or using nested `if` statements instead
+- String interpolation in logging statements (should use structured logging)
+- Not using `nameof()` operator in exceptions
+- Missing `CancellationToken` parameters in async methods
+
+### 🟩 Spring Boot Examples
+- Missing `@Service` or `@Repository` annotations
+- Not using `@Transactional` on service methods that modify data
+- Empty catch blocks that swallow exceptions
+- Not using `@Slf4j` or structured logging
+- Missing `@RequiredArgsConstructor` for constructor injection
+- Using `Optional` as method parameters (anti-pattern)
+- Not handling `EntityNotFoundException` in service layer
 ```
 
 ### Instructions
@@ -182,7 +215,50 @@ Provide your [review/analysis/report] in this structured format:
    - Were there unexpected behaviors?
    - What worked well? What didn't?
 
-### Test Results Template
+### Example Test Scenarios
+
+**For Code Reviewer Agent:**
+
+#### 🔷 .NET Test Scenario
+```csharp
+// Test file with intentional issues
+public class TaskService  // Missing 'sealed'
+{
+    public async Task<Task> GetTaskAsync(Guid id)  // Missing CancellationToken
+    {
+        if (id == Guid.Empty)
+            throw new ArgumentException("Invalid ID");  // Missing nameof()
+        
+        var result = _repository.GetAsync(id).Result;  // Blocking in async!
+        _logger.LogInformation($"Found task {id}");  // String interpolation in logging
+        return result;
+    }
+}
+```
+
+#### 🟩 Spring Boot Test Scenario
+```java
+// Test file with intentional issues
+public class TaskServiceImpl {  // Missing @Service annotation
+    
+    private TaskRepository taskRepository;  // Should use @RequiredArgsConstructor
+    
+    public Task getTaskById(UUID id) {  // Missing Optional return type
+        if (id == null) {
+            throw new IllegalArgumentException("ID cannot be null");
+        }
+        
+        try {
+            return taskRepository.findById(id).get();  // Unsafe get()
+        } catch (Exception e) {
+            // Empty catch block - swallowed exception!
+            return null;
+        }
+    }
+}
+```
+
+###Test Results Template
 
 **Test 1:** [Scenario description]  
 - **Agent Output:** [Summary or excerpt]  
@@ -357,6 +433,68 @@ When invoked, you will:
 - **Description:** [What it is]
 - **Detection:** [How to identify it]
 - **Test Case:** [How to test for it]
+
+#### Example: Security Patterns by Stack
+
+**🔷 .NET Security Patterns**
+
+**Pattern:** Injection Vulnerabilities in LINQ/EF Core
+- **Description:** Raw SQL or unsanitized string concatenation in queries
+- **Detection:** Look for `FromSqlRaw()` with string interpolation, or concatenated SQL
+- **Test Case:** Pass malicious input like `'; DROP TABLE Tasks--` to query parameters
+
+**Pattern:** Missing Input Validation in Minimal APIs
+- **Description:** Route handlers accepting DTOs without validation attributes or FluentValidation
+- **Detection:** Check for missing `[Required]`, `[StringLength]`, or validator registration
+- **Test Case:** Send requests with null, oversized, or malformed data
+
+**Pattern:** Exposed Sensitive Data in Logging
+- **Description:** Logging passwords, tokens, or PII in structured logs
+- **Detection:** Search for `ILogger.LogInformation()` calls with sensitive parameters
+- **Test Case:** Trigger log statements and verify sensitive data doesn't appear
+
+**🟩 Spring Boot Security Patterns**
+
+**Pattern:** SQL Injection in JPA Queries
+- **Description:** Using string concatenation in `@Query` annotations or native queries
+- **Detection:** Look for `@Query(value = "SELECT * FROM tasks WHERE id = " + id)`
+- **Test Case:** Pass `1 OR 1=1--` as ID parameter and verify it's parameterized safely
+
+**Pattern:** Missing @Valid on Request Bodies
+- **Description:** REST controllers accepting `@RequestBody` without `@Valid` annotation
+- **Detection:** Check controller methods for `@RequestBody` without `@Valid`
+- **Test Case:** POST invalid data (missing required fields) and verify 400 Bad Request
+
+**Pattern:** Exposed Stack Traces in Production
+- **Description:** Exception handlers returning full stack traces to clients
+- **Detection:** Look for `@ExceptionHandler` methods that include `e.printStackTrace()` or `e.getStackTrace()`
+- **Test Case:** Trigger an exception and verify response doesn't leak internal details
+
+#### Example: Performance Patterns by Stack
+
+**🔷 .NET Performance Patterns**
+
+**Pattern:** N+1 Query Problem in EF Core
+- **Description:** Loading related entities in loops instead of using `.Include()`
+- **Detection:** Look for foreach loops with individual repository/DbContext calls
+- **Test Case:** Enable SQL logging, execute query, count database round-trips
+
+**Pattern:** Missing Async in I/O Operations
+- **Description:** Synchronous database/HTTP calls blocking thread pool
+- **Detection:** Search for `.Result`, `.Wait()`, `.GetAwaiter().GetResult()` in async contexts
+- **Test Case:** Load test endpoint, monitor thread pool starvation
+
+**🟩 Spring Boot Performance Patterns**
+
+**Pattern:** N+1 Query Problem in JPA
+- **Description:** Lazy loading causing multiple queries instead of JOIN FETCH
+- **Detection:** Look for `@OneToMany` without `@EntityGraph` or `JOIN FETCH` in JPQL
+- **Test Case:** Enable Hibernate SQL logging, count SELECT statements for a collection
+
+**Pattern:** Missing @Transactional(readOnly = true)
+- **Description:** Read-only queries acquiring unnecessary write locks
+- **Detection:** Service methods with only SELECT queries lacking `readOnly = true`
+- **Test Case:** Monitor database lock contention under load
 
 ### [Category 2]
 

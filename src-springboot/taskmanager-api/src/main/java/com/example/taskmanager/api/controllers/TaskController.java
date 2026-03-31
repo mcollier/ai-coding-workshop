@@ -6,11 +6,19 @@ import com.example.taskmanager.api.dto.UpdateTaskRequest;
 import com.example.taskmanager.application.services.TaskService;
 import com.example.taskmanager.domain.tasks.Task;
 import com.example.taskmanager.domain.tasks.TaskId;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -40,6 +48,7 @@ import java.util.UUID;
 @RestController
 @RequestMapping("/api/tasks")
 @RequiredArgsConstructor
+@Tag(name = "Tasks", description = "Task management API endpoints")
 public class TaskController {
     
     private static final Logger logger = LoggerFactory.getLogger(TaskController.class);
@@ -53,6 +62,22 @@ public class TaskController {
      * @return 201 Created with task response
      */
     @PostMapping
+    @Operation(
+        summary = "Create a new task",
+        description = "Creates a new task with the provided title and optional description. The task starts in PENDING status."
+    )
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "201",
+            description = "Task created successfully",
+            content = @Content(schema = @Schema(implementation = TaskResponse.class))
+        ),
+        @ApiResponse(
+            responseCode = "400",
+            description = "Invalid input - validation failed",
+            content = @Content(schema = @Schema(implementation = ProblemDetail.class))
+        )
+    })
     public ResponseEntity<TaskResponse> createTask(@Valid @RequestBody CreateTaskRequest request) {
         logger.debug("Creating new task with title: {}", request.title());
         
@@ -70,7 +95,25 @@ public class TaskController {
      * @return 200 OK with task response, or 404 Not Found
      */
     @GetMapping("/{id}")
-    public ResponseEntity<TaskResponse> getTask(@PathVariable UUID id) {
+    @Operation(
+        summary = "Get task by ID",
+        description = "Retrieves a task by its unique identifier"
+    )
+    @ApiResponses(value = {
+        @ApiResponse(
+            responseCode = "200",
+            description = "Task found",
+            content = @Content(schema = @Schema(implementation = TaskResponse.class))
+        ),
+        @ApiResponse(
+            responseCode = "404",
+            description = "Task not found",
+            content = @Content(schema = @Schema(implementation = ProblemDetail.class))
+        )
+    })
+    public ResponseEntity<TaskResponse> getTask(
+            @Parameter(description = "Task ID", required = true)
+            @PathVariable UUID id) {
         logger.debug("Fetching task with ID: {}", id);
         
         return taskService.findTask(new TaskId(id))
@@ -88,6 +131,15 @@ public class TaskController {
      * @return 200 OK with list of task responses
      */
     @GetMapping
+    @Operation(
+        summary = "List all tasks",
+        description = "Retrieves all tasks in the system"
+    )
+    @ApiResponse(
+        responseCode = "200",
+        description = "List of tasks (may be empty)",
+        content = @Content(schema = @Schema(implementation = TaskResponse.class))
+    )
     public ResponseEntity<List<TaskResponse>> listTasks() {
         logger.debug("Listing all tasks");
         

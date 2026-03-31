@@ -21,10 +21,12 @@ import java.util.stream.Collectors;
  * (TaskRepository interface) with the persistence layer (Spring Data JPA).
  * 
  * Uses TaskMapper to translate between domain objects and JPA entities.
+ * 
+ * NOTE: Not final to allow Spring CGLIB proxying for transactions.
  */
 @Repository
 @RequiredArgsConstructor
-public final class JpaTaskRepositoryAdapter implements TaskRepository {
+public class JpaTaskRepositoryAdapter implements TaskRepository {
     
     private final SpringDataTaskRepository jpaRepository;
     private final TaskMapper mapper;

@@ -17,11 +17,13 @@ import java.util.Optional;
  * 
  * This is the application layer - it coordinates domain objects
  * but contains no business logic (that's in the domain layer).
+ * 
+ * Note: Not final to allow Spring CGLIB proxying for @Transactional.
  */
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
-public final class TaskService {
+public class TaskService {
     
     private final TaskRepository taskRepository;
     

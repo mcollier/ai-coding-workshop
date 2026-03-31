@@ -43,11 +43,11 @@
             <scope>runtime</scope>
         </dependency>
 
-        <!-- H2 Database for testing (in-memory with PostgreSQL compatibility) -->
+        <!-- H2 Database for development and testing (in-memory with PostgreSQL compatibility) -->
         <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
-            <scope>test</scope>
+            <scope>runtime</scope>
         </dependency>
 
         <!-- Testcontainers for integration tests (optional - requires Docker) -->

@@ -189,16 +189,17 @@ gh --version
 ### 2.7 Verify Port Forwarding
 
 ```bash
-# Start Spring Boot application
+# Start Spring Boot application with dev profile (uses H2 in-memory database)
 cd /workspaces/ai-code-workshop/src-springboot
-mvn spring-boot:run -pl taskmanager-api
+mvn spring-boot:run -pl taskmanager-api -Dspring-boot.run.profiles=dev
 ```
 
 **Expected**:
 - Port 8080 auto-forwarded
-- Application starts successfully
+- Application starts successfully with H2 database
 - Can access http://localhost:8080/actuator/health
 - Can access http://localhost:8080/swagger-ui.html
+- Can access http://localhost:8080/h2-console (H2 database console)
 - Press Ctrl+C to stop
 
 ### 2.8 Verify Copilot Instructions

@@ -65,7 +65,58 @@ This catalog provides a comprehensive reference for all custom GitHub Copilot ag
 
 ---
 
-### 2. Backlog Generator
+### 2. Quality Gate
+
+**File:** [`.github/agents/quality-gate.agent.md`](../../.github/agents/quality-gate.agent.md)
+
+**Purpose:** Validates code quality standards using SOLID principles, code metrics, and testing requirements for .NET and Spring Boot projects.
+
+**When to Use:**
+- Before merging pull requests
+- During code review process
+- After major refactoring
+- To enforce quality standards consistently
+- As automated quality checkpoint
+
+**What It Does:**
+- Evaluates SOLID principles (SRP, OCP, LSP, ISP, DIP)
+- Assesses code metrics (cyclomatic complexity, method length, class size, duplication)
+- Validates Clean Architecture compliance
+- Reviews test coverage and test quality
+- Provides pass/fail/warning determinations
+- **Supports both .NET and Spring Boot** - applies universal quality standards across stacks
+
+**Output Format:**
+```markdown
+### Quality Gate Report
+
+**Overall Result:** [✅ PASS | ⚠️ PASS WITH WARNINGS | ❌ FAIL]
+
+#### ✅ Checks Passed
+#### ⚠️ Warnings (Non-Blocking)  
+#### ❌ Failures (Blocking)
+
+**Recommendation:** [Approve | Fix failures | Address warnings]
+```
+
+**Example Usage:**
+1. Open files to evaluate (service classes, domain entities)
+2. Select "Quality Gate" from agent dropdown
+3. Example prompts:
+   - .NET: "Run quality gate on TaskService - check SOLID principles and code metrics"
+   - Spring Boot: "Evaluate TaskService.java for code quality and testing readiness"
+4. Review pass/fail/warning report and address failures before merging
+
+**Best Practices:**
+- Run before merging feature branches
+- Focus on business logic and application services
+- Fix all ❌ failures (blocking issues)
+- Address ⚠️ warnings when possible (non-blocking)
+- Use as learning tool to understand quality standards
+
+---
+
+### 3. Backlog Generator
 
 **File:** [`.github/agents/backlog-generator.agent.md`](../../.github/agents/backlog-generator.agent.md)
 

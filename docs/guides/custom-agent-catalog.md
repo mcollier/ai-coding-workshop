@@ -116,7 +116,62 @@ This catalog provides a comprehensive reference for all custom GitHub Copilot ag
 
 ---
 
-### 3. Backlog Generator
+### 3. Test Coverage
+
+**File:** [`.github/agents/test-coverage.agent.md`](../../.github/agents/test-coverage.agent.md)
+
+**Purpose:** Analyzes test coverage reports and identifies gaps with recommendations for both .NET and Spring Boot projects.
+
+**When to Use:**
+- After running test suites
+- During code review to assess testing completeness
+- To identify untested business logic
+- Before merging to ensure coverage standards
+- To plan testing improvements
+
+**What It Does:**
+- Parses coverage reports (Coverlet XML for .NET, JaCoCo for Spring Boot)
+- Calculates coverage by architectural layer
+- Identifies critical gaps (business logic priority)
+- Recommends specific test scenarios with mock strategies
+- Assesses test quality beyond raw percentages
+- **Supports both .NET and Spring Boot** - understands different coverage tools and test frameworks
+
+**Output Format:**
+```markdown
+### Test Coverage Analysis Report
+
+**Overall Coverage:** X%
+**Assessment:** [✅ Meets Standards | ⚠️ Below Target | ❌ Critical Gaps]
+
+#### Coverage by Layer
+[Domain/Application/Infrastructure/API with targets]
+
+#### Critical Gaps
+[Untested business logic with test scenarios]
+
+#### Action Items
+[Prioritized list of tests to add]
+```
+
+**Example Usage:**
+1. Run tests and generate coverage report
+2. Select "Test Coverage" from agent dropdown
+3. Example prompts:
+   - .NET: "Analyze coverage from coverage/coverage.cobertura.xml"
+   - Spring Boot: "Analyze the test coverage - overall is 72%, identify gaps"
+4. Review layer-by-layer analysis and prioritize test additions
+
+**Best Practices:**
+- Focus on business logic coverage first (Domain, Application)
+- Use recommendations for specific test scenarios
+- Balance coverage percentage with test quality
+- Address critical gaps before merging
+- Aim for 70%+ overall, 90%+ for Domain layer
+
+---
+
+### 4. Backlog Generator
 
 **File:** [`.github/agents/backlog-generator.agent.md`](../../.github/agents/backlog-generator.agent.md)
 

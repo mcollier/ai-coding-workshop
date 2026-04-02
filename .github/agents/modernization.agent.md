@@ -134,6 +134,38 @@ Create structured modernization requirements documents as markdown files in the 
 
 ---
 
+#### Architecture Overview
+
+**Current Mule ESB Flow:**
+
+```mermaid
+flowchart LR
+    A[HTTP Listener] --> B[Transform]
+    B --> C{Choice Router}
+    C -->|Valid| D[Database Insert]
+    C -->|Invalid| E[Error Handler]
+    D --> F[Response]
+    E --> F
+```
+
+**Target Spring Boot Architecture:**
+
+```mermaid
+graph TD
+    A[REST Controller] --> B[Service Layer]
+    B --> C[Domain Layer]
+    B --> D[Repository]
+    D --> E[(Database)]
+    B --> F[External API Client]
+    
+    style A fill:#e1f5ff
+    style B fill:#fff3cd
+    style C fill:#d4edda
+    style D fill:#f8d7da
+```
+
+---
+
 #### Functional Requirements
 
 ##### User Story 1: [Feature Name]
@@ -162,6 +194,26 @@ Response: 201 Created
 1. [Validation rule from DataWeave]
 2. [Conditional logic from Choice router]
 3. [Error condition from error handler]
+
+**Data Flow:**
+
+```mermaid
+sequenceDiagram
+    participant Client
+    participant Controller
+    participant Service
+    participant Repository
+    participant Database
+    
+    Client->>Controller: POST /api/resource
+    Controller->>Service: createResource(request)
+    Service->>Repository: save(entity)
+    Repository->>Database: INSERT
+    Database-->>Repository: saved entity
+    Repository-->>Service: entity
+    Service-->>Controller: response
+    Controller-->>Client: 201 Created
+```
 
 **Data Requirements:**
 - Entity: [Name] with fields [list]
@@ -200,6 +252,22 @@ Response: 201 Created
 **Purpose:** [What this integration does]
 **Trigger:** [When this integration is called]
 
+**Integration Flow:**
+
+```mermaid
+sequenceDiagram
+    participant Service
+    participant RestClient
+    participant ExternalAPI
+    
+    Service->>RestClient: call(request)
+    RestClient->>ExternalAPI: HTTP POST
+    ExternalAPI-->>RestClient: response
+    RestClient-->>Service: mapped response
+    
+    Note over RestClient: Retry logic<br/>Circuit breaker
+```
+
 **Spring Boot Implementation:**
 - Component: [RestTemplate / Spring AMQP / Spring Data JPA]
 - Configuration: [Connection details, timeouts]
@@ -212,6 +280,28 @@ Response: 201 Created
 #### Data Model
 
 ##### Entity: [Name]
+
+**Entity Relationship Diagram:**
+
+```mermaid
+erDiagram
+    ORDER ||--o{ ORDER_ITEM : contains
+    ORDER {
+        UUID orderId PK
+        String customerName
+        LocalDateTime createdAt
+        OrderStatus status
+    }
+    ORDER_ITEM {
+        UUID itemId PK
+        UUID orderId FK
+        String productName
+        int quantity
+        BigDecimal price
+    }
+```
+
+**Java Implementation:**
 
 ```java
 public class EntityName {
@@ -233,6 +323,29 @@ public class EntityName {
 ---
 
 #### Migration Strategy
+
+**Migration Timeline:**
+
+```mermaid
+gantt
+    title Migration Timeline
+    dateFormat YYYY-MM-DD
+    section Foundation
+    Project Setup           :2024-01-01, 1w
+    Domain Model           :1w
+    section Core Logic
+    Services              :2w
+    REST APIs             :1w
+    section Integration
+    External APIs         :1w
+    Message Queues        :1w
+    section Testing
+    Unit Tests            :2w
+    Integration Tests     :1w
+    section Production
+    Observability         :1w
+    Deployment            :1w
+```
 
 **Phase 1: Foundation**
 1. Set up Spring Boot project structure
@@ -275,6 +388,11 @@ public class EntityName {
 - Mule ESB source: [file paths]
 - Pattern library: [Link to #29 if available]
 - Spring Boot instructions: `.github/instructions/springboot.instructions.md`
+
+---
+
+**Generated:** [Timestamp]
+**Agent:** Modernization Requirements Extractor
 
 ## Tone
 

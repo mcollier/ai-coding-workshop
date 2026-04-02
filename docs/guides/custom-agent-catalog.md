@@ -8,7 +8,7 @@ This catalog provides a comprehensive reference for all custom GitHub Copilot ag
 
 **File:** [`.github/agents/architecture-reviewer.agent.md`](../../.github/agents/architecture-reviewer.agent.md)
 
-**Purpose:** Reviews code for Clean Architecture and Domain-Driven Design (DDD) compliance.
+**Purpose:** Reviews code for Clean Architecture and Domain-Driven Design (DDD) compliance in .NET and Spring Boot applications.
 
 **When to Use:**
 - Before merging feature branches
@@ -23,6 +23,7 @@ This catalog provides a comprehensive reference for all custom GitHub Copilot ag
 - Reviews DDD patterns (aggregates, entities, value objects, repositories)
 - Validates bounded contexts and domain modeling
 - Provides actionable recommendations with examples
+- **Supports both .NET and Spring Boot** - recognizes stack-specific patterns and violations
 
 **Output Format:**
 ```markdown
@@ -51,7 +52,9 @@ This catalog provides a comprehensive reference for all custom GitHub Copilot ag
 **Example Usage:**
 1. Open relevant files (Domain, Application, Infrastructure)
 2. Select "Architecture Reviewer" from agent dropdown
-3. Prompt: "Review the Order aggregate and related infrastructure for Clean Architecture compliance"
+3. Example prompts:
+   - .NET: "Review the Task aggregate in TaskManager.Domain for Clean Architecture compliance"
+   - Spring Boot: "Review the taskmanager-domain module for DDD patterns and dependency violations"
 4. Review structured feedback and prioritize recommendations
 
 **Best Practices:**

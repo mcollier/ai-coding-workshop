@@ -1,7 +1,7 @@
 ---
 name: "modernization"
 description: 'Extracts requirements from Mule ESB flows for Spring Boot migration, producing user stories and API specifications'
-tools: ['read', 'search/changes']
+tools: ['read', 'search/changes', 'write']
 model: Claude Sonnet 4.5
 ---
 
@@ -111,7 +111,11 @@ Recommend Spring Boot implementations:
 
 ## Output Format
 
-Provide a structured modernization requirements document:
+Create structured modernization requirements documents as markdown files in the workspace.
+
+**File Location:** `docs/requirements/modernization/[flow-name]-requirements.md`
+
+**Document Structure:**
 
 ### Modernization Requirements Document
 

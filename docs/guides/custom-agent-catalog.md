@@ -171,7 +171,66 @@ This catalog provides a comprehensive reference for all custom GitHub Copilot ag
 
 ---
 
-### 4. Backlog Generator
+### 4. Modernization
+
+**File:** [`.github/agents/modernization.agent.md`](../../.github/agents/modernization.agent.md)
+
+**Purpose:** Extracts requirements from Mule ESB flows for Spring Boot migration, producing user stories and API specifications.
+
+**When to Use:**
+- Analyzing legacy Mule ESB applications
+- Planning microservices migration
+- Extracting requirements from legacy code
+- Creating Spring Boot modernization roadmap
+- Documenting integration points and data flows
+
+**What It Does:**
+- Analyzes Mule ESB flow configurations (XML)
+- Extracts business requirements and logic
+- Documents data flows and transformations
+- Identifies integration points (APIs, databases, queues)
+- Maps Mule concepts to Spring Boot patterns
+- Produces structured requirements documentation
+- **Specialized for Mule → Spring Boot migrations**
+
+**Output Format:**
+```markdown
+### Modernization Requirements Document
+
+**Source:** Mule Flow
+**Target:** Spring Boot Microservice
+**Complexity:** [Low/Medium/High]
+
+#### Functional Requirements
+[User stories with acceptance criteria]
+
+#### API Specifications
+[REST endpoints, payloads, responses]
+
+#### Data Model
+[Entities, relationships, validations]
+
+#### Migration Strategy
+[Phased approach with steps]
+```
+
+**Example Usage:**
+1. Open Mule ESB flow configuration files
+2. Select "Modernization" from agent dropdown
+3. Prompt: "Analyze this Mule flow and extract requirements for Spring Boot migration"
+4. Review structured requirements document
+5. Use requirements to guide Spring Boot development
+
+**Best Practices:**
+- Focus on WHAT the system does (not HOW Mule does it)
+- Review DataWeave transformations for business rules
+- Document all integration points
+- Plan phased migration approach
+- Use generated requirements with Backlog Generator for sprint planning
+
+---
+
+### 5. Backlog Generator
 
 **File:** [`.github/agents/backlog-generator.agent.md`](../../.github/agents/backlog-generator.agent.md)
 

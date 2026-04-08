@@ -24,6 +24,8 @@ Before making major changes, try using Copilot (in Agent Mode) to generate a pla
 Model this workflow live, and encourage participants to always ask for a plan before executing large or multi-file changes.
 # Lab 3: Code Generation & Refactoring with GitHub Copilot
 
+> **💡 Also available**: [Java/Spring Boot version](lab-03-generation-and-refactoring-java.md)
+
 **Duration**: 45 minutes  
 **Learning Objectives**:
 
@@ -320,7 +322,7 @@ Select the entire `ProcessTask` method and use Copilot Chat:
 8. Use StringBuilder for string operations in loops
 9. Separate concerns: extract file I/O to an interface (ITaskOutputWriter)
 10. Follow Object Calisthenics: max 2 levels of indentation per method
-Follow .github/copilot-instructions.md conventions and make the class sealed
+Follow our .NET coding conventions and make the class sealed
 ```
 
 **Expected Improvements**:
@@ -455,14 +457,14 @@ dotnet test
 
 ### Scenario: Further Code Quality Improvements
 
-Apply Object Calisthenics rules from `.github/copilot-instructions.md` Section 7.
+Apply Object Calisthenics rules from our .NET instructions (Section 7).
 
 ### 3.1 Review Object Calisthenics Rules
 
 Ask Copilot:
 
 ```text
-What are the Object Calisthenics rules from #file:.github/copilot-instructions.md?
+What are the Object Calisthenics rules from our .NET coding instructions?
 ```
 
 Key rules:

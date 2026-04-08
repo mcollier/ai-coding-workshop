@@ -142,7 +142,7 @@ dotnet test
 
 # Copilot Instructions Preview
 
-This repository includes **`.github/copilot-instructions.md`**
+This repository includes **`.github/instructions/`** with context-aware instruction files
 
 **What it does:**
 - Automatically applied to all Copilot interactions

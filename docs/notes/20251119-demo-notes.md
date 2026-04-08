@@ -57,7 +57,7 @@
 6. Submit pull requests with Copilot-generated descriptions
 
 ### Copilot Instructions File
-- Repository-level instructions: `.github/copilot-instructions.md`
+- Repository-level instructions: `.github/instructions/` (context-aware with `applyTo` patterns)
 - Links to additional instruction files:
   - C# coding style standards
   - Commit message conventions (Conventional Commits)
@@ -169,7 +169,7 @@
 
 - **GitHub Issue:** https://github.com/centricconsulting/ai-coding-workshop/issues/12
 - **Work Item Tracking:** `./demo-work-item-tracking.md`
-- **Copilot Instructions:** `../../.github/copilot-instructions.md`
+- **Copilot Instructions:** Context-aware instructions in `.github/instructions/`
 - **Demo Branch:** `demo/coi`
 Demonstrating Agent and Copilot Customizations: 
 Michael and Shawn discussed showcasing advanced GitHub Copilot and agent customizations in VS Code, including planning, code review prompts, and file-specific instructions, to highlight best practices and team conventions during the demo.

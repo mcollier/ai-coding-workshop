@@ -1,5 +1,7 @@
 # Lab 2: From Requirements to Code with GitHub Copilot
 
+> **💡 Also available**: [Java/Spring Boot version](lab-02-requirements-to-code-java.md)
+
 **Duration**: 45 minutes  
 **Learning Objectives**:
 
@@ -194,7 +196,7 @@ Before we can create tasks with priority and due date, we need to add these prop
 Ask Copilot Chat:
 
 ```text
-Create a Priority enum as a value object in the Domain layer following DDD patterns. Include values: Low, Medium, High, Critical. Follow the coding conventions in .github/copilot-instructions.md.
+Create a Priority enum as a value object in the Domain layer following DDD patterns. Include values: Low, Medium, High, Critical. Follow our .NET coding conventions.
 ```
 
 **Expected Output** - `src/TaskManager.Domain/ValueObjects/Priority.cs`:

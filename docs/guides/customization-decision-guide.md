@@ -347,7 +347,9 @@ You can (and should) use multiple customization types together!
 ```
 Project Customizations:
 ├── Instructions (Always-on standards)
-│   ├── .github/copilot-instructions.md          # Global standards
+│   ├── .github/instructions/                  # Context-aware instruction files
+│   │   ├── dotnet.instructions.md         # .NET standards (applyTo: **/*.cs)
+│   │   └── springboot.instructions.md     # Spring Boot standards (applyTo: src-springboot/**)
 │   ├── .github/instructions/csharp.instructions.md   # C# conventions
 │   └── .github/instructions/test.instructions.md     # Test standards
 │
@@ -377,7 +379,7 @@ Project Customizations:
 **Example Workflow:**
 1. Developer selects `@plan` agent (Custom Agent)
 2. Agent uses `test-data-generator` skill (Agent Skill) to propose test fixtures
-3. All generated code follows `.github/copilot-instructions.md` (Instructions)
+3. All generated code follows `.github/instructions/` (context-aware Instructions)
 4. After implementation, use `/pr-description` (Prompt) to generate PR
 
 ---

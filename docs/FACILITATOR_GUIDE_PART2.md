@@ -1,8 +1,10 @@
-# Facilitator's Guide: Advanced GitHub Copilot (Part 2)
+# Facilitator's Guide: Advanced GitHub Copilot (Part 2 - Bilingual Edition)
 
 **Duration:** 3 Hours  
 **Target Audience:** Developers who have completed Part 1 or have equivalent GitHub Copilot experience  
 **Prerequisites:** VS Code with GitHub Copilot extension, familiarity with custom instructions
+
+> **Note**: Part 2 is mostly **stack-agnostic** (Labs 5-10 focus on agent concepts and workflows). Where stack-specific examples are helpful, we use 🔷 .NET and 🟩 Spring Boot markers.
 
 ---
 
@@ -116,11 +118,13 @@ ls .github/agents/*.agent.md
   - Using Copilot for TDD and refactoring
   - Copilot Instructions as guardrails
   - Documentation and requirements workflows
+- **Tech Stack Note**: Part 2 is mostly **stack-agnostic** (agent concepts apply to all languages). Occasional references to both 🔷 .NET and 🟩 Spring Boot for examples.
 
 **Part 2 Introduction (5 min)**
 - Present the learning journey (show slides 1-5)
 - Emphasize the shift from **code generation** to **workflow orchestration**
 - Set expectations: Part 2 is more conceptual with hands-on validation
+- **Key Point**: Custom agents work across any technology stack - they're about workflows, not specific languages
 
 ### Common Questions
 
@@ -506,19 +510,28 @@ Participants work through [Lab 08: Agent Design](labs/lab-08-agent-design.md)
 - Use slides 27-30 to introduce the capstone
 - Participants will **build a production-ready agent from scratch**
 - Walk through the 6-step process
+- **Note for Enterprise Java Teams**: Highlight Option D (Modernization Agent) for Mule ESB → Spring Boot scenarios
 
-**Lab 09: Build Your Own Agent (25 min)**
+**Lab 10: Build Your Own Agent (25 min)**
 
-Participants work through [Lab 09: Capstone](labs/lab-09-capstone-build-agent.md)
+> **Note**: [Lab 10](labs/lab-10-capstone-build-agent.md) is **bilingual** with agent role options that include both 🔷 .NET and 🟩 Spring Boot examples.
+
+Participants work through Lab 10:
 
 **Step 1: Select Role (5 min)**
-- Participants choose from 5 options or propose their own
-- Encourage: Pick something you'll actually use
+- Participants choose from predefined options or propose their own:
+  - **Option A**: Code Reviewer (architecture, naming, patterns)
+  - **Option B**: Documentation Writer (README, ADRs, API docs)
+  - **Option C**: Performance Auditor (N+1 queries, lazy loading, async patterns)
+  - **Option D**: Security Reviewer (SQL injection, auth patterns, sensitive data)
+  - **Option E**: Custom (participant-defined)
+  - **🟩 Bonus for Java Teams**: Modernization Agent (Mule ESB → Spring Boot transformation patterns)
+- Encourage: Pick something you'll actually use in your daily work
 
 **Step 2: Define Success Criteria (5 min)**
-- Write 5 success criteria
-- Define 3 test scenarios
-- Facilitator circulates to validate criteria
+- Write 5 success criteria (SMART: Specific, Measurable, Achievable, Relevant, Time-bound)
+- Define 3 test scenarios with expected outcomes
+- Facilitator circulates to validate criteria are specific enough
 
 **Step 3: Create Agent Definition (10 min)**
 - Use the template to build `.agent.md` file

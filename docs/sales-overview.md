@@ -9,8 +9,11 @@
 Centric Consulting delivers a comprehensive, hands-on training workshop designed to accelerate enterprise software development teams' adoption of AI coding assistants—specifically GitHub Copilot—while maintaining code quality, architecture standards, and governance controls.
 
 **Workshop Format**: Two 3-hour sessions (6 hours total) or delivered as separate modules
+
 **Target Audience**: Software development teams, architects, and technical leads
+
 **Technology Support**: Available in .NET or Spring Boot (Java) versions
+
 **Delivery Model**: In-person or virtual instructor-led training with hands-on labs
 
 ---

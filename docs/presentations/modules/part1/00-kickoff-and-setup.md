@@ -31,7 +31,7 @@ backgroundColor: #fff
 ## The only constant is change
 
 - Copilot is available in multiple IDEs, github.com, CLI, and mobile - features vary by tool
-- What you see in VS 2022/2026 may differ from VS Code or other IDEs
+- What you see in Visual Studio 2022 or 2026 may differ from VS Code or other tools
   - See [Copilot feature matrix](https://docs.github.com/en/copilot/reference/copilot-feature-matrix) for version details
 - AI agentic software engineering technology and practices are evolving quickly — expect changes and differences
 - Training content reflects current features; some may vary by tool

@@ -37,7 +37,7 @@ backgroundColor: #fff
 - Training content reflects current features; some may vary by tool
 - Embrace a growth mindset and have fun!
 
-___
+---
 
 # Why This Workshop Matters
 
